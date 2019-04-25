@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/app.css')}} ">
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
-    <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}} 
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
@@ -55,7 +55,6 @@
                   <h6 class="collapse-header">Manage the tasks:</h6>
                   <a class="collapse-item" href="private">Private Task</a>
                   <a class="collapse-item" href="individual">Individual & Collective</a>
-
                 </div>
               </div>
             </li>
@@ -78,7 +77,8 @@
 
             <!-- User Menu -->
             <li class="nav-item">
-              <a class="nav-link collapsed" href="user"
+              <a class="nav-link collapsed" href="user">
+
                 <i class="fas fa-user"></i>
                 <span>Users</span>
               </a>
@@ -262,6 +262,7 @@
         <!-- Page level custom scripts -->
         <script src="{{asset('charts/chart-area-demo.js')}}"></script>
         <script src="{{asset('charts/chart-pie-demo.js')}}"></script>
+
         {{-- Datatable JS --}}
         <script src="{{asset('datatables/jquery.dataTables.js')}} "></script>
         <script src="{{asset('datatables/dataTables.bootstrap4.min.js')}} "></script>

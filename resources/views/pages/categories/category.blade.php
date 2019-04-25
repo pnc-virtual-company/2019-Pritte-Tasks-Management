@@ -17,7 +17,6 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              
                 <p class="font-weight-bold">You can delete and code here.</p>
             </div>
             <div class="card-footer">
