@@ -21,7 +21,6 @@ Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
 Route::resource('users','UserController');
 
-//=======================
 Route::get('testing', function(){
     return view('testing');
 });
