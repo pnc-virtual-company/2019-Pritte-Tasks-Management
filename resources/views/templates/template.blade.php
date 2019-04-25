@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}} ">
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/materialsicon.css')}} ">
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
@@ -55,11 +55,11 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Manage the tasks:</h6>
                   <a class="collapse-item" href="private">Private Task</a>
-                  <a class="collapse-item" href="individual">Individual & Collective</a>
+                  <a class="collapse-item" href="task">Individual & Collective</a>
                 </div>
               </div>
             </li>
-      
+
             <!-- Category Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="category">
@@ -270,6 +270,5 @@
         <script src="{{asset('datatables/dataTables-demo.js')}} "></script>
 
       </body>
-      
 </body>
 </html>
