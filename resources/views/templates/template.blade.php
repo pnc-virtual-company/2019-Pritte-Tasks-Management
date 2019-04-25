@@ -8,13 +8,13 @@
     <title>Task Management System</title>
     {{-- font style --}}
     <link rel="stylesheet" href="{{asset('css/font.css')}} ">
-    
-    {{-- css --}}
-    <link rel="stylesheet" href="{{asset('css/style.css')}} ">
-    <link rel="stylesheet" href="{{asset('css/app.css')}} ">
-    <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
-    <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}} ">
 
+    {{-- css --}}
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/materialsicon.css')}}">
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
@@ -30,6 +30,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
               <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
+              <img class="slogo" src="{{asset('images/tasklogo.png')}}" width="100%" "alt="Logo">
             </a>
       
             <!-- Divider -->
@@ -37,7 +38,7 @@
       
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{url('home')}} ">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
             </li>
@@ -55,11 +56,11 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Manage the tasks:</h6>
                   <a class="collapse-item" href="private">Private Task</a>
-                  <a class="collapse-item" href="individual">Individual & Collective</a>
+                  <a class="collapse-item" href="task">Individual & Collective</a>
                 </div>
               </div>
             </li>
-      
+
             <!-- Category Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="category">
@@ -79,6 +80,7 @@
             <!-- User Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="user">
+
                 <i class="fas fa-user"></i>
                 <span>Users</span>
               </a>
@@ -92,7 +94,6 @@
             <div class="text-center d-none d-md-inline">
               <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-      
           </ul>
           <!-- End of Sidebar -->
       
@@ -103,10 +104,10 @@
             <div id="content">
       
               <!-- Topbar -->
-              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+              <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
       
                 <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <button id="sidebarToggleTop" class="text-light btn btn-link d-md-none rounded-circle mr-3">
                   <i class="fa fa-bars"></i>
                 </button>
                   
@@ -188,8 +189,8 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sam Oun</span>
-                      <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
+                      <img class="img-profile rounded-circle" src="{{asset('storage/profiles/'.Auth::user()->avatar)}}">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -202,7 +203,7 @@
                         Settings
                       </a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                      <a class="dropdown-item" href="#}} " data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                       </a>
@@ -216,7 +217,7 @@
       
               <!-- Begin Page Content -->
               <div class="container-fluid">
- 
+
                 @yield('template')
       
         </div>
@@ -237,10 +238,17 @@
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+              <div class="modal-body">Are you sure to logout from the system?</div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                  <a class="btn btn-primary" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
               </div>
             </div>
           </div>
@@ -255,6 +263,8 @@
       
         <!-- Custom scripts for all pages-->
         <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+        <script src="{{asset('js/script.js')}} "></script>
+        
       
         <!-- Page level plugins -->
         <script src={{asset('charts/Chart.min.js')}}></script>
@@ -262,12 +272,12 @@
         <!-- Page level custom scripts -->
         <script src="{{asset('charts/chart-area-demo.js')}}"></script>
         <script src="{{asset('charts/chart-pie-demo.js')}}"></script>
-        
+
         {{-- Datatable JS --}}
         <script src="{{asset('datatables/jquery.dataTables.js')}} "></script>
         <script src="{{asset('datatables/dataTables.bootstrap4.min.js')}} "></script>
         <script src="{{asset('datatables/dataTables-demo.js')}} "></script>
+
       </body>
-      
 </body>
 </html>
