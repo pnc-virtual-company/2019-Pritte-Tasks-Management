@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/app.css')}} ">
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
-    <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}} 
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
