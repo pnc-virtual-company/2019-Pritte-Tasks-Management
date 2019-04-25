@@ -10,5 +10,4 @@ class PageController extends Controller
     public function individualTask() {
         return view('pages.individual');
     }
-
 }

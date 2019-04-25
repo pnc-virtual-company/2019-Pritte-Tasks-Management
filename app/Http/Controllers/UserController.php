@@ -46,11 +46,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['Administrator']);
         $users = User::with('roles')->get();
         return view('users.index', ['users' => $users]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -59,7 +58,6 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        $request->user()->authorizeRoles(['Administrator']);
         $roles = Role::all();
         return view('users.create', ['roles' => $roles]);
     }
@@ -73,9 +71,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->user()->authorizeRoles(['Administrator']);
-        // validate
-        // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'name'  => 'required',
             'email' => 'required|email',
@@ -86,22 +81,23 @@ class UserController extends Controller
 
         // process the validation of fields
         if ($validator->fails()) {
-            return Redirect::to('users/create')
+            return Redirect::to('user/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store the new user and attach roles to it
             $user = new User;
             $user->name = Input::get('name');
+            $user->gender = Input::get('gender');
             $user->email = Input::get('email');
+            $user->position = Input::get('position');
+            $user->province = Input::get('province');
             $user->password = bcrypt(Input::get('password'));
+            $user->role_id = Input::get('roles');
             $user->save();
-            $user->roles()->attach(Input::get('roles'));
             
             // redirect
-            Session::flash('message.level', 'success');
-            Session::flash('message.content', __('The user was successfully created'));
-            return Redirect::to('users');
+            return Redirect::to('user');
         }
     }
 
@@ -114,9 +110,7 @@ class UserController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $request->user()->authorizeRoles(['Administrator']);
         $user = User::find($id);
-        $user->roleIds = $user->roles->pluck('id')->toArray();
         $roles = Role::all();
         return view('users.show', ['user' => $user, 'roles' => $roles]);
     }
@@ -130,9 +124,7 @@ class UserController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $request->user()->authorizeRoles(['Administrator']);
         $user = User::find($id);
-        $user->roleIds = $user->roles->pluck('id')->toArray();
         $roles = Role::all();
         return view('users.edit', ['user' => $user, 'roles' => $roles]);
     }
@@ -140,13 +132,12 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $request->user()->authorizeRoles(['Administrator']);
         // validate
         $rules = array(
             'name'  => 'required',
@@ -154,23 +145,21 @@ class UserController extends Controller
             'roles' => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
-
         // process the validation of fields
         if ($validator->fails()) {
-            return Redirect::to('users/' . $id .  '/edit')
+            return Redirect::to('user/' . $id .  '/edit')
                 ->withErrors($validator);
         } else {
-            // update user and synchronize the roles
             $user = User::find($id);
             $user->name = Input::get('name');
+            $user->gender = Input::get('gender');
             $user->email = Input::get('email');
+            $user->position = Input::get('position');
+            $user->province = Input::get('province');
+            $user->role_id = Input::get('roles');
             $user->save();
-            $user->roles()->sync(Input::get('roles'));
-            
             // redirect
-            Session::flash('message.level', 'success');
-            Session::flash('message.content', __('The user was successfully updated'));
-            return Redirect::to('users');
+            return Redirect::to('user');
         }
     }
 
@@ -182,9 +171,9 @@ class UserController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $request->user()->authorizeRoles(['Administrator']);
         $user = User::find($id);
         $user->delete();
+        return Redirect::to('user');
     }
 
     /**

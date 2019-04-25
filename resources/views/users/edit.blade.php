@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('templates.template')
+@section('template')
 
 @include('validation-errors')
 
@@ -12,10 +11,11 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                         <!-- Simulate PUT or PATCH verb, 
                              See: https://laravel.com/docs/5.7/controllers#resource-controllers //-->
                         @method('PUT')
+
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -24,19 +24,33 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="gender">@lang('Gender')</label>
+                            <input type="text" class="form-control" id="gender" name="gender" value="{{ $user->gender }}">
+                        </div>
+
+                        <div class="form-group">
                             <label for="email">@lang('Email')</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position">@lang('Position')</label>
+                            <input type="text" class="form-control" id="Position" name="position"  value="{{ $user->position }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="province">@lang('Province')</label>
+                            <input type="text" class="form-control" id="Province" name="province" value="{{ $user->province }}">
                         </div>
 
                         <div class="form-group">
                             <label for="roles[]">Roles</label>
                             <select class="form-control" id="roles" name="roles[]" multiple size="5">
                             @foreach ($roles as $role)
-                                <option value="{{ $role->id }}" @if(in_array($role->id, $user->roleIds)) selected @endif>{!! $role->name !!}</option>
+                                <option value="{{ $role->id }}" @if(($role->id == $user->role_id)) selected @endif>{!! $role->name !!}</option>
                             @endforeach
                             </select>
                         </div>
-
                         <input type="submit" class="btn btn-primary" value="Save" />
                     </form>
                 </div>
@@ -51,7 +65,6 @@
 <script type="text/javascript">
 //On document ready, 
 $(function() {
-
 });
 </script>
 @endpush

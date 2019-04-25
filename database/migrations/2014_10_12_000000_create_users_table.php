@@ -19,20 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->default('default.png');
+            $table->string('gender');
+            $table->string('position');
+            $table->string('province');
             $table->rememberToken();
             $table->timestamps();
         });
-
-        //Insert the default admin user
-        DB::table('users')->insert(
-            array(
-                'id' => 1,
-                'name' => 'Administrator',
-                'email' => 'manager@example.com',
-                'password' => bcrypt('password'),
-                'remember_token' => str_random(10)
-            )
-        );
     }
 
     /**
