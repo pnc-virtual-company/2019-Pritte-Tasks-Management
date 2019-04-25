@@ -21,20 +21,27 @@ Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
 Route::resource('users','UserController');
 
-// Test=================
 Route::get('testing', function(){
     return view('testing');
 });
 
 Route::get('/',function(){
-    return view('templates.template');
+    return view('pages.dashbaords.dashboard');
 });
 Route::get('individual', function() {
-    return view('pages.individual');
+    return view('pages.tasks.tasks');
 });
 
 Route::get('private',function(){
-    return view('pages.private');
+    return view('pages.privates.private');
+});
+
+Route::get('category',function() {
+    return view('pages.categories.category');
+});
+
+Route::get('group', function() {
+    return view('pages.groups.group');
 });
 // -----
 
