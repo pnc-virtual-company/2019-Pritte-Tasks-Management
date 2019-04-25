@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('skelaton', function () {
+Route::get('skeleton', function () {
     return view('examples.index', ['currentExample' => 'List of examples']);
 });
 
@@ -21,15 +21,15 @@ Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
 Route::resource('users','UserController');
 
-//=======================
 Route::get('testing', function(){
     return view('testing');
 });
 
-Route::get('/',function(){
-    return view('pages.dashbaords.dashboard');
+Route::get('/', function() {
+    return view('pages.dashboard');
 });
-Route::get('individual', function() {
+
+Route::get('task', function() {
     return view('pages.tasks.tasks');
 });
 
