@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('skelaton', function () {
     return view('examples.index', ['currentExample' => 'List of examples']);
 });
 
@@ -20,6 +20,23 @@ Auth::routes();
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
 Route::resource('users','UserController');
+
+// Test=================
+Route::get('testing', function(){
+    return view('testing');
+});
+
+Route::get('/',function(){
+    return view('templates.template');
+});
+Route::get('individual', function() {
+    return view('pages.individual');
+});
+
+Route::get('private',function(){
+    return view('pages.private');
+});
+// -----
 
 /*=============================================================================
    The routes below are written for the examples only. 
@@ -61,3 +78,6 @@ Route::get('examples/pdf/downloadPDF', 'ExamplesController@downloadPDF');
 Route::get('examples', 'ExamplesController@index')->name('examples');
 /*
 =============================================================================*/
+/* 
+* This route is used by Page Controller
+**/
