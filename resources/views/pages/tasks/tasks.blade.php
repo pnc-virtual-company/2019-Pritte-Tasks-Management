@@ -48,8 +48,8 @@
                                             </a> <span> 1</span>
                                         </td>
                                         <td>Sam Oun</td>
-                                        <td>Homework</td>
-                                        <td>Laravel Last Homework</td>
+                                        <td>Homework1</td>
+                                        <td>Laravel Last Homework1</td>
                                         <td>26/04/2019 8:00 am</td>
                                         <td>me</td>
                                         <td>Open</td>
