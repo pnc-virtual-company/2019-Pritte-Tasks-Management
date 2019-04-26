@@ -270,6 +270,7 @@
         <script src="{{asset('datatables/jquery.dataTables.js')}} "></script>
         <script src="{{asset('datatables/dataTables.bootstrap4.min.js')}} "></script>
         <script src="{{asset('datatables/dataTables-demo.js')}} "></script>
+
       </body>
 </body>
 </html>
