@@ -29,7 +29,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
-              <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
+              <img class="logo" id="tlogo" src="{{asset('images/tlogo.png')}} " alt="Logo">
+              <img class="logo1"style="width:70px;" id="tlogo1" src="{{asset('images/tasklogo.png')}} " alt="Logo1">
             </a>
       
             <!-- Divider -->

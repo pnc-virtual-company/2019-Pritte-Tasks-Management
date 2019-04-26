@@ -1,4 +1,5 @@
 @extends('templates.template')
+@section('template')
     <div class="row">
         <!-- Area Chart -->
         <div class="col-xl-12 col-lg-7">
@@ -12,8 +13,8 @@
                 <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between float-right">
+                            <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">
                                 Create New Task
                             </button>
                         </div>
@@ -27,14 +28,12 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-
                                         <th>Created by</th>
                                         <th>Category</th>
                                         <th>Title</th>
                                         <th>Due date</th>
                                         <th>Owner</th>
                                         <th>Status</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,21 +112,25 @@
                                                             <input type="number" placeholder="0.5" class="form-control">                       
                                                         </div><span class="col-sm-4 col-form-label text-secondary">(in man-days)</span>
                                                 </div>
+                                                {{-- individule task --}}
                                                 <fieldset class="form-group">
                                                     <div class="row">
                                                         <legend class="col-form-label col-sm-3 pt-0">Private</legend>
                                                         <div class="col-sm-9">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Yes" checked>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Yes">
                                                             <label class="form-check-label" for="gridRadios1">Yes</label>
                                                         </div>
-                                                        <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="No">
-                                                        <label class="form-check-label" for="gridRadios2">No</label>
-                                                    </div>                  
-                                                    </div>
+
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="No">
+                                                            <label class="form-check-label" for="gridRadios2">No</label>
+                                                        </div>                  
+                                                        </div>
                                                     </div>
                                                 </fieldset>
+                                       
+
                                                 <div class="form-group row hideShow">
                                                         <label class="col-sm-3 col-form-label">Assigned to</label>
                                                             <div class="col-sm-5">
@@ -151,7 +154,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                         
@@ -268,7 +271,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                         
@@ -329,7 +332,7 @@
                         <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                                    <button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#collectiveModal">
                                         Create New Task
                                     </button>
                                 </div>
@@ -338,7 +341,7 @@
                                         <div class="form-check customize">
                                             <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
                                         </div> 
-                                    <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="dataTable2" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -347,6 +350,9 @@
                                                 <th>Title</th>
                                                 <th>Due date</th>
                                                 <th>Owner</th>
+                                                <th>
+                                                    <i class="material-icons text-secondary">alarm</i>                                                    
+                                                </th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
@@ -365,12 +371,13 @@
                                                 <td>Laravel Last Homework</td>
                                                 <td>26/04/2019 8:00 am</td>
                                                 <td>me</td>
+                                                <td>2</td>
                                                 <td>Open</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                       <!-- The Modal -->
-                                    <div class="modal fade" id="myModal">
+                                    <div class="modal fade" id="collectiveModal">
                                             <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                             
@@ -426,45 +433,79 @@
                                                                     <input type="number" placeholder="0.5" class="form-control">                       
                                                                 </div><span class="col-sm-4 col-form-label text-secondary">(in man-days)</span>
                                                         </div>
-                                                        <fieldset class="form-group">
-                                                            <div class="row">
-                                                                <legend class="col-form-label col-sm-3 pt-0">Private</legend>
-                                                                <div class="col-sm-9">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Yes" checked>
-                                                                    <label class="form-check-label" for="gridRadios1">Yes</label>
-                                                                </div>
-                                                                <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="No">
-                                                                <label class="form-check-label" for="gridRadios2">No</label>
-                                                            </div>                  
-                                                            </div>
-                                                            </div>
-                                                        </fieldset>
-                                                        <div class="form-group row hideShow">
-                                                                <label class="col-sm-3 col-form-label">Assigned to</label>
-                                                                    <div class="col-sm-5">
-                                                                        <select name="assigned" class="form-control">
-                                                                            <option selected>Choose User</option>
-                                                                            <option value="">Sam Oun</option>
-                                                                            <option value="">Sokvebol</option>
-                                                                            <option value="">Kimsien</option>
-                                                                            <option value="">Haoch</option>
-                                                                            <option value="">Choam</option>
-                                                                        </select>
-                                                                    </div>
-                                                            </div>
-                                                        <div class="form-group row">
-                                                                <label class="col-sm-3 col-form-label">Attachments</label>
-                                                                <div class="col-sm-7">   
-                                                                        <input type="file" class="form-control-file" name="file">                      
-                                                                </div>
+                                                        {{-- individule task --}}
+                                                <fieldset class="form-group">
+                                                    <div class="row">
+                                                        <legend class="col-form-label col-sm-4 pt-0">Private</legend>
+                                                        <div class="col-sm-8">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="action" id="gridRadios3" checked value="Yes">
+                                                            <label class="form-check-label" for="gridRadios3">Yes</label>
                                                         </div>
+
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="action" id="gridRadios4" value="No">
+                                                            <label class="form-check-label" for="gridRadios4">No</label>
+                                                        </div>                  
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                
+                                                {{-- colllective --}}
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <legend class="col-form-label col-sm-4 pt-0">Collective Task</legend>
+                                                        <div class="col-sm-8">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="gridRadios"id="showGroup" value="Yes">
+                                                            <label class="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gridRadios"id="hideGroup" value="No">
+                                                        <label class="form-check-label">No</label>
+                                                        </div>
+                                                    </div>  
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row hideShow">
+                                                        <label class="col-sm-3 col-form-label">Assigned to</label>
+                                                            <div class="col-sm-5">
+                                                                <select name="assigned" class="form-control">
+                                                                    <option selected>Choose User</option>
+                                                                    <option value="">Sam Oun</option>
+                                                                    <option value="">Sokvebol</option>
+                                                                    <option value="">Kimsien</option>
+                                                                    <option value="">Haoch</option>
+                                                                    <option value="">Choam</option>
+                                                                </select>
+                                                            </div>
+                                                    </div>
+                                                    {{-- show when collective yes --}}
+                                                <div class="form-group row groupHideShow">
+                                                        <label class="col-sm-3 col-form-label">Assigned to</label>
+                                                            <div class="col-sm-5">
+                                                                <select name="assigned" class="form-control">
+                                                                    <option selected>Choose Group</option>
+                                                                    <option value="">Class Web A</option>
+                                                                    <option value="">Class A</option>
+                                                                    <option value="">Class SNA</option>
+                                                                    <option value="">Class C</option>
+                                                                    <option value="">Class Web B</option>
+                                                                </select>
+                                                        </div>
+                                                </div>
+                                                         
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-3 col-form-label">Attachments</label>
+                                                        <div class="col-sm-7">   
+                                                            <input type="file" class="form-control-file" name="file">                      
+                                                        </div>
+                                                    </div>
                                                     </form>
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
@@ -512,8 +553,8 @@
                                                                         <select name="created by" class="form-control">
                                                                             <option selected>Choose User</option>
                                                                             <option selected value="">Sam Oun</option>
-                                                                            <option value="">Sokvebol</option>
-                                                                            <option value="">Kimsien</option>
+                                                                            <option value="#">Sokvebol</option>
+                                                                            <option value="#">Kimsien</option>
                                                                             <option value="">Haoch</option>
                                                                             <option value="">Choam</option>
                                                                         </select>
@@ -553,20 +594,6 @@
                                                                 <div class="col-sm-5">   
                                                                     <input type="number" placeholder="0.5" class="form-control">                       
                                                                 </div><span class="col-sm-4 col-form-label text-secondary">(in man-days)</span>
-                                                        </div>
-                                                        <fieldset class="form-group">
-                                                            <div class="row">
-                                                                <legend class="col-form-label col-sm-3 pt-0">Private</legend>
-                                                                <div class="col-sm-9">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Yes" checked>
-                                                                    <label class="form-check-label" for="gridRadios1">Yes</label>
-                                                                </div>
-                                                                <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="No">
-                                                                <label class="form-check-label" for="gridRadios2">No</label>
-                                                            </div>                  
-                                                            </div>
                                                             </div>
                                                         </fieldset>
                                                         <div class="form-group row hideShow">
@@ -592,15 +619,14 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
                                             </div>
                                             </div>
                                         </div>
-        
-        
+               
                                             <!-- model delete -->
                                         <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -627,7 +653,7 @@
                                                     </div>
                                                     </form>
                                                 </div>
-                                                </div>
+                                            </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
                                         <script src="{{asset('js/app.js')}}"></script>
@@ -646,10 +672,9 @@
                                         </script>
         
                                 </div>
-                                <div class="card-footer">
-                                </div>
-                              </div>
-                        </div
+                                <div class="card-footer"></div>
+                            </div>
+                    </div>
               </div>
         </div>
 @endsection
