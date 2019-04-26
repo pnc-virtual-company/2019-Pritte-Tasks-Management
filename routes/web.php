@@ -25,8 +25,11 @@ Route::get('testing', function(){
     return view('testing');
 });
 
-Route::get('/', function() {
+Route::get('home', function() {
     return view('pages.dashboard');
+});
+Route::get('/', function() {
+    return view('pages.login');
 });
 
 Route::get('task', function() {
