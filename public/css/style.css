@@ -1,3 +1,10 @@
 .logo {
     width:189px;
 } 
+.customize {
+    position:absolute;
+    left:40%;
+}
+.date_range {
+    cursor:pointer;
+}
