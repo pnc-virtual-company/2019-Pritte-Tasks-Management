@@ -1,6 +1,4 @@
 @extends('templates.template')
-@section('template')
-    {{-- Code Here --}}    
     <div class="row">
         <!-- Area Chart -->
         <div class="col-xl-12 col-lg-7">
@@ -24,16 +22,19 @@
                                 <div class="form-check customize">
                                     <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
                                 </div> 
+
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+
                                         <th>Created by</th>
                                         <th>Category</th>
                                         <th>Title</th>
                                         <th>Due date</th>
                                         <th>Owner</th>
                                         <th>Status</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -648,7 +649,7 @@
                                 <div class="card-footer">
                                 </div>
                               </div>
-                        </div>
+                        </div
               </div>
         </div>
 @endsection
