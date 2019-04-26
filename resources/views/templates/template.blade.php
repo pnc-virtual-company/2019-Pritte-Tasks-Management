@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="{{asset('css/font.css')}} ">
     
     {{-- css --}}
-    <link rel="stylesheet" href="{{asset('css/style.css')}} ">
-    <link rel="stylesheet" href="{{asset('css/app.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('css/materialsicon.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/materialsicon.css')}}">
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
@@ -257,6 +257,7 @@
         <!-- Custom scripts for all pages-->
         <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
         <script src="{{asset('js/script.js')}} "></script>
+        
       
         <!-- Page level plugins -->
         <script src={{asset('charts/Chart.min.js')}}></script>
