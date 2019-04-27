@@ -8,7 +8,7 @@
     <title>Task Management System</title>
     {{-- font style --}}
     <link rel="stylesheet" href="{{asset('css/font.css')}} ">
-    
+
     {{-- css --}}
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -30,6 +30,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
               <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
+              <img class="slogo" src="{{asset('images/slogo.png')}} " alt="Logo">
             </a>
       
             <!-- Divider -->
@@ -37,7 +38,7 @@
       
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{url('home')}} ">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
             </li>
@@ -93,7 +94,6 @@
             <div class="text-center d-none d-md-inline">
               <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-      
           </ul>
           <!-- End of Sidebar -->
       
@@ -104,10 +104,10 @@
             <div id="content">
       
               <!-- Topbar -->
-              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+              <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
       
                 <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <button id="sidebarToggleTop" class="text-light btn btn-link d-md-none rounded-circle mr-3">
                   <i class="fa fa-bars"></i>
                 </button>
                   
@@ -189,7 +189,7 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sam Oun</span>
+                      <span class="mr-2 d-none d-lg-inline text-light small">Sam Oun</span>
                       <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -203,7 +203,7 @@
                         Settings
                       </a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                      <a class="dropdown-item" href="#}} " data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                       </a>
@@ -241,7 +241,7 @@
               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="{{url('/')}} ">Logout</a>
               </div>
             </div>
           </div>

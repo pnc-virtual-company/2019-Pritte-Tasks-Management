@@ -23,7 +23,6 @@
                                 <div class="form-check customize">
                                     <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
                                 </div> 
-
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
