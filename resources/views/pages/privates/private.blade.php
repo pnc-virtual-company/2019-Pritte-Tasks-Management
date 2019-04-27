@@ -12,7 +12,7 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-            Create New Task
+            Create New Tasks
         </button>
             </div>
             <!-- Card Body -->
