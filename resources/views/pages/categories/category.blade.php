@@ -29,6 +29,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    1
                                 </td>
                                 <td>Homework</td>
                             </tr>
@@ -40,6 +41,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    2
                                 </td>
                                 <td>Club</td>
                             </tr>
@@ -51,6 +53,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    3
                                 </td>
                                 <td>Cleaning</td>
                             </tr>
@@ -62,6 +65,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    4
                                 </td>
                                 <td>Dormitory</td>
                             </tr>
@@ -91,7 +95,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     </div>
 
@@ -116,7 +120,7 @@
                         </form>
                         <form action="#" id="delete" method="POST">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">Yes </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Yes </button>
                                 <button type="submit" class="btn btn-danger">No</button>
                             </div>
                         </form>
@@ -144,7 +148,7 @@
                     </form><br>
                     <form action="#" id="delete" method="POST">
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok </button>
                             <button type="submit" class="btn btn-danger">Cancel</button>
                         </div>
                     </form>
