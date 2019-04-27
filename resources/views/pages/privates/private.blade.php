@@ -217,7 +217,7 @@
                                
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
                                 </div>
             
@@ -239,7 +239,7 @@
                                     Are you sure that you want to delete this task?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#" class="btn  btn-success" data-dismiss="modal">Yes</a>
+                                    <a href="#" class="btn  btn-primary" data-dismiss="modal">Yes</a>
                                     <a href="#" class="btn btn-danger" data-dismiss="modal">No</a>
             
                                 </div>
@@ -307,7 +307,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
                                         </div>
                                     </form>
