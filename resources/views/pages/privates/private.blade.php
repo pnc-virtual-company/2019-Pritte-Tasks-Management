@@ -35,7 +35,7 @@
                                 <td>
                                     <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                             class="material-icons">delete</i></a>
-                                    <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                    <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                             class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
@@ -47,7 +47,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>Club</td>
                                 <td>Football game</td>
@@ -59,7 +59,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 introduction</td>
@@ -70,7 +70,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>Dormitoryh</td>
                                 <td>Room cleaning</td>
@@ -82,7 +82,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>Homwork</td>
                                 <td>project completion</td>
@@ -94,7 +94,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
@@ -106,7 +106,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 final release</td>
@@ -118,7 +118,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>club</td>
                                 <td>Cooking</td>
@@ -130,7 +130,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
@@ -142,7 +142,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
@@ -154,7 +154,7 @@
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
                                                     class="material-icons">delete</i></a>
-                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
                                                     class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>

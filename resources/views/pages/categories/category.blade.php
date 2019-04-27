@@ -95,7 +95,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     </div>
 
@@ -120,7 +120,7 @@
                         </form>
                         <form action="#" id="delete" method="POST">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">Yes </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Yes </button>
                                 <button type="submit" class="btn btn-danger">No</button>
                             </div>
                         </form>
@@ -148,7 +148,7 @@
                     </form><br>
                     <form action="#" id="delete" method="POST">
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok </button>
                             <button type="submit" class="btn btn-danger">Cancel</button>
                         </div>
                     </form>
