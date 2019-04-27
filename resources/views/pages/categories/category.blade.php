@@ -29,6 +29,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    1
                                 </td>
                                 <td>Homework</td>
                             </tr>
@@ -40,6 +41,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    2
                                 </td>
                                 <td>Club</td>
                             </tr>
@@ -51,6 +53,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    3
                                 </td>
                                 <td>Cleaning</td>
                             </tr>
@@ -62,6 +65,7 @@
                                     <a href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="material-icons">edit</i>
                                     </a>
+                                    4
                                 </td>
                                 <td>Dormitory</td>
                             </tr>
