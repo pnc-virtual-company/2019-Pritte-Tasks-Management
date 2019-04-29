@@ -47,6 +47,9 @@ Route::get('category',function() {
 Route::get('group', function() {
     return view('pages.groups.group');
 });
+Route::get('user',function() {
+    return view('pages.users.user');
+});
 // -----
 
 /*=============================================================================
