@@ -10,5 +10,8 @@ class PageController extends Controller
     public function individualTask() {
         return view('pages.individual');
     }
+    public function dashboard() {
+        return view('pages.dashboard');
+    }
 
 }

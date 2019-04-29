@@ -43,6 +43,9 @@ Route::get('private',function(){
 Route::get('category',function() {
     return view('pages.categories.category');
 });
+Route::get('dashboard',function() {
+    return view('pages.dashboard');
+});
 
 Route::get('group', function() {
     return view('pages.groups.group');

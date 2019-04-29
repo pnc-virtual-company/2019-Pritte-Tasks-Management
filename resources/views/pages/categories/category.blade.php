@@ -159,8 +159,7 @@
         <div class="card-footer">
          <!-- Button to Open the Modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
-                <i class="material-icons bg-whitez">add_circle</i>
-                Create category
+                <i class="material-icons">add_circle</i>Create category
             </button>
         </div>
 </div>
