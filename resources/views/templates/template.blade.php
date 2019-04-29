@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/mediaScreen.css')}}">
     <link rel="stylesheet" href="{{asset('css/materialsicon.css')}}">
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
+    {{-- date picker --}}
+    <link rel="stylesheet" href="{{asset('css/datepicker_css/style.css')}}">
 </head>
 <body>
     <body id="page-top">
@@ -105,7 +108,7 @@
             <div id="content">
       
               <!-- Topbar -->
-              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+              <nav class="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow">
       
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -155,7 +158,7 @@
                         </div>
                         <div>
                           <div class="small text-gray-500">April 4, 2019</div>
-                          <span>Homework2: You has been finish your task</span>
+                          <span>Homework2: You have been finish your task</span>
                         </div>
                       </a>
                       <a class="dropdown-item d-flex align-items-center" href="#">
@@ -190,7 +193,7 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sam Oun</span>
+                      <span class="mr-2 d-none d-lg-inline text-white-600 small">Sam Oun</span>
                       <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -271,6 +274,11 @@
         <script src="{{asset('datatables/jquery.dataTables.js')}} "></script>
         <script src="{{asset('datatables/dataTables.bootstrap4.min.js')}} "></script>
         <script src="{{asset('datatables/dataTables-demo.js')}} "></script>
+
+        {{-- date picker JS --}}
+        <script src="{{asset('js/datepicker_js/jquery.js')}} "></script>
+        <script src="{{asset('js/datepicker_js/script.js')}} "></script>
+        <script src="{{asset('js/datepicker_js/script1.js')}} "></script>
 
       </body>
 </body>

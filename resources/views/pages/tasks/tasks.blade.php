@@ -21,7 +21,7 @@
                         <!-- Card Body -->
                         <div class="card-body">
                                 <div class="form-check customize">
-                                    <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
+                                    <input type="checkbox" id="Completed" class="form-check-input"><label class="form-check-label" for="Completed">Show Completed task</label>
                                 </div> 
 
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
@@ -51,6 +51,22 @@
                                         <td>Laravel Last Homework</td>
                                         <td>26/04/2019 8:00 am</td>
                                         <td>me</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#deleteModal" data-toggle="modal" data-target="#deleteModal">
+                                                <i class="material-icons text-danger">delete</i>
+                                            </a>
+                                            <a href="#editModal" data-toggle="modal" data-target="#editModal">
+                                                <i class="material-icons">edit</i>
+                                            </a> <span> 2</span>
+                                        </td>
+                                        <td>Sokvebol Kol</td>
+                                        <td>Homework</td>
+                                        <td>PHP OOP</td>
+                                        <td>11/05/2019 4:00 pm</td>
+                                        <td>other</td>
                                         <td>Open</td>
                                     </tr>
                                 </tbody>
@@ -102,7 +118,7 @@
                                                         <div class="col-sm-5">   
                                                             <select name="" class="form-control">
                                                                 <option value="Open">Open</option>
-                                                                <option value="Complete">Complete</option>
+                                                                <option value="Completed">Completed</option>
                                                             </select>
                                                         </div>
                                                 </div>
@@ -223,7 +239,7 @@
                                                         <div class="col-sm-5">   
                                                             <select name="" class="form-control">
                                                                 <option value="Open">Open</option>
-                                                                <option value="Complete">Complete</option>
+                                                                <option value="Completed">Completed</option>
                                                             </select>
                                                         </div>
                                                 </div>
@@ -339,7 +355,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                         <div class="form-check customize">
-                                            <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
+                                            <input type="checkbox" id="Completed" class="form-check-input"><label class="form-check-label" for="Completed">Show Completed task</label>
                                         </div> 
                                     <table id="dataTable2" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
@@ -414,16 +430,16 @@
                                                         <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Due date</label>
                                                                 <div class="col-sm-5">   
-                                                                    <input type="date" class="form-control">
+                                                                    <input type="text" id="datepicker" class="form-control datetimepicker-input">
                                                                 </div>
-                                                                <i class="material-icons col-1 col-form-label text-info">date_range</i>
+                                                                {{-- <i class="material-icons col-1 col-form-label text-info">date_range</i> --}}
                                                         </div>
                                                         <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Status</label>
                                                                 <div class="col-sm-5">   
                                                                     <select name="" class="form-control">
                                                                         <option value="Open">Open</option>
-                                                                        <option value="Complete">Complete</option>
+                                                                        <option value="Completed">Completed</option>
                                                                     </select>
                                                                 </div>
                                                         </div>
@@ -576,7 +592,7 @@
                                                         <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Due date</label>
                                                                 <div class="col-sm-5">   
-                                                                    <input type="text" class="form-control" value="26/04/2019 8:00">
+                                                                    <input type="text" id="datepicker" class="form-control" value="26/04/2019 8:00">
                                                                 </div>
                                                                 <i class="material-icons col-form-label text-info date_range">date_range</i>
                                                         </div>
@@ -585,7 +601,7 @@
                                                                 <div class="col-sm-5">   
                                                                     <select name="" class="form-control">
                                                                         <option value="Open">Open</option>
-                                                                        <option value="Complete">Complete</option>
+                                                                        <option value="Completed">Completed</option>
                                                                     </select>
                                                                 </div>
                                                         </div>
