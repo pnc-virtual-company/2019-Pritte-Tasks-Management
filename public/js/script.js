@@ -38,3 +38,16 @@ $("#hideGroup").click(function(){
 
   $('#dataTable2').DataTable();
 });
+
+
+// remove icon side bar replace another
+$(document).ready(function(){
+  $("#tlogo1").hide();
+
+  $("#sidebarToggle").click(function(){
+    $("#tlogo").toggle();
+    $("#tlogo1").toggle();
+
+  });
+
+});
