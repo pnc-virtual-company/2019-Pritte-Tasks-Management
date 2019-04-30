@@ -1,5 +1,5 @@
 .logo {
-    width:189px;
+    width:100%;
 } 
 .customize {
     position:absolute;
@@ -11,4 +11,26 @@
 .login_logo {
     width:60%;
     margin-left:20%;
+}
+
+
+@media(min-width:760px){
+    .logo {
+        display:block;
+    }
+    .slogo{
+        display:none;
+    }
+}
+@media(max-width:761px) {
+    .logo{
+        display:none;
+    }
+    .slogo{
+        display:block;
+    }
+}
+
+.card-body{
+    overflow-x:auto;
 }

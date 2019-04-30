@@ -29,8 +29,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
-              <img class="logo" id="tlogo" src="{{asset('images/tlogo.png')}} " alt="Logo">
-              <img class="logo1"style="width:70px;" id="tlogo1" src="{{asset('images/tasklogo.png')}} " alt="Logo1">
+              <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
+              <img class="slogo" src="{{asset('images/slogo.png')}} " alt="Logo">
             </a>
       
             <!-- Divider -->
@@ -38,7 +38,7 @@
       
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{url('home')}} ">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
             </li>
@@ -94,7 +94,6 @@
             <div class="text-center d-none d-md-inline">
               <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-      
           </ul>
           <!-- End of Sidebar -->
       
@@ -105,10 +104,10 @@
             <div id="content">
       
               <!-- Topbar -->
-              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+              <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
       
                 <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <button id="sidebarToggleTop" class="text-light btn btn-link d-md-none rounded-circle mr-3">
                   <i class="fa fa-bars"></i>
                 </button>
                   
@@ -190,7 +189,7 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sam Oun</span>
+                      <span class="mr-2 d-none d-lg-inline text-light small">Sam Oun</span>
                       <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                     </a>
                     <!-- Dropdown - User Information -->
