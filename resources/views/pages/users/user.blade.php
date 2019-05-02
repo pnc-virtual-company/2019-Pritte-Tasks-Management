@@ -28,36 +28,26 @@
             </tr>
         </thead>
         <tbody>
+
+            @foreach($user as $result)
             <tr>
                 <td>
-                    <a href="#" data-toggle="modal" class="text-success" data-target="#visibilityModal"><i class="material-icons"
+                    <a href="{{route('pages.users.show')}}" data-toggle="modal" class="text-success" data-target="#visibilityModal"><i class="material-icons"
                             data-id="1" title="delete the user">visibility</i></a>
-                    <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
+                    <a href="{{route('pages.users.edit')}}" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
                             class="material-icons">edit</i></a>
                     <a href="#" data-toggle="modal" class="text-danger" data-target="#deleteModal" title="view"><i
                             class="material-icons">delete</i></a>
-                    <span>1</span>
+                    <span>{{ $result->id}}</span>
                 </td>
-                <td>Haoch Chirata</td>
-                <td>f</td>
-                <td>litahong@gmail.com</td>
-                <td>Admin</td>
+                <td>{{ $result->name}}</td>
+                <td>{{ $result->geder}}</td>
+                <td>{{ $result->email}}</td>
+                <td>{{ $result->role}}</td>
             </tr>
-            <tr>
-                <td>
-                    <a href="#" data-toggle="modal" class="text-success" data-target="#visibilityModal"><i class="material-icons"
-                            data-id="1" title="delete the user">visibility</i></a>
-                    <a href="#" data-toggle="modal" class="text-primary" data-target="#editModal" title="edit"><i
-                            class="material-icons">edit</i></a>
-                    <a href="#" data-toggle="modal" class="text-danger" data-target="#deleteModal" title="view"><i
-                            class="material-icons">delete</i></a>
-                    <span>2</span>
-                </td>
-                <td>Kimsien</td>
-                <td>f</td>
-                <td>litahong@gmail.com</td>
-                <td>Normal</td>
-            </tr>
+           
+
+            @endforeach
         </tbody>
     </table>
     {{-- create modal --}}
@@ -134,7 +124,6 @@
 <div class="modal fade" id="visibilityModal">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">View user</h4>
@@ -142,51 +131,48 @@
 
             <!-- Modal body -->
             <div class="modal-body"><br>
-                <form action="#">
+                <div class="row-col-3">
+                <form action="#" method="POST">
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">ID</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="id" class="form-control">
+                        <label class="col-sm-3 col-form-label">ID</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="id" class="form-control" placeholder="ID">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Firstname</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="firstname" class="form-control">
+                        <label class="col-sm-3 col-form-label">Firstname</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="firstname" class="form-control" placeholder="Firstname">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Lastname</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="lastname" class="form-control">
+                        <label class="col-sm-3 col-form-label">Lastname</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="lastname" class="form-control" placeholder="Lastname">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">email</label>
-                        <div class="col-sm-10">
-                            <input type="email" id="email" class="form-control">
+                        <label class="col-sm-3 col-form-label">email</label>
+                        <div class="col-sm-5">
+                            <input type="email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                   
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">gender</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="gender" class="form-control" placeholder="Gender">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">password</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="password" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">gender</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="gender" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">avata</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="avata" class="form-control">
+                        <label class="col-sm-3 col-form-label">avata</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="avata" class="form-control" placeholder="Avata">
                         </div>
                     </div>
 
-                </form><br>
+                </form> <br>
+            </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -205,7 +191,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Edite user</h4>
+                <h4 class="modal-title">Edit user</h4>
             </div>
 
             <!-- Modal body -->
