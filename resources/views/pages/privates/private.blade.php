@@ -7,12 +7,12 @@
     </div>
 
     <div class="row">
-        <div class="col-xl-12 col-lg-7">
+        <div class="col-xl-12 col-lg-12">
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-            Create New Task
+            Create New Tasks
         </button>
             </div>
             <!-- Card Body -->
@@ -33,10 +33,10 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                            class="material-icons">delete</i></a>
+                                    <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                            class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
                                 <td>15/05/2019 8:00pm</td>
@@ -44,11 +44,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>Club</td>
                                 <td>Football game</td>
                                 <td>15/05/2019 8:00am</td>
@@ -56,22 +56,22 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 introduction</td>
                                 <td>22/04/2019 10:00am</td>
                                 <td>open</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>Dormitoryh</td>
                                 <td>Room cleaning</td>
                                 <td>26/04/2019 8:00am</td>
@@ -79,11 +79,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>Homwork</td>
                                 <td>project completion</td>
                                 <td>1/05/2019 9:00am</td>
@@ -91,11 +91,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
                                 <td>15/05/2019 5:00pm</td>
@@ -103,11 +103,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 final release</td>
                                 <td>30/05/2019 5:00pm</td>
@@ -115,11 +115,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>club</td>
                                 <td>Cooking</td>
                                 <td>1/06/2019 6:00pm</td>
@@ -127,11 +127,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
                                 <td>15/05/2019</td>
@@ -139,11 +139,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
                                 <td>15/05/2019</td>
@@ -151,11 +151,11 @@
             
                             </tr>
                             <tr>
-                                <td>
-                                    <a href="#" class="text-danger"> <i class='fas fa-trash-alt' data-toggle="modal"
-                                            data-target="#deletetaskModal"></i></a>
-                                    <a href="#" class="text-primary"> <i class='fas fa-pencil-alt' data-toggle="modal"
-                                            data-target="#editmyModal"></i></a></td>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
                                 <td>15/05/2019</td>
@@ -217,7 +217,7 @@
                                
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
                                 </div>
             
@@ -239,7 +239,7 @@
                                     Are you sure that you want to delete this task?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#" class="btn  btn-success" data-dismiss="modal">Yes</a>
+                                    <a href="#" class="btn  btn-primary" data-dismiss="modal">Yes</a>
                                     <a href="#" class="btn btn-danger" data-dismiss="modal">No</a>
             
                                 </div>
@@ -307,7 +307,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
                                         </div>
                                     </form>

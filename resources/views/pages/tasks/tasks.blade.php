@@ -2,7 +2,7 @@
 @section('template')
     <div class="row">
         <!-- Area Chart -->
-        <div class="col-xl-12 col-lg-7">
+        <div class="col-xl-12 col-lg-12">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="individual" aria-selected="true">Tasks Assigned to me</a>
@@ -13,7 +13,7 @@
                 <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between float-right">
                             <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">
                                 Create New Task
                             </button>
@@ -153,7 +153,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                         
@@ -270,7 +270,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                         
@@ -331,7 +331,7 @@
                         <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#collectiveModal">
+                                    <button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#collectiveModal">
                                         Create New Task
                                     </button>
                                 </div>
@@ -485,11 +485,11 @@
                                                             <div class="col-sm-5">
                                                                 <select name="assigned" class="form-control">
                                                                     <option selected>Choose Group</option>
-                                                                    <option value="">G Khmer</option>
-                                                                    <option value="">G lala</option>
-                                                                    <option value="">G Franch</option>
+                                                                    <option value="">Class Web A</option>
+                                                                    <option value="">Class A</option>
+                                                                    <option value="">Class SNA</option>
                                                                     <option value="">Class C</option>
-                                                                    <option value="">Class Web</option>
+                                                                    <option value="">Class Web B</option>
                                                                 </select>
                                                         </div>
                                                 </div>
@@ -504,7 +504,7 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
@@ -552,8 +552,8 @@
                                                                         <select name="created by" class="form-control">
                                                                             <option selected>Choose User</option>
                                                                             <option selected value="">Sam Oun</option>
-                                                                            <option value="">Sokvebol</option>
-                                                                            <option value="">Kimsien</option>
+                                                                            <option value="#">Sokvebol</option>
+                                                                            <option value="#">Kimsien</option>
                                                                             <option value="">Haoch</option>
                                                                             <option value="">Choam</option>
                                                                         </select>
@@ -618,7 +618,7 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
@@ -652,7 +652,7 @@
                                                     </div>
                                                     </form>
                                                 </div>
-                                                </div>
+                                            </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
                                         <script src="{{asset('js/app.js')}}"></script>
@@ -671,10 +671,9 @@
                                         </script>
         
                                 </div>
-                                <div class="card-footer">
-                                </div>
-                              </div>
-                        </div>
+                                <div class="card-footer"></div>
+                            </div>
+                    </div>
               </div>
         </div>
 @endsection
