@@ -1,10 +1,39 @@
 .logo {
-    width:189px;
+
+    width:100%;
 } 
 .customize {
     position:absolute;
     left:40%;
+
+    width:200px;
 }
 .date_range {
     cursor:pointer;
+}
+.login_logo {
+    width:60%;
+    margin-left:20%;
+}
+
+
+@media(min-width:760px){
+    .logo {
+        display:block;
+    }
+    .slogo{
+        display:none;
+    }
+}
+@media(max-width:761px) {
+    .logo{
+        display:none;
+    }
+    .slogo{
+        display:block;
+        width:100%;
+    }
+}
+.card-body{
+    overflow-x:auto;
 }
