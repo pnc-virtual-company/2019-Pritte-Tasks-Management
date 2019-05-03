@@ -30,11 +30,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
               <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
-<<<<<<< HEAD
-              <img class="slogo" src="{{asset('images/tasklogo.png')}}" width="100%" "alt="Logo">
-=======
+
               <img class="slogo" src="{{asset('images/slogo.png')}} " alt="Logo">
->>>>>>> 611645bce7c654271a9e4e898c85db111a46d92a
+
             </a>
       
             <!-- Divider -->

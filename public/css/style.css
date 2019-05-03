@@ -1,9 +1,11 @@
 .logo {
+
     width:100%;
 } 
 .customize {
     position:absolute;
     left:40%;
+
     width:200px;
 }
 .date_range {

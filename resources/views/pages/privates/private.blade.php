@@ -17,6 +17,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
+
                 <form action="" class="text-center">
                     <input type="checkbox" name="complete" value="1" id="check1"> <label for="check1"> Show completed task</label>
                 </form>
