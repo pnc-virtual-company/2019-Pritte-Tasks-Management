@@ -4,6 +4,7 @@
 .customize {
     position:absolute;
     left:40%;
+    width:200px;
 }
 .date_range {
     cursor:pointer;
@@ -28,9 +29,9 @@
     }
     .slogo{
         display:block;
+        width:100%;
     }
 }
-
 .card-body{
     overflow-x:auto;
 }

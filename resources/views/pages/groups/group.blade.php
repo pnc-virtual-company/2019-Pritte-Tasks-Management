@@ -7,7 +7,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xl-12 col-lg-7">
+        <div class="col-xl-12 col-lg-12">
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -146,7 +146,6 @@
                             </div>
                         </div>
                     </div>
-                    <br><br><br>
                     {{-- Delete Modal --}}
                     <div class="modal fade" id="deletetaskModal">
                         <div class="modal-dialog">

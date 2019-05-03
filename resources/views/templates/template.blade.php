@@ -30,7 +30,11 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
               <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
+<<<<<<< HEAD
+              <img class="slogo" src="{{asset('images/tasklogo.png')}}" width="100%" "alt="Logo">
+=======
               <img class="slogo" src="{{asset('images/slogo.png')}} " alt="Logo">
+>>>>>>> 611645bce7c654271a9e4e898c85db111a46d92a
             </a>
       
             <!-- Divider -->
@@ -189,8 +193,8 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline text-light small">Sam Oun</span>
-                      <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
+                      <img class="img-profile rounded-circle" src="{{asset('storage/profiles/'.Auth::user()->avatar)}}">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -238,10 +242,17 @@
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+              <div class="modal-body">Are you sure to logout from the system?</div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{url('/')}} ">Logout</a>
+                  <a class="btn btn-primary" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
               </div>
             </div>
           </div>

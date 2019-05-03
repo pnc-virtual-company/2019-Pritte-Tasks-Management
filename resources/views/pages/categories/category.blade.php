@@ -8,11 +8,9 @@
 
     <div class="row">
 
-        <div class="col-xl-12 col-lg-7">
+        <div class="col-xl-12 col-lg-12">
           <div class="card shadow mb-4">
-            
             <div class="card-body">
-                 <!-- ====================datatable======================== -->
                 <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
