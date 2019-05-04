@@ -13,15 +13,8 @@
                 <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between float-right">
                             <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">
                                 Create New Task
-                            </button>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                                <div class="form-check customize">
-                                    <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
                                 </div> 
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
@@ -270,6 +263,10 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84eba885439b51e449cf1d8e32488cb19a6547f4
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
@@ -504,7 +501,9 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
+
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
@@ -625,7 +624,6 @@
                                             </div>
                                             </div>
                                         </div>
-               
                                             <!-- model delete -->
                                         <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -652,6 +650,10 @@
                                                     </div>
                                                     </form>
                                                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84eba885439b51e449cf1d8e32488cb19a6547f4
                                             </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
@@ -674,6 +676,10 @@
                                 <div class="card-footer"></div>
                             </div>
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84eba885439b51e449cf1d8e32488cb19a6547f4
               </div>
         </div>
 @endsection
