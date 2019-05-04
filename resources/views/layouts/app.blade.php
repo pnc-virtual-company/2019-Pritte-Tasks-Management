@@ -41,7 +41,7 @@
                             <a class="nav-link" href="{{url('users')}}"><i class="mdi mdi-lock"></i> {{ __('Users') }}</a>
                         </li>
                     </ul>
-
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
