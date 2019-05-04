@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('skeleton', function () {
     return view('examples.index', ['currentExample' => 'List of examples']);
 });
 
@@ -20,6 +20,39 @@ Auth::routes();
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
 Route::resource('users','UserController');
+
+Route::get('testing', function(){
+    return view('testing');
+});
+
+Route::get('home', function() {
+    return view('pages.dashboard');
+});
+Route::get('/', function() {
+    return view('pages.login');
+});
+
+Route::get('task', function() {
+    return view('pages.tasks.tasks');
+});
+
+Route::get('private',function(){
+    return view('pages.privates.private');
+});
+
+Route::get('category',function() {
+    return view('pages.categories.category');
+});
+
+Route::get('group', function() {
+    return view('pages.groups.group');
+});
+Route::get('user',function() {
+    return view('pages.users.user');
+});
+
+
+// -----
 
 /*=============================================================================
    The routes below are written for the examples only. 
@@ -61,3 +94,6 @@ Route::get('examples/pdf/downloadPDF', 'ExamplesController@downloadPDF');
 Route::get('examples', 'ExamplesController@index')->name('examples');
 /*
 =============================================================================*/
+/* 
+* This route is used by Page Controller
+**/
