@@ -15,6 +15,7 @@
                         <!-- Simulate PUT or PATCH verb, 
                              See: https://laravel.com/docs/5.7/controllers#resource-controllers //-->
                         @method('PUT')
+
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -34,12 +35,12 @@
 
                         <div class="form-group">
                             <label for="position">@lang('Position')</label>
-                            <input type="text" class="form-control" id="position" name="position" value="{{ $user->position }}">
+                            <input type="text" class="form-control" id="Position" name="position"  value="{{ $user->position }}">
                         </div>
 
                         <div class="form-group">
                             <label for="province">@lang('Province')</label>
-                            <input type="text" class="form-control" id="province" name="province" value="{{ $user->province }}">
+                            <input type="text" class="form-control" id="Province" name="province" value="{{ $user->province }}">
                         </div>
 
                         <div class="form-group">
@@ -64,7 +65,6 @@
 <script type="text/javascript">
 //On document ready, 
 $(function() {
-
 });
 </script>
 @endpush

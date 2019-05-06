@@ -99,12 +99,9 @@
 	  ('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
-        $('#formDelete').attr('action','user/'+id)
+        var modal = $(this)
+        modal.find('#formDelete').attr('action','user/'+id)
     });
-
-<!-- Include the modal //-->
-// @include('modal-confirm-delete')
-// @include('modal-alert')
-// @include('modal-wait')
+    </script>
 
 @endsection

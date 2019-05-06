@@ -44,6 +44,12 @@ Route::get('private',function(){
 Route::get('group', function() {
     return view('pages.groups.group');
 });
+
+Route::resource('category','CategoryController');
+
+Route::get('user',function() {
+    return view('pages.users.user');
+});
 Route::resource('category','CategoryController');
 
 /*=============================================================================

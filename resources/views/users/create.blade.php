@@ -30,12 +30,12 @@
 
                         <div class="form-group">
                             <label for="position">@lang('Position')</label>
-                            <input type="text" class="form-control" id="position" name="position" value="{{ old('position') }}">
+                            <input type="text" class="form-control" id="position" name="position" value="{{ old('email') }}">
                         </div>
 
                         <div class="form-group">
                             <label for="province">@lang('Province')</label>
-                            <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}">
+                            <input type="text" class="form-control" id="province" name="province" value="{{ old('email') }}">
                         </div>
 
                         <div class="form-group">

@@ -130,7 +130,8 @@
                                                         </div>
                                                     </div>
                                                 </fieldset>
-                                  
+                                       
+
                                                 <div class="form-group row hideShow">
                                                         <label class="col-sm-3 col-form-label">Assigned to</label>
                                                             <div class="col-sm-5">
@@ -154,9 +155,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                         
@@ -507,6 +506,7 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
+
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
@@ -628,7 +628,6 @@
                                             </div>
                                             </div>
                                         </div>
-               
                                             <!-- model delete -->
                                         <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">

@@ -29,6 +29,7 @@
         </thead>
         <tbody>
 
+
             @foreach($crudUser as $result)
             <tr>
                 <td>

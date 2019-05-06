@@ -17,6 +17,13 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                 <form action="" class="text-center">
                     <input type="checkbox" name="complete" value="1" id="check1"> <label for="check1"> Show completed task</label>
                 </form>
@@ -43,6 +50,131 @@
                                 <td>open</td>
             
                             </tr>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>Club</td>
+                                <td>Football game</td>
+                                <td>15/05/2019 8:00am</td>
+                                <td>completed</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>WEP</td>
+                                <td>VC2 introduction</td>
+                                <td>22/04/2019 10:00am</td>
+                                <td>open</td>
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>Dormitoryh</td>
+                                <td>Room cleaning</td>
+                                <td>26/04/2019 8:00am</td>
+                                <td>open</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>Homwork</td>
+                                <td>project completion</td>
+                                <td>1/05/2019 9:00am</td>
+                                <td>completed</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>WEP</td>
+                                <td>VC2 intermediate release</td>
+                                <td>15/05/2019 5:00pm</td>
+                                <td>open</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>WEP</td>
+                                <td>VC2 final release</td>
+                                <td>30/05/2019 5:00pm</td>
+                                <td>open</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>club</td>
+                                <td>Cooking</td>
+                                <td>1/06/2019 6:00pm</td>
+                                <td>open</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>WEP</td>
+                                <td>VC2 intermediate release</td>
+                                <td>15/05/2019</td>
+                                <td>open</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>WEP</td>
+                                <td>VC2 intermediate release</td>
+                                <td>15/05/2019</td>
+                                <td>open</td>
+            
+                            </tr>
+                            <tr>
+                                    <td>
+                                            <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
+                                                    class="material-icons">delete</i></a>
+                                            <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
+                                                    class="material-icons">edit</i></a></td>
+                                <td>WEP</td>
+                                <td>VC2 intermediate release</td>
+                                <td>15/05/2019</td>
+                                <td>open</td>
+            
+                            </tr>
+>>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                         </tbody>
             
                     </table>
