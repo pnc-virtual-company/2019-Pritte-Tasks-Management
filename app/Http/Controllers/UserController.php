@@ -86,14 +86,17 @@ class UserController extends Controller
 
         // process the validation of fields
         if ($validator->fails()) {
-            return Redirect::to('users/create')
+            return Redirect::to('user/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store the new user and attach roles to it
             $user = new User;
             $user->name = Input::get('name');
+            $user->gender = Input::get('gender');
             $user->email = Input::get('email');
+            $user->position = Input::get('position');
+            $user->province = Input::get('province');
             $user->password = bcrypt(Input::get('password'));
             $user->save();
             $user->roles()->attach(Input::get('roles'));
@@ -101,7 +104,7 @@ class UserController extends Controller
             // redirect
             Session::flash('message.level', 'success');
             Session::flash('message.content', __('The user was successfully created'));
-            return Redirect::to('users');
+            return Redirect::to('user');
         }
     }
 
@@ -157,20 +160,23 @@ class UserController extends Controller
 
         // process the validation of fields
         if ($validator->fails()) {
-            return Redirect::to('users/' . $id .  '/edit')
+            return Redirect::to('user/' . $id .  '/edit')
                 ->withErrors($validator);
         } else {
             // update user and synchronize the roles
             $user = User::find($id);
             $user->name = Input::get('name');
+            $user->gender = Input::get('gender');
             $user->email = Input::get('email');
+            $user->position = Input::get('position');
+            $user->province = Input::get('province');
             $user->save();
             $user->roles()->sync(Input::get('roles'));
             
             // redirect
             Session::flash('message.level', 'success');
             Session::flash('message.content', __('The user was successfully updated'));
-            return Redirect::to('users');
+            return Redirect::to('user');
         }
     }
 
@@ -185,6 +191,7 @@ class UserController extends Controller
         $request->user()->authorizeRoles(['Administrator']);
         $user = User::find($id);
         $user->delete();
+        return Redirect::to('user');
     }
 
     /**

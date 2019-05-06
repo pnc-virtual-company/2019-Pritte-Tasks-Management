@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
-Route::resource('users','UserController');
+Route::resource('user','UserController');
 
 Route::get('testing', function(){
     return view('testing');
@@ -40,19 +40,11 @@ Route::get('private',function(){
     return view('pages.privates.private');
 });
 
-Route::get('category',function() {
-    return view('pages.categories.category');
-});
 
 Route::get('group', function() {
     return view('pages.groups.group');
 });
-Route::get('user',function() {
-    return view('pages.users.user');
-});
-
-
-// -----
+Route::resource('category','CategoryController');
 
 /*=============================================================================
    The routes below are written for the examples only. 

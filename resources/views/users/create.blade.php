@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-
+@extends('templates.template')
+@section('template')
 @include('validation-errors')
 
 <div class="container">
@@ -12,7 +10,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -21,8 +19,23 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="gender">@lang('Gender')</label>
+                            <input type="text" class="form-control" id="gender" name="gender" value="{{ old('gender') }}">
+                        </div>
+
+                        <div class="form-group">
                             <label for="email">@lang('Email')</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position">@lang('Position')</label>
+                            <input type="text" class="form-control" id="position" name="position" value="{{ old('position') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="province">@lang('Province')</label>
+                            <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}">
                         </div>
 
                         <div class="form-group">

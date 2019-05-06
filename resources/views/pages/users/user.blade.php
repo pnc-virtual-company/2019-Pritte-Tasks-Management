@@ -29,7 +29,7 @@
         </thead>
         <tbody>
 
-            @foreach($user as $result)
+            @foreach($crudUser as $result)
             <tr>
                 <td>
                     <a href="{{route('pages.users.show')}}" data-toggle="modal" class="text-success" data-target="#visibilityModal"><i class="material-icons"
@@ -41,7 +41,7 @@
                     <span>{{ $result->id}}</span>
                 </td>
                 <td>{{ $result->name}}</td>
-                <td>{{ $result->geder}}</td>
+                <td>{{ $result->gender}}</td>
                 <td>{{ $result->email}}</td>
                 <td>{{ $result->role}}</td>
             </tr>

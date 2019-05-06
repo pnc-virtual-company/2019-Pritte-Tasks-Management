@@ -1,6 +1,5 @@
 @extends('templates.template')
 @section('template')
-
     <div class="row">
         <!-- Area Chart -->
         <div class="col-xl-12 col-lg-12">
@@ -115,7 +114,6 @@
                                                         </div><span class="col-sm-4 col-form-label text-secondary">(in man-days)</span>
                                                 </div>
                                                 {{-- individule task --}}
-
                                                 <fieldset class="form-group">
                                                     <div class="row">
                                                         <legend class="col-form-label col-sm-3 pt-0">Private</legend>
@@ -275,7 +273,6 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
@@ -510,9 +507,7 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
@@ -626,7 +621,6 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
@@ -634,7 +628,7 @@
                                             </div>
                                             </div>
                                         </div>
-
+               
                                             <!-- model delete -->
                                         <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -661,7 +655,6 @@
                                                     </div>
                                                     </form>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
@@ -684,7 +677,6 @@
                                 <div class="card-footer"></div>
                             </div>
                     </div>
-
               </div>
         </div>
 @endsection

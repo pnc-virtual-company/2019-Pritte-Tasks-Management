@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\UserModel;
+use App\Category;
 
-class UsersController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $crudUser=UserModel::all();
-        return view('pages.users.user')->compact('crudUser');
+        $category = Category::all();
+        return view('pages.categories.category')->with('category',$category);
     }
 
     /**
@@ -25,7 +25,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('pages.users.user');
+        //
     }
 
     /**
@@ -36,13 +36,13 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required',
-            'gender'=>'required',
-            'email'=>'required',
-            'role'=>'required',
-        ]);
-        return view('pages.users.user');
+        $name = $request->category;
+
+        $category = new Category();
+        $category->name= $name;
+        $category->save();
+
+        return redirect('category');
     }
 
     /**
@@ -64,7 +64,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-       //
+        //
     }
 
     /**

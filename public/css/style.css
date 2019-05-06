@@ -1,11 +1,9 @@
 .logo {
-
     width:100%;
 } 
 .customize {
     position:absolute;
     left:40%;
-
     width:200px;
 }
 .date_range {
@@ -36,4 +34,9 @@
 }
 .card-body{
     overflow-x:auto;
+}
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }

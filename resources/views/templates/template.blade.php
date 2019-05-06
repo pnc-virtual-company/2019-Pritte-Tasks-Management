@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('css/materialsicon.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
@@ -28,13 +28,12 @@
           <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="{{url('home')}}">
               <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
 
               <img class="slogo" src="{{asset('images/slogo.png')}} " alt="Logo">
 
             </a>
-      
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
       
@@ -57,15 +56,15 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Manage the tasks:</h6>
-                  <a class="collapse-item" href="private">Private Task</a>
-                  <a class="collapse-item" href="task">Individual & Collective</a>
+                  <a class="collapse-item" href="{{url('private')}}">Private Task</a>
+                  <a class="collapse-item" href="{{url('task')}}">Individual & Collective</a>
                 </div>
               </div>
             </li>
 
             <!-- Category Menu -->
             <li class="nav-item">
-              <a class="nav-link collapsed" href="category">
+              <a class="nav-link collapsed" href="{{url('category')}}">
                 <i class="fas fa-list-ul"></i>
                 <span>Categories</span>
               </a>
@@ -73,7 +72,7 @@
 
             <!-- Group Menu -->
             <li class="nav-item">
-              <a class="nav-link collapsed" href="group">
+              <a class="nav-link collapsed" href="{{url('group')}}">
                 <i class="fas fa-users"></i>
                 <span>Groups</span>
               </a>
@@ -81,7 +80,7 @@
 
             <!-- User Menu -->
             <li class="nav-item">
-              <a class="nav-link collapsed" href="user">
+              <a class="nav-link collapsed" href="{{url('user')}} ">
 
                 <i class="fas fa-user"></i>
                 <span>Users</span>
@@ -156,7 +155,7 @@
                         </div>
                         <div>
                           <div class="small text-gray-500">April 4, 2019</div>
-                          <span>Homework2: You has been finish your task</span>
+                          <span>Homework2: You have been finished your task</span>
                         </div>
                       </a>
                       <a class="dropdown-item d-flex align-items-center" href="#">
@@ -191,7 +190,9 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
+                      <span class="mr-2 d-none d-lg-inline text-light small">
+                        {{ Auth::user()->name }}
+                      </span>
                       <img class="img-profile rounded-circle" src="{{asset('storage/profiles/'.Auth::user()->avatar)}}">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -270,10 +271,12 @@
       
         <!-- Page level plugins -->
         <script src={{asset('charts/Chart.min.js')}}></script>
+        <script src="{{asset('charts/utils.js')}}"></script>
       
         <!-- Page level custom scripts -->
         <script src="{{asset('charts/chart-area-demo.js')}}"></script>
         <script src="{{asset('charts/chart-pie-demo.js')}}"></script>
+        
 
         {{-- Datatable JS --}}
         <script src="{{asset('datatables/jquery.dataTables.js')}} "></script>
