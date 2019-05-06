@@ -5,8 +5,20 @@
  */
 .fc {
   direction: ltr;
+<<<<<<< HEAD
   text-align: left; 
 }
+=======
+  text-align: left; }
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 
+=======
+
+>>>>>>> a3aa938b5ffe43450cd4920ab64b597bfa61a007
+=======
+>>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
 .fc-rtl {
   text-align: right; }
 

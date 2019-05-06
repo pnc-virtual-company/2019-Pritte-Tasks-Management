@@ -44,16 +44,13 @@ Route::get('private',function(){
 Route::get('group', function() {
     return view('pages.groups.group');
 });
-<<<<<<< HEAD
+
 Route::resource('category','CategoryController');
-=======
+
 Route::get('user',function() {
     return view('pages.users.user');
 });
-
-
-// -----
->>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+Route::resource('category','CategoryController');
 
 /*=============================================================================
    The routes below are written for the examples only. 

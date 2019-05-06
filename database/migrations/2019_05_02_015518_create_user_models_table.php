@@ -18,6 +18,7 @@ class CreateUserModelsTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('email');
+            $table->string('position');
             $table->string('role');
             $table->timestamps();
         });

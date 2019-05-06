@@ -20,12 +20,18 @@
                         </thead>
                         <tbody>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             @foreach ($category as $item)
                             <tr>
                                 
 =======
                             <tr>
 >>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+                            @foreach ($category as $item)
+                            <tr>
+                                
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                                 <td>
                                     <a href="#deleteModal" data-toggle="modal" >
                                         <i class="material-icons text-danger">delete</i>
@@ -34,6 +40,7 @@
                                         <i class="material-icons">edit</i>
                                     </a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     {{$item->id}}
                                 </td>
                                 <td>{{$item->name}} </td>
@@ -41,46 +48,17 @@
                             @endforeach
 =======
                                     1
+=======
+                                    {{$item->id}}
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                                 </td>
-                                <td>Homework</td>
+                                <td>{{$item->name}} </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <a href="#deleteModal" data-toggle="modal" >
-                                        <i class="material-icons text-danger">delete</i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#editModal">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                    2
-                                </td>
-                                <td>Club</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#deleteModal" data-toggle="modal" >
-                                        <i class="material-icons text-danger">delete</i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#editModal">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                    3
-                                </td>
-                                <td>Cleaning</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#deleteModal" data-toggle="modal" >
-                                        <i class="material-icons text-danger">delete</i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#editModal">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                    4
-                                </td>
-                                <td>Dormitory</td>
-                            </tr>
+<<<<<<< HEAD
 >>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+                            @endforeach
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                         </tbody>
                     </table>
                 <!-- The create Modal -->
@@ -95,6 +73,7 @@
 
                     <!-- Modal body -->
                     <div class="modal-body"><br>
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <form action="category" method="POST">
                             @csrf
@@ -180,21 +159,26 @@
         </div>
 =======
                         <form action="#">
+=======
+                        <form action="category" method="POST">
+                            @csrf
+                            @method('POST')
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Category</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="category" required class="form-control">
                                 </div>
                             </div>
                             
-                        </form><br>
+                        <br>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-primary">Create Category</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                     </div>
-
+                </form>
                 </div>
             </div>
         </div>

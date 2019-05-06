@@ -18,9 +18,12 @@
             <!-- Card Body -->
             <div class="card-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                 <form action="" class="text-center">
                     <input type="checkbox" name="complete" value="1" id="check1"> <label for="check1"> Show completed task</label>
                 </form>
@@ -47,6 +50,7 @@
                                 <td>open</td>
             
                             </tr>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                             <tr>
@@ -169,6 +173,8 @@
             
                             </tr>
 >>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                         </tbody>
             
                     </table>

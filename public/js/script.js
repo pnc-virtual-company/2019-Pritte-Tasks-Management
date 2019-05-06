@@ -38,6 +38,9 @@ $("#hideGroup").click(function(){
 
   $('#dataTable2').DataTable();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
   $('#dataTable3').DataTable();
   $('#dataTable4').DataTable();
   $('#dataTable5').DataTable();
@@ -177,6 +180,9 @@ $("#hideGroup").click(function(){
 		};
 
 });
+<<<<<<< HEAD
 =======
 });
 >>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
