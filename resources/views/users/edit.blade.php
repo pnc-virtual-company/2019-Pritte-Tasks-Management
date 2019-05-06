@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('templates.template')
+@section('template')
 
 @include('validation-errors')
 
@@ -12,7 +11,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                         <!-- Simulate PUT or PATCH verb, 
                              See: https://laravel.com/docs/5.7/controllers#resource-controllers //-->
                         @method('PUT')
@@ -24,8 +23,23 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="gender">@lang('Gender')</label>
+                            <input type="text" class="form-control" id="gender" name="gender" value="{{ $user->gender }}">
+                        </div>
+
+                        <div class="form-group">
                             <label for="email">@lang('Email')</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position">@lang('Position')</label>
+                            <input type="text" class="form-control" id="position" name="position" value="{{ $user->position }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="province">@lang('Province')</label>
+                            <input type="text" class="form-control" id="province" name="province" value="{{ $user->province }}">
                         </div>
 
                         <div class="form-group">
@@ -36,7 +50,6 @@
                             @endforeach
                             </select>
                         </div>
-
                         <input type="submit" class="btn btn-primary" value="Save" />
                     </form>
                 </div>

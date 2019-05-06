@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->default('default.png');
+            $table->string('gender');
+            $table->string('position');
+            $table->string('province');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,7 +34,10 @@ class CreateUsersTable extends Migration
                 'name' => 'Administrator',
                 'email' => 'manager@example.com',
                 'password' => bcrypt('password'),
-                'remember_token' => str_random(10)
+                'remember_token' => str_random(10),
+                'gender'=>'Male',
+                'position'=>'Student',
+                'province'=>'Siem Reap'
             )
         );
     }
