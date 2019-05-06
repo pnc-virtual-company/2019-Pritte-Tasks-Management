@@ -13,8 +13,10 @@
                 <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
+
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between float-right">
                             <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">
+
                                 Create New Task
                             </button>
                         </div>
@@ -128,8 +130,7 @@
                                                         </div>
                                                     </div>
                                                 </fieldset>
-                                       
-
+                                  
                                                 <div class="form-group row hideShow">
                                                         <label class="col-sm-3 col-form-label">Assigned to</label>
                                                             <div class="col-sm-5">
@@ -153,7 +154,9 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
+
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                         
