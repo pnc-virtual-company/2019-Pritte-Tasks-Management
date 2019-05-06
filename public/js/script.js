@@ -37,6 +37,7 @@ $("#hideGroup").click(function(){
 });
 
   $('#dataTable2').DataTable();
+<<<<<<< HEAD
   $('#dataTable3').DataTable();
   $('#dataTable4').DataTable();
   $('#dataTable5').DataTable();
@@ -176,3 +177,6 @@ $("#hideGroup").click(function(){
 		};
 
 });
+=======
+});
+>>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969

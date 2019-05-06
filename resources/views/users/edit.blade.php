@@ -15,6 +15,7 @@
                         <!-- Simulate PUT or PATCH verb, 
                              See: https://laravel.com/docs/5.7/controllers#resource-controllers //-->
                         @method('PUT')
+
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -65,13 +66,6 @@
 <script type="text/javascript">
 //On document ready, 
 $(function() {
-    // $('#deleteModal').on('show.bs.modal', function (event) {
-    //     var button = $(event.relatedTarget)
-    //     var id = button.data('id')
-    //     var modal = $(this)
-    //     modal.find('#formDelete').attr('action','user/'+id)
-    // });
-
 });
 </script>
 @endpush

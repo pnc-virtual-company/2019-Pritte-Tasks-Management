@@ -5,12 +5,8 @@
  */
 .fc {
   direction: ltr;
-  text-align: left; }
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> a3aa938b5ffe43450cd4920ab64b597bfa61a007
+  text-align: left; 
+}
 .fc-rtl {
   text-align: right; }
 

@@ -29,7 +29,11 @@
         </thead>
         <tbody>
 
+<<<<<<< HEAD
             @foreach($crudUser as $result)
+=======
+            @foreach($user as $result)
+>>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
             <tr>
                 <td>
                     <a href="{{route('pages.users.show')}}" data-toggle="modal" class="text-success" data-target="#visibilityModal"><i class="material-icons"
