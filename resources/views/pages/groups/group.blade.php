@@ -1,6 +1,5 @@
 @extends('templates.template')
 @section('template')
-    {{-- Code Here --}}
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Groups</h1>
@@ -32,9 +31,9 @@
                             <tr>
                                 <td>
                                     <a href="#" class="text-danger data-toggle="modal"
-                                            data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
+                                        data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
                                     <a href="#" class="text-primary" data-toggle="modal"
-                                            data-target="#editmyModal"><i class="material-icons">edit</i></a>1
+                                        data-target="#editmyModal"><i class="material-icons">edit</i></a>1
                                 </td>
                                 <td>Virtual Company</td>
                                 <td>Group A</td>
@@ -56,10 +55,9 @@
                                 <td>30/04/2019 3:40pm</td>
                             </tr>
                         </tbody>
-            
                     </table>
                     
-                    <!-- The Modal -->
+                    <!-- The Modal Create-->
                     <div class="modal fade" id="myModal">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content">
@@ -70,7 +68,9 @@
                                 </div>
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <form action="#">
+                                    <form action="#" method="POST">
+                                        @csrf
+                                        @method('POST')
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Group Name(s)</label>
                                             <div class="col-sm-9">
@@ -78,70 +78,36 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Manager</label>
-                                                <div class="col-sm-9">
-                                                    <select name="" class="form-control">
-                                                        <option selected>Select Manager</option>
-                                                        <option value="1">Sam Oun</option>
-                                                        <option value="2">Sokvebol</option>
-                                                        <option value="3">Haoch</option>
-                                                        <option value="4">Kimsien</option>
-                                                        <option value="5">Choam</option>
-                                                    </select>
-                                                </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-2"></div>
-                                            <div class="col-9">
-                                                <textarea name="" class="form-control" id="" cols="15" rows="4"></textarea>
+                                            <label class="col-sm-2 col-form" id="manager">Manager</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="manager" name="manager" size="5">
+                                                    <option value=""></option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Viewer(s)</label>
-                                                    <div class="col-sm-9">
-                                                        <select name="" class="form-control">
-                                                            <option selected>Select user...</option>
-                                                            <option value="1">Sam Oun</option>
-                                                            <option value="2">Sokvebol</option>
-                                                            <option value="3">Haoch</option>
-                                                            <option value="4">Kimsien</option>
-                                                            <option value="5">Choam</option>
-                                                        </select>
-                                                    </div>
+                                            <label class="col-sm-2 col-form-label" id="viewer">Viewer</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="viewer" multiple name="viewer[]" size="5">
+                                                    <option value="#">Unknown</option>
+                                                </select>
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-2"></div>
-                                                <div class="col-9">
-                                                    <textarea name="" class="form-control" id="" cols="15" rows="4"></textarea>
-    
-                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" id="member">Member</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="member" multiple name="member[]" size="5">
+                                                    <option value="#">Unknown</option>
+                                                </select>
                                             </div>
-                                            <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Member(s)</label>
-                                                        <div class="col-sm-9">
-                                                            <select name="" class="form-control">
-                                                                <option selected>Select user</option>
-                                                                <option value="1">Sam Oun</option>
-                                                                <option value="2">Sokvebol</option>
-                                                                <option value="3">Haoch</option>
-                                                                <option value="4">Kimsien</option>
-                                                                <option value="5">Choam</option>
-                                                            </select>
-                                                        </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="col-2"></div>
-                                                    <div class="col-9">
-                                                        <textarea name="" class="form-control" id="" cols="15" rows="4"></textarea>
-                                                    </div>
-                                                </div>
+                                        </div>
                                     </form>
                                 </div>
                                
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
+                                    <button type="submit" class="btn btn-success">Create Group</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -158,24 +124,25 @@
                                     Are you sure that you want to delete this group?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#" class="btn  btn-success" data-dismiss="modal">Yes</a>
-                                    <a href="#" class="btn btn-danger" data-dismiss="modal">No</a>
+                                    <a href="#" class="btn btn-success">Delete Now</a>
+                                    <a href="#" class="btn btn-danger" data-dismiss="modal">Cancel</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- model for edit -->
-                    <div class="modal fade" id="editmyModal">
+                     <div class="modal fade" id="editmyModal">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Edit Group</h4>
+                                        <h4 class="modal-title">Create a new Group</h4>
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form action="#">
+                                        <form action="#" method="POST">
+                                            @csrf
+                                            @method('POST')
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Group Name(s)</label>
                                                 <div class="col-sm-9">
@@ -183,81 +150,45 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Manager</label>
-                                                    <div class="col-sm-9">
-                                                        <select name="" class="form-control">
-                                                            <option selected>Select Manager</option>
-                                                            <option value="1">Sam Oun</option>
-                                                            <option value="2">Sokvebol</option>
-                                                            <option value="3">Haoch</option>
-                                                            <option value="4">Kimsien</option>
-                                                            <option value="5">Choam</option>
-                                                        </select>
-                                                    </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-2"></div>
-                                                <div class="col-9">
-                                                    <textarea name="" class="form-control" id="" cols="15" rows="4">Sam Oun, Group A</textarea>
-    
+                                                <label class="col-sm-2 col-form" id="manager">Manager</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="manager" name="manager" size="5">
+                                                        <option value="">Sam Oun</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Viewer(s)</label>
-                                                        <div class="col-sm-9">
-                                                            <select name="" class="form-control">
-                                                                <option selected>Select user...</option>
-                                                                <option value="1">Sam Oun</option>
-                                                                <option value="2">Sokvebol</option>
-                                                                <option value="3">Haoch</option>
-                                                                <option value="4">Kimsien</option>
-                                                                <option value="5">Choam</option>
-                                                            </select>
-                                                        </div>
+                                                <label class="col-sm-2 col-form-label" id="viewer">Viewer</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="viewer" multiple name="viewer[]" size="5">
+                                                        <option value="#">Unknown</option>
+                                                    </select>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <div class="col-2"></div>
-                                                    <div class="col-9">
-                                                        <textarea name="" class="form-control" id="" cols="15" rows="4">VC2</textarea>
-        
-                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label" id="member">Member</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="member" multiple name="member[]" size="5">
+                                                        <option value="#">Unknown</option>
+                                                    </select>
                                                 </div>
-                                                <div class="form-group row">
-                                                        <label class="col-sm-2 col-form-label">Member(s)</label>
-                                                            <div class="col-sm-9">
-                                                                <select name="" class="form-control">
-                                                                    <option selected>Select user</option>
-                                                                    <option value="1">Sam Oun</option>
-                                                                    <option value="2">Sokvebol</option>
-                                                                    <option value="3">Haoch</option>
-                                                                    <option value="4">Kimsien</option>
-                                                                    <option value="5">Choam</option>
-                                                                </select>
-                                                            </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-2"></div>
-                                                        <div class="col-9">
-                                                            <textarea name="" class="form-control" id="" cols="15" rows="4">Kola</textarea>
-            
-                                                        </div>
-                                                    </div>            
-                
+                                            </div>
                                         </form>
                                     </div>
                                    
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
+                                        <button type="submit" class="btn btn-success">Edit Group</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                     </div>
-                
                                 </div>
                             </div>
                         </div>
-                              </div>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
+                
             </div>
           </div>
         </div>

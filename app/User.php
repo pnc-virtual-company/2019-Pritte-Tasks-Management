@@ -33,11 +33,16 @@ class User extends Authenticatable
      *
      * @return array
      */
-    public function roles()
+    public function role()
     {
-      return $this->belongsToMany(Role::class);
+      return $this->belongsTo(Role::class);
     }
 
+    public function group() 
+    {
+        return $this->belongsTo(Group::class);
+    }
+    
     /**
     * @param string|array $roles
     */

@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(".hideShow").hide();
   });
 
-
   $("#gridRadios2").click(function(){
     $(".hideShow").show();
   });
@@ -67,12 +66,6 @@ $("#hideGroup").click(function(){
       responsive: true
     }
   };
-
-  // window.onload = function() {
-  //   var ctx = document.getElementById('chart-area').getContext('2d');
-  //   window.myPie = new Chart(ctx, config);
-  // };
-
   
   var color = Chart.helpers.color;
 		var barChartData = {

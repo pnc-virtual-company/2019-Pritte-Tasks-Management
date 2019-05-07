@@ -7,7 +7,6 @@
     <title>Task Management System</title>
     {{-- font style --}}
     <link rel="stylesheet" href="{{asset('css/font.css')}} ">
-
     {{-- css --}}
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -18,8 +17,8 @@
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
 </head>
-<body>
     <body id="page-top">
+      
 
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -29,8 +28,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand bg-light d-flex align-items-center justify-content-center" href="{{url('home')}}">
-              <img class="logo" src="{{asset('images/tlogo.png')}} " alt="Logo">
-              <img class="slogo" src="{{asset('images/tasklogo.png')}} " alt="Logo">
+              <img class="logo" width="100%" src="{{asset('images/tlogo.png')}} " alt="Logo">
+              <img class="slogo" width="100%" src="{{asset('images/tasklogo.png')}} " alt="Logo">
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -59,7 +58,9 @@
                 </div>
               </div>
             </li>
-
+            
+            @auth
+            @if (\Auth::user()->role_id==1)
             <!-- Category Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="{{url('category')}}">
@@ -67,6 +68,7 @@
                 <span>Categories</span>
               </a>
             </li>
+            @endif
 
             <!-- Group Menu -->
             <li class="nav-item">
@@ -75,24 +77,18 @@
                 <span>Groups</span>
               </a>
             </li>
-
-            <!-- User Menu -->
+                
+            @if (\Auth::user()->role_id==1)
             <li class="nav-item">
               <a class="nav-link collapsed" href="{{url('user')}} ">
-
-                <i class="fas fa-user"></i>
-                <span>Users</span>
-              </a>
-            </li>
-            
-      
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-      
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-              <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+                  <i class="fas fa-user"></i>
+                  <span>Users</span>
+                </a>
+              </li>
+            @endif
+            @endauth
+              
+            <!-- User Menu -->
           </ul>
           <!-- End of Sidebar -->
       
