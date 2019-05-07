@@ -46,7 +46,6 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        // $request->user()->authorizeRoles(['Administrator']);
         $users = User::with('roles')->get();
         return view('users.index', ['users' => $users]);
     }
@@ -72,8 +71,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // validate
-        // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'name'  => 'required',
             'email' => 'required|email',
@@ -114,7 +111,6 @@ class UserController extends Controller
     public function show(Request $request, $id)
     {
         $user = User::find($id);
-        $user->roleIds = $user->roles->pluck('id')->toArray();
         $roles = Role::all();
         return view('users.show', ['user' => $user, 'roles' => $roles]);
     }
@@ -129,7 +125,6 @@ class UserController extends Controller
     public function edit(Request $request, $id)
     {
         $user = User::find($id);
-        $user->roleIds = $user->roles->pluck('id')->toArray();
         $roles = Role::all();
         return view('users.edit', ['user' => $user, 'roles' => $roles]);
     }
@@ -137,7 +132,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -150,13 +145,11 @@ class UserController extends Controller
             'roles' => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
-
         // process the validation of fields
         if ($validator->fails()) {
             return Redirect::to('user/' . $id .  '/edit')
                 ->withErrors($validator);
         } else {
-            // update user and synchronize the roles
             $user = User::find($id);
             $user->name = Input::get('name');
             $user->gender = Input::get('gender');
@@ -165,10 +158,7 @@ class UserController extends Controller
             $user->province = Input::get('province');
             $user->role_id = Input::get('roles');
             $user->save();
-            
             // redirect
-            Session::flash('message.level', 'success');
-            Session::flash('message.content', __('The user was successfully updated'));
             return Redirect::to('user');
         }
     }

@@ -20,16 +20,8 @@ Auth::routes();
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
 Route::resource('user','UserController');
-
-Route::get('testing', function(){
-    return view('testing');
-});
-
-Route::get('home', function() {
-    return view('pages.dashboard');
-});
 Route::get('/', function() {
-    return view('pages.login');
+    return view('pages.dashboard');
 });
 
 Route::get('task', function() {

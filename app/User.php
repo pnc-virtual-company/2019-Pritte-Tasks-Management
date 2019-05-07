@@ -37,7 +37,6 @@ class User extends Authenticatable
     {
       return $this->belongsTo(Role::class);
     }
-
     public function group() 
     {
         return $this->belongsTo(Group::class);
