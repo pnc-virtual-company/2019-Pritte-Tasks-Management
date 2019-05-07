@@ -55,7 +55,11 @@
                                             <span>{!! $user->position !!}</span>
                                         </td>
                                         <td>
-                                            <span>{{ $user->roles->pluck('name')->implode(', ') }}</span>
+                                            @if ($user->role_id == 1)
+                                                <span>Administrator</span>
+                                            @else
+                                                <span>Normal User</span>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -93,15 +97,13 @@
           </div>
         </div>
       </div>
-        <script src="{{asset('js/app.js')}}"></script>
+        {{-- <script src="{{asset('js/app.js')}}"></script> --}}
       <script>
-      $
-	  ('#deleteModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var id = button.data('id')
-        var modal = $(this)
-        modal.find('#formDelete').attr('action','user/'+id)
-    });
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            $('#formDelete').attr('action','user/'+id)
+        });
     </script>
 
 @endsection

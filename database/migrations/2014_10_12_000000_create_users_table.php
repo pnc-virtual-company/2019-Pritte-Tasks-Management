@@ -28,6 +28,9 @@ class CreateUsersTable extends Migration
         });
 
         //Insert the default admin user
+<<<<<<< HEAD
+        
+=======
         DB::table('users')->insert(
             array(
                 'id' => 1,
@@ -40,6 +43,7 @@ class CreateUsersTable extends Migration
                 'province'=>'Siem Reap'
             )
         );
+>>>>>>> c14b67e8c96aecd4621465c643b5c755ec4a9780
     }
 
     /**

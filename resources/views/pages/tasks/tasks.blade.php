@@ -13,17 +13,8 @@
                 <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
-
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between float-right">
                             <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">
-
                                 Create New Task
-                            </button>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                                <div class="form-check customize">
-                                    <input type="checkbox" id="complete" class="form-check-input"><label class="form-check-label" for="complete">Show complete task</label>
                                 </div> 
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>

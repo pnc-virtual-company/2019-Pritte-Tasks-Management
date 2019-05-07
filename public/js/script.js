@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(".hideShow").hide();
   });
 
-
   $("#gridRadios2").click(function(){
     $(".hideShow").show();
   });
@@ -37,10 +36,6 @@ $("#hideGroup").click(function(){
 });
 
   $('#dataTable2').DataTable();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
   $('#dataTable3').DataTable();
   $('#dataTable4').DataTable();
   $('#dataTable5').DataTable();
@@ -71,12 +66,6 @@ $("#hideGroup").click(function(){
       responsive: true
     }
   };
-
-  // window.onload = function() {
-  //   var ctx = document.getElementById('chart-area').getContext('2d');
-  //   window.myPie = new Chart(ctx, config);
-  // };
-
   
   var color = Chart.helpers.color;
 		var barChartData = {
@@ -182,7 +171,10 @@ $("#hideGroup").click(function(){
 });
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 });
 >>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
 =======
 >>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
+>>>>>>> c14b67e8c96aecd4621465c643b5c755ec4a9780

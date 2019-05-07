@@ -1,11 +1,9 @@
 @extends('templates.template')
 @section('template')
-    {{-- Code Here --}}
-    <!-- Page Heading -->
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Private Task</h1>
     </div>
-
     <div class="row">
         <div class="col-xl-12 col-lg-12">
           <div class="card shadow mb-4">
@@ -17,13 +15,6 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
-=======
->>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                 <form action="" class="text-center">
                     <input type="checkbox" name="complete" value="1" id="check1"> <label for="check1"> Show completed task</label>
                 </form>
@@ -41,18 +32,15 @@
                             <tr>
                                 <td>
                                     <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
-                                            class="material-icons">delete</i></a>
+                                        class="material-icons">delete</i></a>
                                     <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal" title="edit"><i
-                                            class="material-icons">edit</i></a></td>
+                                        class="material-icons">edit</i></a></td>
                                 <td>WEP</td>
                                 <td>VC2 intermediate release</td>
                                 <td>15/05/2019 8:00pm</td>
                                 <td>open</td>
             
                             </tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
                             <tr>
                                     <td>
                                             <a href="#" data-toggle="modal" class="text-danger" data-target="#deletetaskModal" title="view"><i
@@ -172,9 +160,6 @@
                                 <td>open</td>
             
                             </tr>
->>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
-=======
->>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
                         </tbody>
             
                     </table>
@@ -187,9 +172,7 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title">Create a new task</h4>
-            
                                 </div>
-            
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <form action="#">
