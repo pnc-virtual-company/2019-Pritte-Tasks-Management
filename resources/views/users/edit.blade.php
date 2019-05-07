@@ -15,6 +15,7 @@
                         <!-- Simulate PUT or PATCH verb, 
                              See: https://laravel.com/docs/5.7/controllers#resource-controllers //-->
                         @method('PUT')
+
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -23,8 +24,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">@lang('Gender')</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->gender }}">
+                            <label for="gender">@lang('Gender')</label>
+                            <input type="text" class="form-control" id="gender" name="gender" value="{{ $user->gender }}">
                         </div>
 
                         <div class="form-group">
@@ -33,13 +34,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">@lang('Position')</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->position }}">
+                            <label for="position">@lang('Position')</label>
+                            <input type="text" class="form-control" id="Position" name="position"  value="{{ $user->position }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">@lang('Province')</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->province }}">
+                            <label for="province">@lang('Province')</label>
+                            <input type="text" class="form-control" id="Province" name="province" value="{{ $user->province }}">
                         </div>
 
                         <div class="form-group">
@@ -50,7 +51,6 @@
                             @endforeach
                             </select>
                         </div>
-
                         <input type="submit" class="btn btn-primary" value="Save" />
                     </form>
                 </div>
@@ -65,7 +65,6 @@
 <script type="text/javascript">
 //On document ready, 
 $(function() {
-
 });
 </script>
 @endpush

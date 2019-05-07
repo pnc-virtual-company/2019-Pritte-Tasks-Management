@@ -68,7 +68,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -100,11 +99,11 @@
       </div>
         {{-- <script src="{{asset('js/app.js')}}"></script> --}}
       <script>
-      $('#deleteModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var id = button.data('id')
-        $('#formDelete').attr('action','user/'+id)
-    });
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            $('#formDelete').attr('action','user/'+id)
+        });
     </script>
 
 @endsection

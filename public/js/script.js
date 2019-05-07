@@ -169,3 +169,12 @@ $("#hideGroup").click(function(){
 		};
 
 });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+});
+>>>>>>> facbfeee901dde6456e05e96d6dbe483faffc969
+=======
+>>>>>>> d6ade5ed2fcc77b6b215248631747309d5662f52
+>>>>>>> c14b67e8c96aecd4621465c643b5c755ec4a9780

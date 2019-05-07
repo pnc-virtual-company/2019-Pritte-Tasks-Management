@@ -45,6 +45,7 @@ Route::get('group', function() {
     return view('pages.groups.group');
 });
 Route::resource('category','CategoryController');
+Route::resource('groups','GroupController');
 
 /*=============================================================================
    The routes below are written for the examples only. 
