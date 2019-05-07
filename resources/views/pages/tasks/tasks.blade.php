@@ -263,10 +263,6 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-<<<<<<< HEAD
-=======
-
->>>>>>> 84eba885439b51e449cf1d8e32488cb19a6547f4
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
@@ -503,7 +499,6 @@
                                                 <div class="modal-footer">
 
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                                 
@@ -650,10 +645,6 @@
                                                     </div>
                                                     </form>
                                                 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 84eba885439b51e449cf1d8e32488cb19a6547f4
                                             </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
@@ -676,10 +667,6 @@
                                 <div class="card-footer"></div>
                             </div>
                     </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 84eba885439b51e449cf1d8e32488cb19a6547f4
               </div>
         </div>
 @endsection
