@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        //Only authenticated users may access to the pages of this controller
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -64,7 +71,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+      //
     }
 
     /**
@@ -76,7 +83,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->name = $request->get('name');
+        $category->save();
+        return redirect('category');
     }
 
     /**
@@ -87,6 +98,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect('category');
+        
     }
 }
