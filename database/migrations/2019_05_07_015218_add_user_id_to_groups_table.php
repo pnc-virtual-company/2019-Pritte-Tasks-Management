@@ -15,18 +15,8 @@ class AddUserIdToGroupsTable extends Migration
     {
         Schema::table('groups', function (Blueprint $table) {
             $table->integer('manager_id')->unsigned();
-            $table->integer('viewers_id')->unsigned();
-            $table->integer('members_id')->unsigned();
 
             $table->foreign('manager_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->foreign('viewers_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->foreign('members_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');

@@ -28,22 +28,7 @@ class CreateUsersTable extends Migration
         });
 
         //Insert the default admin user
-<<<<<<< HEAD
         
-=======
-        DB::table('users')->insert(
-            array(
-                'id' => 1,
-                'name' => 'Administrator',
-                'email' => 'manager@example.com',
-                'password' => bcrypt('password'),
-                'remember_token' => str_random(10),
-                'gender'=>'Male',
-                'position'=>'Student',
-                'province'=>'Siem Reap'
-            )
-        );
->>>>>>> c14b67e8c96aecd4621465c643b5c755ec4a9780
     }
 
     /**
