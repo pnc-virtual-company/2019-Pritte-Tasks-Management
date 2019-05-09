@@ -19,9 +19,6 @@
     <script src="{{asset('js/app.js')}}"></script>
 </head>
     <body id="page-top">
-
-
-
         <!-- Page Wrapper -->
         <div id="wrapper">
 
@@ -60,11 +57,6 @@
                 </div>
               </div>
             </li>
-<<<<<<< HEAD
-
-=======
-
->>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
             @auth
             @if (\Auth::user()->role_id==1)
             <!-- Category Menu -->
@@ -83,11 +75,6 @@
                 <span>Groups</span>
               </a>
             </li>
-<<<<<<< HEAD
-
-=======
-
->>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
             @if (\Auth::user()->role_id==1)
             <li class="nav-item">
               <a class="nav-link collapsed" href="{{url('user')}} ">
@@ -97,11 +84,6 @@
               </li>
             @endif
             @endauth
-<<<<<<< HEAD
-
-=======
-
->>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
             <!-- User Menu -->
           </ul>
           <!-- End of Sidebar -->
@@ -114,11 +96,6 @@
 
               <!-- Topbar -->
               <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
-<<<<<<< HEAD
-
-=======
-
->>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="text-light btn btn-link d-md-none rounded-circle mr-3">
                   <i class="fa fa-bars"></i>
@@ -224,6 +201,7 @@
                 </ul>
 
               </nav>
+              
               <div class="container-fluid">
 
                 @yield('template')
