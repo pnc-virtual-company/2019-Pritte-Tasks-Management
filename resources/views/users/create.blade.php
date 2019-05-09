@@ -67,7 +67,7 @@
 
 @push('scripts')
 <script type="text/javascript">
-//On document ready, 
+//On document ready,
 $(function() {
 
 });

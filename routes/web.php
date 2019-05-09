@@ -19,6 +19,13 @@ Auth::routes();
 
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
+<<<<<<< HEAD
+Route::resource('user','UserController');
+Route::get('/', function() {
+    return view('pages.dashboard');
+});
+
+=======
 Route::get('users/edit','UserController@editSetting');
 Route::PUT('users/update','UserController@updateSetting');
 
@@ -26,6 +33,7 @@ Route::PUT('users/update','UserController@updateSetting');
 Route::resource('user','UserController');
 Route::get('/', 'DashboardController@index');
 
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
 Route::get('task', function() {
     return view('pages.tasks.tasks');
 });
