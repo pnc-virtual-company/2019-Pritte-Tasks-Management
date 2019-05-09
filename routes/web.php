@@ -24,6 +24,7 @@ Route::PUT('users/update','UserController@updateSetting');
 
 Route::resource('user','UserController');
 Route::get('/', 'DashboardController@index');
+
 Route::get('task', function() {
     return view('pages.tasks.tasks');
 });

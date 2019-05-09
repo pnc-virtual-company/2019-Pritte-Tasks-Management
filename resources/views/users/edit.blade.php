@@ -21,6 +21,7 @@
                         </div>
 
                         <div class="form-group">
+
                             @if ($user->gender == "Male")
                                 <label for="gender">@lang('Gender')</label>
                                 <select name="gender" id="gender" class="form-control">
@@ -67,5 +68,4 @@
         </div>
     </div>
 </div>
-
 @endsection

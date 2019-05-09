@@ -20,7 +20,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $(".groupHideShow").hide()
-});
 $("#showGroup").click(function(){
   $(".hideShow").hide();
   $(".groupHideShow").show();
@@ -31,25 +30,24 @@ $("#hideGroup").click(function(){
   $(".groupHideShow").hide();
   $(".hideShow").show();
 });
-
   $('#dataTable2').DataTable();
   $('#dataTable3').DataTable();
   $('#dataTable4').DataTable();
 	$('#dataTable5').DataTable();
-	
+});
+
 $(document).ready(function(){
-
-	new Chart(document.getElementById("pie-chart"), {
-		type: 'pie',
-		data: {
-				labels: ["Open", "Completed"],
-				datasets: [{
-				backgroundColor: ["#c21e56", "green"],
-				data: [40,30]
-				}]
-		}
-	});
-
+    new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+        data: {
+            labels: ["Open", "Completed"],
+            datasets: [{
+            backgroundColor: ["#c21e56", "green"],
+            data: [40,30]
+            }]
+        }
+    }); 
+	
 	new Chart(document.getElementById("bar-chart"), {
 		type: 'bar',
 		data: {
