@@ -22,7 +22,6 @@ Route::get('users/export','UserController@export');
 Route::get('users/edit','UserController@editSetting');
 Route::PUT('users/update','UserController@updateSetting');
 
-
 Route::resource('user','UserController');
 Route::get('/', 'DashboardController@index');
 
@@ -34,12 +33,11 @@ Route::get('private',function(){
     return view('pages.privates.private');
 });
 
-
 Route::get('group', function() {
     return view('pages.groups.group');
 });
 Route::resource('category','CategoryController');
-Route::resource('groups','GroupController');
+Route::resource('group','GroupController');
 
 /*=============================================================================
    The routes below are written for the examples only.

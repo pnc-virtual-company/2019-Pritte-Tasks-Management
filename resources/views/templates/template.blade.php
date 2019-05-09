@@ -19,9 +19,6 @@
     <script src="{{asset('js/app.js')}}"></script>
 </head>
     <body id="page-top">
-
-
-
         <!-- Page Wrapper -->
         <div id="wrapper">
 
@@ -204,6 +201,7 @@
                 </ul>
 
               </nav>
+              
               <div class="container-fluid">
 
                 @yield('template')
