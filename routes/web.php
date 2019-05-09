@@ -19,11 +19,11 @@ Auth::routes();
 
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
-Route::resource('user','UserController');
-Route::get('/', function() {
-    return view('pages.dashboard');
-});
+Route::get('users/edit','UserController@editSetting');
+Route::PUT('users/update','UserController@updateSetting');
 
+Route::resource('user','UserController');
+Route::get('/', 'DashboardController@index');
 Route::get('task', function() {
     return view('pages.tasks.tasks');
 });
@@ -31,7 +31,6 @@ Route::get('task', function() {
 Route::get('private',function(){
     return view('pages.privates.private');
 });
-
 
 Route::get('group', function() {
     return view('pages.groups.group');

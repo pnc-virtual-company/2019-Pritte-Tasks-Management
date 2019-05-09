@@ -7,16 +7,16 @@
             <h1>Bootstrap datepicker widget</h1>
             <p>This widget transforms a text input into a date picker. Please visit their website for more information:
                 <a target="_blank" href="http://bootstrap-datepicker.readthedocs.io/en/latest/">http://bootstrap-datepicker.readthedocs.io/en/latest/</a></p>
-            
+
             <p>Click into the text input below:</p>
-            
+
             <input type="text" class="datepicker">
 
             <h1>flatpickr is an alternative datepicker widget</h1>
 
             <p>This is a serious alternative with plenty of options. Please visit their website for more information:
                     <a target="_blank" href="https://flatpickr.js.org/">https://flatpickr.js.org/</a></p>
-    
+
             <h3>Range mode</h3>
             <input type="text" id="flatpickr_range" class=flatpickr placeholder="Select Dates..">
 
