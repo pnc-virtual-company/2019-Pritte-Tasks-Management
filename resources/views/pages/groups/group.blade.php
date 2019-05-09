@@ -32,6 +32,9 @@
                                 <td>
                                     <a href="#" class="text-danger data-toggle="modal"
                                         data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
+
+                                        <a href="#" class="text-primary" data-toggle="modal"
+                                        data-target="#showModel"><i class="material-icons text-info">visibility</i></a>
                                     <a href="#" class="text-primary" data-toggle="modal"
                                         data-target="#editmyModal"><i class="material-icons">edit</i></a>1
                                 </td>
@@ -45,6 +48,10 @@
                                 <td>
                                     <a href="#" class="text-danger data-toggle="modal"
                                     data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
+
+                                    <a href="#" class="text-primary" data-toggle="modal"
+                                    data-target="#showModel"><i class="material-icons text-info">visibility</i></a>
+
                                     <a href="#" class="text-primary" data-toggle="modal"
                                     data-target="#editmyModal"><i class="material-icons">edit</i></a>2
                                 </td>
@@ -56,12 +63,12 @@
                             </tr>
                         </tbody>
                     </table>
-                    
+
                     <!-- The Modal Create-->
                     <div class="modal fade" id="myModal">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content">
-            
+
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title">Create a new Group</h4>
@@ -103,7 +110,7 @@
                                         </div>
                                     </form>
                                 </div>
-                               
+
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success">Create Group</button>
@@ -119,7 +126,7 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title">Confrimation</h4>
                                 </div>
-            
+
                                 <div class="modal-body">
                                     Are you sure that you want to delete this group?
                                 </div>
@@ -130,6 +137,52 @@
                             </div>
                         </div>
                     </div>
+                    {{-- model show --}}
+                    <div class="modal fade" id="showModel">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Group Detail</h4>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                       <div class="card">
+                                           <div class="card-body">
+
+                                               <label><b>Group Name: </b> Class Web-2019</label>
+                                           </div>
+                                           <hr>
+                                           <div class="card-body">
+                                               <label><b>Manager Name: </b> Class Web-2019</label>
+                                           </div>
+                                           <hr>
+                                           <div class="card-body">
+
+                                               <label><b>Viewer (s): </b> Class Web-2019</label>
+                                           </div>
+                                           <hr>
+                                           <div class="card-body">
+                                               <label><b>Member (s): </b> Class Web-2019</label>
+                                           </div>
+
+                                       </div>
+                                       <div class="card-footer">
+                                            <p>Created At:</p>
+                                            <p>Updated At:</p>
+                                       </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                     <!-- model for edit -->
                      <div class="modal fade" id="editmyModal">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -175,7 +228,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                   
+
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-success">Edit Group</button>
@@ -188,7 +241,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                
+
             </div>
           </div>
         </div>

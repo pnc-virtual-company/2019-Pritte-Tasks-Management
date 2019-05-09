@@ -22,7 +22,6 @@ Route::get('users/export','UserController@export');
 Route::get('users/edit','UserController@editSetting');
 Route::PUT('users/update','UserController@updateSetting');
 
-
 Route::resource('user','UserController');
 Route::get('/', 'DashboardController@index');
 
@@ -33,7 +32,6 @@ Route::get('task', function() {
 Route::get('private',function(){
     return view('pages.privates.private');
 });
-
 
 Route::get('group', function() {
     return view('pages.groups.group');

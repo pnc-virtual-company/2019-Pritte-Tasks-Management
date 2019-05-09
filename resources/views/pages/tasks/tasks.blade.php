@@ -567,7 +567,6 @@
                                             </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
-                                        <script src="{{asset('js/app.js')}}"></script>
                                         <script>
                                                 $('#deleteModal2').on('show.bs.modal',function(event){
                                                 var button = $(event.relatedTarget)
