@@ -42,7 +42,7 @@ Route::resource('category','CategoryController');
 Route::resource('groups','GroupController');
 
 /*=============================================================================
-   The routes below are written for the examples only. 
+   The routes below are written for the examples only.
    You can delete them because you do not need them for a real application.
 */
 Route::get('examples/emails', 'ExamplesController@emails');
@@ -81,6 +81,6 @@ Route::get('examples/pdf/downloadPDF', 'ExamplesController@downloadPDF');
 Route::get('examples', 'ExamplesController@index')->name('examples');
 /*
 =============================================================================*/
-/* 
+/*
 * This route is used by Page Controller
 **/

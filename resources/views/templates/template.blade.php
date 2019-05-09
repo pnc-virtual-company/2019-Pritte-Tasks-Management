@@ -19,11 +19,12 @@
     <script src="{{asset('js/app.js')}}"></script>
 </head>
     <body id="page-top">
-      
+
+
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-      
+
           <!-- Sidebar -->
           <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -34,17 +35,17 @@
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-      
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
               <a class="nav-link" href="{{url('/')}} ">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
             </li>
-      
+
             <!-- Divider -->
             <hr class="sidebar-divider">
-      
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -59,7 +60,6 @@
                 </div>
               </div>
             </li>
-            
             @auth
             @if (\Auth::user()->role_id==1)
             <!-- Category Menu -->
@@ -78,7 +78,6 @@
                 <span>Groups</span>
               </a>
             </li>
-                
             @if (\Auth::user()->role_id==1)
             <li class="nav-item">
               <a class="nav-link collapsed" href="{{url('user')}} ">
@@ -88,28 +87,26 @@
               </li>
             @endif
             @endauth
-              
             <!-- User Menu -->
           </ul>
           <!-- End of Sidebar -->
-      
+
           <!-- Content Wrapper -->
           <div id="content-wrapper" class="d-flex flex-column">
-      
+
             <!-- Main Content -->
             <div id="content">
-      
+
               <!-- Topbar -->
               <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
-      
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="text-light btn btn-link d-md-none rounded-circle mr-3">
                   <i class="fa fa-bars"></i>
                 </button>
-                  
+
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
-      
+
                   <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                   <li class="nav-item dropdown no-arrow d-sm-none">
                     <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -129,7 +126,7 @@
                       </form>
                     </div>
                   </li>
-      
+
                   <!-- Nav Item - Alerts -->
                   <li class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -178,10 +175,10 @@
                       <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                     </div>
                   </li>
-      
-                  
+
+
                   <div class="topbar-divider d-none d-sm-block"></div>
-      
+
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -203,23 +200,22 @@
                       </a>
                     </div>
                   </li>
-      
+
                 </ul>
-      
+
               </nav>
-              
               <div class="container-fluid">
 
                 @yield('template')
-      
+
         </div>
         <!-- End of Page Wrapper -->
-      
+
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top">
           <i class="fas fa-angle-up"></i>
         </a>
-      
+
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -245,26 +241,26 @@
             </div>
           </div>
         </div>
-      
+
         <!-- Bootstrap core JavaScript-->
         <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-      
+
         <!-- Core plugin JavaScript-->
         <script src="{{asset('js/jquery.easing.min.js')}}"></script>
-      
+
         <!-- Custom scripts for all pages-->
         <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
         <script src="{{asset('js/script.js')}} "></script>
-        
-      
+
+
         <!-- Page level plugins -->
         <script src={{asset('charts/Chart.min.js')}}></script>
         <script src="{{asset('charts/utils.js')}}"></script>
-      
+
         <!-- Page level custom scripts -->
         <script src="{{asset('charts/chart-area-demo.js')}}"></script>
         <script src="{{asset('charts/chart-pie-demo.js')}}"></script>
-        
+
 
         {{-- Datatable JS --}}
         <script src="{{asset('datatables/jquery.dataTables.js')}} "></script>

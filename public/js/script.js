@@ -1,6 +1,10 @@
 $(document).ready(function(){
     $(".hideShow").hide();
-    
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
   $("#gridRadios1").click(function(){
     $(".hideShow").hide();
   });
@@ -8,7 +12,11 @@ $(document).ready(function(){
   $("#gridRadios2").click(function(){
     $(".hideShow").show();
   });
-    
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
   $("#gridRadios3").click(function(){
     $(".hideShow").hide();
   });
@@ -23,7 +31,11 @@ $(document).ready(function(){
 $(document).ready(function(){
   $(".groupHideShow").hide()
 });
-  
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
 $("#showGroup").click(function(){
   $(".hideShow").hide();
   $(".groupHideShow").show();
@@ -39,7 +51,11 @@ $("#hideGroup").click(function(){
   $('#dataTable3').DataTable();
   $('#dataTable4').DataTable();
   $('#dataTable5').DataTable();
-  
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
   var randomScalingFactor = function() {
     return Math.round(Math.random() * 100);
   };
@@ -66,7 +82,11 @@ $("#hideGroup").click(function(){
       responsive: true
     }
   };
-  
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
   var color = Chart.helpers.color;
 		var barChartData = {
 			labels: ['Club', 'Homework', 'Workshop','Sport'],
