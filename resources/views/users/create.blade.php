@@ -20,7 +20,10 @@
 
                         <div class="form-group">
                             <label for="gender">@lang('Gender')</label>
-                            <input type="text" class="form-control" id="gender" name="gender" value="{{ old('gender') }}">
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
+    <script src="{{asset('js/app.js')}}"></script>
 </head>
     <body id="page-top">
       
@@ -191,13 +192,9 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{url('users/profile')}} ">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Settings
                       </a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#}} " data-toggle="modal" data-target="#logoutModal">
@@ -210,9 +207,7 @@
                 </ul>
       
               </nav>
-              <!-- End of Topbar -->
-      
-              <!-- Begin Page Content -->
+              
               <div class="container-fluid">
 
                 @yield('template')
@@ -252,7 +247,6 @@
         </div>
       
         <!-- Bootstrap core JavaScript-->
-        <script src="{{asset('js/jquery.min.js')}} "></script>
         <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
       
         <!-- Core plugin JavaScript-->

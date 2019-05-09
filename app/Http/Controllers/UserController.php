@@ -32,10 +32,35 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  Controll on Profile User
     public function profile(Request $request)
     {
         $user = Auth::user();
         return view('users.profile', ['user' => $user]);
+    }
+
+    public function editSetting() {
+        $user = Auth::user();
+        $roles = Role::all();
+        return view('users.update', ['user' => $user, 'roles' => $roles]);
+    }
+
+    public function updateSetting(Request $request) {
+        $user = Auth::user();
+        $fileName = $request->file('avatar')->getClientOriginalName();
+        $request->file('avatar')->storeAs('public/storage/profiles',$fileName);
+        
+        $user->name = Input::get('name');
+        $user->gender = Input::get('gender');
+        $user->email = Input::get('email');
+        $user->position = Input::get('position');
+        $user->province = Input::get('province');
+        $user->role_id = Input::get('roles');
+        $user->avatar = $fileName;
+        $user->save();
+        // redirect
+        return Redirect::to('users/profile');
     }
 
     /**

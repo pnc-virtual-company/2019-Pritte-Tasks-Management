@@ -65,7 +65,7 @@
                       <td>Royalty free faces</td>
                       <td>
                         Take a look at the folder <code>public/images/examples/faces/</code>
-                        <img id="imgProfilePic" src="{{url('images/examples/faces/m34.jpg')}}" class="img-fluid rounded mx-auto d-block"/>
+                        <img id="imgProfilePic" src="{{url('images/profiles/default.jpg')}}" class="img-fluid rounded mx-auto d-block"/>
                       </td>
                     </tr>
                     <tr>
