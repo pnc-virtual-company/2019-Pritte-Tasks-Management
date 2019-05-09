@@ -131,7 +131,6 @@
         </div>
 </div>
 
-<script src="{{asset('js/app.js')}}"></script>
 <script>
   $('#editModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)

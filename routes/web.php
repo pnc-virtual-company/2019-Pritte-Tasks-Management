@@ -19,10 +19,12 @@ Auth::routes();
 
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
+Route::get('users/edit','UserController@editSetting');
+Route::PUT('users/update','UserController@updateSetting');
+
+
 Route::resource('user','UserController');
-Route::get('/', function() {
-    return view('pages.dashboard');
-});
+Route::get('/', 'DashboardController@index');
 
 Route::get('task', function() {
     return view('pages.tasks.tasks');
