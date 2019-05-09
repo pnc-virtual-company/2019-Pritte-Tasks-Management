@@ -9,19 +9,17 @@
     <link rel="stylesheet" href="{{asset('css/font.css')}} ">
     {{-- css --}}
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('font-awesome/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('css/materialsicon.css')}}">
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
     {{-- Datatables --}}
     <link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
-    {{-- datepicker style --}}
-    <link rel="stylesheet" href="{{asset('css/datepicker_css/style.css')}}">
-
     <script src="{{asset('js/app.js')}}"></script>
 </head>
     <body id="page-top">
+
 
 
         <!-- Page Wrapper -->
@@ -62,7 +60,11 @@
                 </div>
               </div>
             </li>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
             @auth
             @if (\Auth::user()->role_id==1)
             <!-- Category Menu -->
@@ -81,7 +83,11 @@
                 <span>Groups</span>
               </a>
             </li>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
             @if (\Auth::user()->role_id==1)
             <li class="nav-item">
               <a class="nav-link collapsed" href="{{url('user')}} ">
@@ -91,7 +97,11 @@
               </li>
             @endif
             @endauth
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
             <!-- User Menu -->
           </ul>
           <!-- End of Sidebar -->
@@ -104,7 +114,11 @@
 
               <!-- Topbar -->
               <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="text-light btn btn-link d-md-none rounded-circle mr-3">
                   <i class="fa fa-bars"></i>
@@ -195,13 +209,9 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{url('users/profile')}} ">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Settings
                       </a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#}} " data-toggle="modal" data-target="#logoutModal">
@@ -214,9 +224,6 @@
                 </ul>
 
               </nav>
-              <!-- End of Topbar -->
-
-              <!-- Begin Page Content -->
               <div class="container-fluid">
 
                 @yield('template')
@@ -280,7 +287,6 @@
         <script src="{{asset('datatables/dataTables.bootstrap4.min.js')}} "></script>
         <script src="{{asset('datatables/dataTables-demo.js')}} "></script>
 
-        {{-- Date picker --}}
       </body>
 </body>
 </html>

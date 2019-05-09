@@ -26,6 +26,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        //Insert the default admin user
+
     }
 
     /**

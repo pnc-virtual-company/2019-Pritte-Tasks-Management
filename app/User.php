@@ -37,21 +37,27 @@ class User extends Authenticatable
     {
       return $this->belongsTo(Role::class);
     }
-    public function group() 
-    {
-        return $this->belongsTo(Group::class);
+
+    // Relationship 1:M for manager
+    public function manager() {
+        return $this->hasMany(Group::class);
     }
-    
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class)->withPivot('tag');
+    }
+
     /**
     * @param string|array $roles
     */
     public function authorizeRoles($roles)
     {
         if (is_array($roles)) {
-            return $this->hasAnyRole($roles) || 
+            return $this->hasAnyRole($roles) ||
                     abort(401, 'This action is unauthorized.');
         }
-        return $this->hasRole($roles) || 
+        return $this->hasRole($roles) ||
                 abort(401, 'This action is unauthorized.');
     }
 

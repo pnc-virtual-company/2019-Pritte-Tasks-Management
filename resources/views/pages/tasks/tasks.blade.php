@@ -222,7 +222,6 @@
                                         <h4 class="modal-title">Edit Task</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
-
                                         <!-- Modal body -->
                                         <div class="modal-body">
                                             <form action="#" method="POST">
@@ -360,7 +359,6 @@
                                 </div>
 
                                 <!-- {{-- jquery  delete for task assign to me--}} -->
-                                <script src="{{asset('js/app.js')}}"></script>
                                 <script>
                                         $('#deleteModal').on('show.bs.modal',function(event){
                                         var button = $(event.relatedTarget)
@@ -431,13 +429,11 @@
                                     <div class="modal fade" id="editModal2">
                                             <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
-
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
                                                 <h4 class="modal-title">Edit Task</h4>
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
-
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
                                                     <form action="#" method="POST">
@@ -568,7 +564,6 @@
                                                     </div>
                                                     </form>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <!-- {{-- jquery --}} -->
@@ -590,7 +585,6 @@
                                 <div class="card-footer"></div>
                             </div>
                     </div>
-
               </div>
         </div>
 @endsection

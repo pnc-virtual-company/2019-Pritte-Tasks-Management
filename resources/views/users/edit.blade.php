@@ -12,8 +12,11 @@
                 <div class="card-body">
 
                     <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+<<<<<<< HEAD
                         <!-- Simulate PUT or PATCH verb, 
                              See: https://laravel.com/docs/5.7/controllers#resource-controllers //-->
+=======
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
                         @method('PUT')
 
                         {{ csrf_field() }}
@@ -24,8 +27,25 @@
                         </div>
 
                         <div class="form-group">
+<<<<<<< HEAD
                             <label for="gender">@lang('Gender')</label>
                             <input type="text" class="form-control" id="gender" name="gender" value="{{ $user->gender }}">
+=======
+                            @if ($user->gender == "Male")
+                                <label for="gender">@lang('Gender')</label>
+                                <select name="gender" id="gender" class="form-control">
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            @else
+                                <label for="gender">@lang('Gender')</label>
+                                <select name="gender" id="gender" class="form-control">
+                                    <option value="Male">Male</option>
+                                    <option value="Female" selected>Female</option>
+                                </select>
+                            @endif
+
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
                         </div>
 
                         <div class="form-group">
@@ -45,13 +65,18 @@
 
                         <div class="form-group">
                             <label for="roles[]">Roles</label>
-                            <select class="form-control" id="roles" name="roles[]" multiple size="5">
+                            <select class="form-control" id="roles" name="roles" multiple size="5">
                             @foreach ($roles as $role)
                                 <option value="{{ $role->id }}" @if(($role->id == $user->role_id)) selected @endif>{!! $role->name !!}</option>
                             @endforeach
                             </select>
                         </div>
+<<<<<<< HEAD
                         <input type="submit" class="btn btn-primary" value="Save" />
+=======
+                        <input type="submit" class="btn btn-primary" value="Edit User" />
+                        <a href="{{url('user')}} " class="btn btn-secondary ">Cancel</a>
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
                     </form>
                 </div>
             </div>
@@ -60,6 +85,7 @@
 </div>
 
 @endsection
+<<<<<<< HEAD
 
 @push('scripts')
 <script type="text/javascript">
@@ -68,3 +94,5 @@ $(function() {
 });
 </script>
 @endpush
+=======
+>>>>>>> deee474b8df2fdb3d351e1f5b8c303978ddb85b6
