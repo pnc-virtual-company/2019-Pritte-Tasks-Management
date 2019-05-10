@@ -19,10 +19,11 @@ Auth::routes();
 
 Route::get('users/profile','UserController@profile');
 Route::get('users/export','UserController@export');
+Route::get('users/edit','UserController@editSetting');
+Route::PUT('users/update','UserController@updateSetting');
+
 Route::resource('user','UserController');
-Route::get('/', function() {
-    return view('pages.dashboard');
-});
+Route::get('/', 'DashboardController@index');
 
 Route::get('task', function() {
     return view('pages.tasks.tasks');
@@ -32,15 +33,14 @@ Route::get('private',function(){
     return view('pages.privates.private');
 });
 
-
-// Route::get('group', function() {
-//     return view('pages.groups.group');
-// });
+Route::get('group', function() {
+    return view('pages.groups.group');
+});
 Route::resource('category','CategoryController');
 Route::resource('group','GroupController');
 
 /*=============================================================================
-   The routes below are written for the examples only. 
+   The routes below are written for the examples only.
    You can delete them because you do not need them for a real application.
 */
 Route::get('examples/emails', 'ExamplesController@emails');
@@ -79,6 +79,6 @@ Route::get('examples/pdf/downloadPDF', 'ExamplesController@downloadPDF');
 Route::get('examples', 'ExamplesController@index')->name('examples');
 /*
 =============================================================================*/
-/* 
+/*
 * This route is used by Page Controller
 **/

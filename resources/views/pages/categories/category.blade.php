@@ -20,7 +20,7 @@
                         <tbody>
                             @foreach ($category as $item)
                             <tr>
-                                
+
                                 <td>
                                     <a href="" data-id="{{ $item->id}}" data-target="#deleteModal"  data-toggle="modal"  >
                                         <i class="material-icons text-danger" >delete</i>
@@ -56,7 +56,7 @@
                                     <input type="text" name="category" required class="form-control">
                                 </div>
                             </div>
-                            
+
                         <br>
                     </div>
                     <!-- Modal footer -->
@@ -131,7 +131,6 @@
         </div>
 </div>
 
-<script src="{{asset('js/app.js')}}"></script>
 <script>
   $('#editModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
@@ -144,7 +143,7 @@
 
   $('#deleteModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
-      var id = button.data('id') 
+      var id = button.data('id')
       var modal = $(this)
       modal.find('#deleteCate').attr('action','category/'+id)
 })

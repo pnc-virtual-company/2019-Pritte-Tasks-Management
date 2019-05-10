@@ -28,12 +28,12 @@
                 </div>
                 <div class="col-5">
                     <div id="canvas-holder" >
-                        <canvas id="chart-area"></canvas>
+                        <canvas id="pie-chart"></canvas>
                     </div>
                 </div>
                 <div class="col-4 mt-4">
                     <div id="container">
-                        <canvas id="canvas" height="190px"></canvas>
+                        <canvas id="bar-chart" height="190px"></canvas>
                     </div>    
                 </div>
             </div>
@@ -213,7 +213,12 @@
                         </div>
                       </div>
                       <div class="row mt-4">
-                           <canvas id="line"></canvas>
+                          <div class="col-1"></div>
+                          <div class="col-10">
+                              <canvas id="line-chart"></canvas>
+
+                          </div>
+                          <div class="col-1"></div>
                     </div>
         </div>
     </div>

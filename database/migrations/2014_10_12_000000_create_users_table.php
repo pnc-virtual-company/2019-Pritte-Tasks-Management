@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
         });
 
         //Insert the default admin user
-        
+
     }
 
     /**
