@@ -20,9 +20,8 @@
                         <tbody>
                             @foreach ($category as $item)
                             <tr>
-
                                 <td>
-                                    <a href="" data-id="{{ $item->id}}" data-target="#deleteModal"  data-toggle="modal"  >
+                                    <a href="" data-id="{{$item->id}}" data-target="#deleteModal"  data-toggle="modal"  >
                                         <i class="material-icons text-danger" >delete</i>
                                     </a>
                                     <a href="" data-toggle="modal" data-name="{{ $item->name }}" data-id="{{ $item->id}}" data-target="#editModal">

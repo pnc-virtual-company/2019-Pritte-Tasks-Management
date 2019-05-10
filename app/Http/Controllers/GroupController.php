@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Group;
+use App\User;
 class GroupController extends Controller
 {
     /**
@@ -13,7 +14,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $group = Group::all();
+        $user = User::all();
+        return view('pages.groups.group',compact('group',$group),compact('user',$user));
     }
 
     /**
@@ -79,6 +82,8 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $group = Group::findOrFail($id);
+        $group->delete();
+        return redirect('group');
     }
 }

@@ -28,32 +28,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($group as $item)
                             <tr>
                                 <td>
-                                    <a href="#" class="text-danger data-toggle="modal"
+                                    <a href="" data-id="{{$item->id}}" class="text-danger" data-toggle="modal"
                                         data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
-                                    <a href="#" class="text-primary" data-toggle="modal"
-                                        data-target="#editmyModal"><i class="material-icons">edit</i></a>1
+                                    <a href="" class="text-primary" data-toggle="modal"
+                                        data-target="#editmyModal"><i class="material-icons">edit</i></a>
+                                        {{$item->id}}
                                 </td>
-                                <td>Virtual Company</td>
-                                <td>Group A</td>
-                                <td>Everybody</td>
-                                <td>17 members</td>
-                                <td>26/04/2019 3:40pm</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->manager->name}}</td>
+                                <td>{{$item->viewer_id}}</td>
+                                <td>{{$item->updated_at}}</td>
+                                <td>{{$item->created_at}}</td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <a href="#" class="text-danger data-toggle="modal"
-                                    data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
-                                    <a href="#" class="text-primary" data-toggle="modal"
-                                    data-target="#editmyModal"><i class="material-icons">edit</i></a>2
-                                </td>
-                                <td>Virtual Company</td>
-                                <td>Group Z</td>
-                                <td>Everybody</td>
-                                <td>17 members</td>
-                                <td>30/04/2019 3:40pm</td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     
@@ -124,8 +114,12 @@
                                     Are you sure that you want to delete this group?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#" class="btn btn-success">Delete Now</a>
-                                    <a href="#" class="btn btn-danger" data-dismiss="modal">Cancel</a>
+                                <form action="" id="deleteGroup" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Delete Now</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -192,4 +186,13 @@
             </div>
           </div>
         </div>
+
+        <script>
+              $('#deletetaskModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var id = button.data('id')
+                var modal = $(this)
+                modal.find('#deleteGroup').attr('action','groups/'+id)
+             })
+        </script>
 @endsection
