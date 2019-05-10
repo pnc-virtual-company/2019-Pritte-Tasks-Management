@@ -33,12 +33,14 @@
 
                         <div class="form-group">
                             <label for="position">@lang('Position')</label>
-                            <input type="text" class="form-control" id="position" name="position" value="{{ old('email') }}">
+                            <input type="text" class="form-control" id="position" name="position"
+                                value="{{ old('email') }}">
                         </div>
 
                         <div class="form-group">
                             <label for="province">@lang('Province')</label>
-                            <input type="text" class="form-control" id="province" name="province" value="{{ old('email') }}">
+                            <input type="text" class="form-control" id="province" name="province"
+                                value="{{ old('email') }}">
                         </div>
 
                         <div class="form-group">
@@ -49,9 +51,10 @@
                         <div class="form-group">
                             <label for="roles[]">Roles</label>
                             <select class="form-control" id="roles" name="roles" size="5">
-                            @foreach ($roles as $role)
-                                <option value="{{ $role->id }}" @if (!empty(old('roles'))) @if(in_array($role->id, old('roles'))) selected @endif @endif>{!! $role->name !!}</option>
-                            @endforeach
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->id }}" @if (!empty(old('roles'))) @if(in_array($role->id,
+                                    old('roles'))) selected @endif @endif>{!! $role->name !!}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -64,12 +67,3 @@
 </div>
 
 @endsection
-
-@push('scripts')
-<script type="text/javascript">
-//On document ready,
-$(function() {
-
-});
-</script>
-@endpush

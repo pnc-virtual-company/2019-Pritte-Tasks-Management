@@ -14,7 +14,8 @@ $(document).ready(function(){
   $("#gridRadios4").click(function(){
     $(".groupHideShow").hide();
     $(".hideShow").show();
-  });
+	});
+});
 
 // collective action
 
@@ -86,8 +87,14 @@ $(document).ready(function(){
 				borderColor: "#c45850",
 				fill: false
 				}
-		]
+		]      
+	},
+		options: {
+		title: {
+				display: true,
+				text: 'Man Days',
+				fontSize:30
+		}
 		}
 	})
-});
 });

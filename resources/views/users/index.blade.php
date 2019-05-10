@@ -14,11 +14,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <a class="btn btn-primary" href="{{url('user/create')}}">@lang('Add a new user')</a>
-                            <a class="btn btn-secondary" href="{{url('users/export')}}" download>@lang('Export to Excel')</a>
+                            <a class="btn btn-secondary" href="{{url('users/export')}}" download>@lang('Export to
+                                Excel')</a>
                         </div>
                     </div>
 
-                    <div class="row"><div class="col-md-12">&nbsp;</div></div>
+                    <div class="row">
+                        <div class="col-md-12">&nbsp;</div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -37,9 +40,13 @@
                                     @foreach ($users as $user)
                                     <tr data-id="{{ $user->id }}">
                                         <td>
-                                            <i class="mdi mdi-delete clickable text-danger delete-icon" data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" title="@lang('delete the user')"></i>
-                                            <a href="{{url('user')}}/{{ $user->id }}/edit" title="@lang('edit')"><i class="mdi mdi-pencil text-primary clickable"></i></a>
-                                            <a href="{{url('user')}}/{{ $user->id }}" title="@lang('view')"><i class="mdi mdi-eye text-info clickable"></i></a>
+                                            <i class="mdi mdi-delete clickable text-danger delete-icon"
+                                                data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}"
+                                                title="@lang('delete the user')"></i>
+                                            <a href="{{url('user')}}/{{ $user->id }}/edit" title="@lang('edit')"><i
+                                                    class="mdi mdi-pencil text-primary clickable"></i></a>
+                                            <a href="{{url('user')}}/{{ $user->id }}" title="@lang('view')"><i
+                                                    class="mdi mdi-eye text-info clickable"></i></a>
                                             <span>{{ $user->id }}</span>
                                         </td>
                                         <td>
@@ -56,13 +63,13 @@
                                         </td>
                                         <td>
                                             @if ($user->role_id == 1)
-                                                <span>Administrator</span>
+                                            <span>Administrator</span>
                                             @else
-                                                <span>Normal User</span>
+                                            <span>Normal User</span>
                                             @endif
                                         </td>
                                     </tr>
-                                @endforeach
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -75,35 +82,35 @@
 
 <!-- Modal Delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">@lang('Delete confirmation')</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title">@lang('Delete Users')</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <p>@lang('Are you sure that you want to delete this object?')</p>
+                <p>@lang('Are you sure that you want to delete this user?')</p>
             </div>
             <div class="modal-footer">
                 <form action="" id="formDelete" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">@lang('Yes')</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('No')</button>
+                    <button type="submit" class="btn btn-danger">@lang('Delete')</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('Cancel')</button>
                 </form>
             </div>
-          </div>
         </div>
-      </div>
-        {{-- <script src="{{asset('js/app.js')}}"></script> --}}
-      <script>
-        $('#deleteModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            $('#formDelete').attr('action','user/'+id)
-        });
-    </script>
+    </div>
+</div>
+{{-- <script src="{{asset('js/app.js')}}"></script> --}}
+<script>
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        $('#formDelete').attr('action', 'user/' + id)
+    });
+</script>
 
 @endsection

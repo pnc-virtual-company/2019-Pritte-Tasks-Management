@@ -94,6 +94,8 @@ class GroupController extends Controller
     public function destroy($id)
     {
         $groups = Group::findOrFail($id);
+        // $groups->users()->detach($viewer,['tag'=>'1']);
+        // $groups->users()->detach($member,['tag'=>'2']);
         $groups->delete();
         return redirect('group');
     }
