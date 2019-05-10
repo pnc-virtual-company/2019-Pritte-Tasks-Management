@@ -33,11 +33,11 @@ Route::get('private',function(){
 });
 
 
-Route::get('group', function() {
-    return view('pages.groups.group');
-});
+// Route::get('group', function() {
+//     return view('pages.groups.group');
+// });
 Route::resource('category','CategoryController');
-Route::resource('groups','GroupController');
+Route::resource('group','GroupController');
 
 /*=============================================================================
    The routes below are written for the examples only. 
