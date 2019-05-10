@@ -50,7 +50,7 @@
                         <form action="category" method="POST">
                             @csrf
                             @method('POST')
-                            <div class="form-group row"
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Category</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="category" required class="form-control">

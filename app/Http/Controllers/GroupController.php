@@ -59,7 +59,7 @@ class GroupController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -70,7 +70,8 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $group=Group::findOrFail($id);
+        // return view('pages.groups.group')->with('group',$group);
     }
 
     /**

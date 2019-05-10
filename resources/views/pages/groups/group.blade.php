@@ -34,37 +34,33 @@
                                     <a href="#" class="text-danger data-toggle="modal"
                                         data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
 
-                                        <a href="#" class="text-primary" data-toggle="modal"
-                                        data-target="#showModel"><i class="material-icons text-info">visibility</i></a>
                                     <a href="#" class="text-primary" data-toggle="modal"
-<<<<<<< HEAD
-                                        data-target="#editmyModal"><i class="material-icons">edit</i></a>1
-                                </td>
-                                <td>Virtual Company</td>
-                                <td>Group A</td>git
-                                <td>Everybody</td>
-                                <td>17 members</td>
-                                <td>26/04/2019 3:40pm</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#" class="text-danger data-toggle="modal"
-                                    data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
-
-                                    <a href="#" class="text-primary" data-toggle="modal"
-                                    data-target="#showModel"><i class="material-icons text-info">visibility</i></a>
-
-                                    <a href="#" class="text-primary" data-toggle="modal"
-                                    data-target="#editmyModal"><i class="material-icons">edit</i></a>2
-=======
-                                        data-target="#editmyModal"><i class="material-icons">edit</i></a>
+                                        data-target="#editmyModal" data-id="{{$item->id}}" data-manager="{{$item->manager->name}}"
+                                        data-name="{{$item->name}}" data-viewer="@foreach ($item->users as $user) @if ($user->pivot->tag == 1) {{$user->name . ', '}} @endif @endforeach"
+                                        data-member="@foreach ($item->users as $user) @if ($user->pivot->tag == 1) {{$user->name . ', '}} @endif @endforeach ">
+                                        <i class="material-icons">edit</i></a>
                                         <span>{{$item->id}}</span>
->>>>>>> 4e2963d6199831ef2a4250ff350e6f5b6edf1684
                                 </td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->manager_id}}</td>
-                                <td>{{$item->viewer_id}}</td>
-                                <td>{{$item->member_id}}</td>
+                                <td>{{$item->manager->name}}</td>
+                                <td>
+                                    @foreach ($item->users as $user)
+                                        @if ($user->pivot->tag == 1)
+                                            {{$user->name . ', '}}
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($item->users as $user)
+                                        @if ($user->pivot->tag == 2)
+                                            {{-- @push('')
+                                                <script type="text/javascript">
+
+                                                </script>
+                                            @endpush --}}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>{{$item->created_at}}</td>
                             </tr>
                             @endforeach
@@ -134,69 +130,7 @@
                     </div>
 
                     {{-- Delete Modal --}}
-                    <div class="modal fade" id="deletetaskModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Confrimation</h4>
-                                </div>
 
-                                <div class="modal-body">
-                                    Are you sure that you want to delete this group?
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#" class="btn btn-success">Delete Now</a>
-                                    <a href="#" class="btn btn-danger" data-dismiss="modal">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- model show --}}
-                    <div class="modal fade" id="showModel">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Group Detail</h4>
-                                    </div>
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                       <div class="card">
-                                           <div class="card-body">
-
-                                               <label><b>Group Name: </b> Class Web-2019</label>
-                                           </div>
-                                           <hr>
-                                           <div class="card-body">
-                                               <label><b>Manager Name: </b> Class Web-2019</label>
-                                           </div>
-                                           <hr>
-                                           <div class="card-body">
-
-                                               <label><b>Viewer (s): </b> Class Web-2019</label>
-                                           </div>
-                                           <hr>
-                                           <div class="card-body">
-                                               <label><b>Member (s): </b> Class Web-2019</label>
-                                           </div>
-
-                                       </div>
-                                       <div class="card-footer">
-                                            <p>Created At:</p>
-                                            <p>Updated At:</p>
-                                       </div>
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
                     <!-- model for edit -->
                      <div class="modal fade" id="editmyModal">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -207,13 +141,15 @@
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form action="#" method="POST">
+                                    <form action="" method="POST">
                                             @csrf
-                                            @method('POST')
+                                            @method('PATCH')
+
+                                            {{-- @foreach ($group as $item) --}}
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Group Name(s)</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" placeholder="Enter group name">
+                                                <input type="text" class="form-control ">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -240,14 +176,14 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Edit Group</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        {{-- @endforeach --}}
                                         </form>
                                     </div>
 
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Edit Group</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -259,17 +195,21 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-<!-- <script>
-  $('#myModal').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var user_id = button.data('id')
-      var user_name = button.data('name')
-      var modal = $(this)
-      modal.find('#name').attr('value',name);
-      modal.find('#myModal').attr('action','group/'+id)
-})
-</script> -->
->>>>>>> 4e2963d6199831ef2a4250ff350e6f5b6edf1684
+
+
+<script>
+    $('#editmyModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var group = button.data('name')
+        var manager = button.data('manager')
+        var viewer = button.data('viewer')
+        console.log(group);
+        console.log(manager);
+        console.log(viewer);
+        // var modal = $(this)
+        // modal.find('#name').attr('value',name);
+        // modal.find('#myModal').attr('action','group/'+id)
+  })
+  </script>
+
 @endsection

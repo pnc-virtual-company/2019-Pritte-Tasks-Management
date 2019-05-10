@@ -37,9 +37,10 @@
                                     @foreach ($users as $user)
                                     <tr data-id="{{ $user->id }}">
                                         <td>
-                                            <i class="mdi mdi-delete clickable text-danger delete-icon" data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" title="@lang('delete the user')"></i>
-                                            <a href="{{url('user')}}/{{ $user->id }}/edit" title="@lang('edit')"><i class="mdi mdi-pencil text-primary clickable"></i></a>
-                                            <a href="{{url('user')}}/{{ $user->id }}" title="@lang('view')"><i class="mdi mdi-eye text-info clickable"></i></a>
+                                            <a href="#"><i class="material-icons text-danger" data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" title="@lang('delete the user')">delete</i></a>
+                                            <a href="{{url('user')}}/{{ $user->id }}/edit" title="@lang('edit')"><i class="material-icons text-primary">edit</i></a>
+
+                                            <a href="{{url('user')}}/{{ $user->id }}" title="@lang('view')"><i class="material-icons text-info">visibility</i></a>
                                             <span>{{ $user->id }}</span>
                                         </td>
                                         <td>
