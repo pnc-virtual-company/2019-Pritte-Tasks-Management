@@ -41,9 +41,25 @@
                                         <span>{{$item->id}}</span>
                                 </td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->manager_id}}</td>
-                                <td>{{$item->viewer_id}}</td>
-                                <td>{{$item->member_id}}</td>
+                                <td>{{$item->manager->name}}</td>
+                                <td> 
+                                    @foreach ($item->users as $user)
+                                        @if ($user->pivot->tag == 1)
+                                            {{$user->name . ', '}}
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td> 
+                                    @foreach ($item->users as $user)
+                                        @if ($user->pivot->tag == 2)
+                                            {{-- @push('')
+                                                <script type="text/javascript">
+
+                                                </script>
+                                            @endpush --}}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>{{$item->created_at}}</td>
                             </tr>
                             @endforeach
