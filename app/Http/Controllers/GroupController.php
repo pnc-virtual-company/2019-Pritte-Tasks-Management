@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Group;
+use App\User;
 
 class GroupController extends Controller
 {
@@ -13,7 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::all();
+        $users = User::all();
+        return view('pages.groups.group')->with('groups',$groups)->with('users',$users);
     }
 
     /**
@@ -34,7 +38,17 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+        $manager = $request->manager;
+        $viewer = $request->viewer;
+        $member = $request->member;
+        $groups = new Group;
+        $groups->name= $name;
+        $groups->manager_id = $manager;
+        $groups->save();
+        $groups->users()->attach($viewer,['tag'=>'1']);
+        $groups->users()->attach($member,['tag'=>'2']);
+        return redirect('group');
     }
 
     /**
@@ -79,6 +93,8 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $groups = Group::findOrFail($id);
+        $groups->delete();
+        return redirect('group');
     }
 }
