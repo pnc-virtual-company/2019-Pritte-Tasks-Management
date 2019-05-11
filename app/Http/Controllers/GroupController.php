@@ -14,9 +14,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $group = Group::all();
-        $user = User::all();
-        return view('pages.groups.group',compact('group',$group),compact('user',$user));
+        $groups = Group::all();
+        $users = User::all();
+        return view('pages.groups.group')->with('groups',$groups)->with('users',$users);
     }
 
     /**
@@ -37,7 +37,17 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+        $manager = $request->manager;
+        $viewer = $request->viewer;
+        $member = $request->member;
+        $groups = new Group;
+        $groups->name= $name;
+        $groups->manager_id = $manager;
+        $groups->save();
+        $groups->users()->attach($viewer,['tag'=>'1']);
+        $groups->users()->attach($member,['tag'=>'2']);
+        return redirect('group');
     }
 
     /**
@@ -82,8 +92,10 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        $group = Group::findOrFail($id);
-        $group->delete();
+        $groups = Group::findOrFail($id);
+        // $groups->users()->detach($viewer,['tag'=>'1']);
+        // $groups->users()->detach($member,['tag'=>'2']);
+        $groups->delete();
         return redirect('group');
     }
 }
