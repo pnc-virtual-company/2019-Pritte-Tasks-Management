@@ -33,9 +33,9 @@ Route::get('private',function(){
     return view('pages.privates.private');
 });
 
-Route::get('group', function() {
-    return view('pages.groups.group');
-});
+// Route::get('group', function() {
+//     return view('pages.groups.group');
+// });
 Route::resource('category','CategoryController');
 Route::resource('group','GroupController');
 
