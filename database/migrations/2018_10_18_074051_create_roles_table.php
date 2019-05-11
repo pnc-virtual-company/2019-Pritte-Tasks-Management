@@ -31,7 +31,7 @@ class CreateRolesTable extends Migration
         DB::table('roles')->insert(
             array(
                 'id' => 2,
-                'name' => 'User',
+                'name' => 'Normal User',
                 'description' => 'Regular User'
             )
         );
