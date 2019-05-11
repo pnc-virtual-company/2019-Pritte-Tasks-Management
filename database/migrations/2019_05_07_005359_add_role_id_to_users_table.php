@@ -29,9 +29,23 @@ class AddRoleIdToUsersTable extends Migration
                 'password' => bcrypt('password'),
                 'remember_token' => str_random(10),
                 'gender'=>'Male',
-                'position'=>'Student',
+                'position'=>'Manager',
                 'province'=>'Siem Reap',
                 'role_id'=>1
+            )
+        );
+        
+        DB::table('users')->insert(
+            array(
+                'id' => 2,
+                'name' => 'Sam Oun',
+                'email' => 'samoun@gmail.com',
+                'password' => bcrypt('password'),
+                'remember_token' => str_random(10),
+                'gender'=>'Male',
+                'position'=>'Developer',
+                'province'=>'Siem Reap',
+                'role_id'=>2
             )
         );
     }

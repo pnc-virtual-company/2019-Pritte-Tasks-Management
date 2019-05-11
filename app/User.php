@@ -38,11 +38,6 @@ class User extends Authenticatable
       return $this->belongsTo(Role::class);
     }
 
-    // Relationship 1:M for manager
-    public function manager() {
-        return $this->hasMany(Group::class);
-    }
-
     public function groups()
     {
         return $this->belongsToMany(Group::class)->withPivot('tag');

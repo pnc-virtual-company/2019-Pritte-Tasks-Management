@@ -18,7 +18,19 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
-        //Insert the default admin user
+        //Insert the default category user
+        DB::table('categories')->insert(
+            array(
+                'id' => 1,
+                'name' => 'Workshop'
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'id' => 2,
+                'name' => 'Homework'
+            )
+        );
     }
     /**
      * Reverse the migrations.

@@ -43,8 +43,8 @@ class GroupController extends Controller
         $member = $request->member;
         $groups = new Group;
         $groups->name= $name;
-        $groups->manager_id = $manager;
         $groups->save();
+        $groups->users()->attach($manager,['tag'=>'0']);
         $groups->users()->attach($viewer,['tag'=>'1']);
         $groups->users()->attach($member,['tag'=>'2']);
         return redirect('group');
@@ -93,9 +93,10 @@ class GroupController extends Controller
     public function destroy($id)
     {
         $groups = Group::findOrFail($id);
-        // $groups->users()->detach($viewer,['tag'=>'1']);
-        // $groups->users()->detach($member,['tag'=>'2']);
         $groups->delete();
+        $groups->users()->wherePivot('tag', 0)->detach();
+        $groups->users()->wherePivot('tag', 1)->detach();
+        $groups->users()->wherePivot('tag', 2)->detach();
         return redirect('group');
     }
 }

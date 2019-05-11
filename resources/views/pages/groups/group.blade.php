@@ -37,17 +37,22 @@
                                 <span>{{$item->id}}</span>
                             </td>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->manager->name}}</td>
                             <td>
                                 @foreach ($item->users as $user)
-                                @if ($user->pivot->tag == 1)
-                                {{$user->name . ', '}}
-                                @endif
+                                    @if ($user->pivot->tag == 0)
+                                    {{$user->name . ', '}}
+                                    @endif
                                 @endforeach
                             </td>
                             <td>
                                 @foreach ($item->users as $user)
-                                {{-- {{dd($user->pivot->tag)}} --}}
+                                    @if ($user->pivot->tag == 1)
+                                    {{$user->name . ', '}}
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($item->users as $user)
                                 {{-- @if ($user->pivot->tag == 2) --}}
                                 {{-- {{count($user->name)}} --}}
                                 {{-- @endif --}}
@@ -83,7 +88,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form" id="manager">Manager</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="manager" multiple name="manager" size="5">
+                                            <select class="form-control" id="manager" multiple name="manager[]" size="5">
                                                 @foreach ($users as $manager )
                                                 <option value="{{ $manager->id }}">{{ $manager->name }}</option>
                                                 @endforeach
