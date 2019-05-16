@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -50,7 +49,7 @@ class UserController extends Controller
         $user = Auth::user();
         $fileName = $request->file('avatar')->getClientOriginalName();
         $request->file('avatar')->storeAs('public/storage/profiles',$fileName);
-        
+
         $user->name = Input::get('name');
         $user->gender = Input::get('gender');
         $user->email = Input::get('email');
@@ -71,10 +70,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $roles = Role::all();
         $users = User::with('roles')->get();
-        return view('users.index', ['users' => $users]);
+        return view('users.index', ['users' => $users])->with('roles',$roles);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -83,8 +83,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        $roles = Role::all();
-        return view('users.create', ['roles' => $roles]);
+     //
     }
 
     /**
@@ -96,34 +95,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         $rules = array(
-            'name'  => 'required',
+            'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'roles' => 'required'
-        );
-        $validator = Validator::make(Input::all(), $rules);
+            );
+            $validator = Validator::make(Input::all(), $rules);
 
-        // process the validation of fields
-        if ($validator->fails()) {
-            return Redirect::to('user/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
+            // process the validation of fields
+            if ($validator->fails()) {
+            return Redirect::to('user')
+            ->withErrors($validator)
+            ->withInput(Input::except('password'));
+            } else {
             // store the new user and attach roles to it
-            $user = new User;
-            $user->name = Input::get('name');
-            $user->gender = Input::get('gender');
-            $user->email = Input::get('email');
-            $user->position = Input::get('position');
-            $user->province = Input::get('province');
-            $user->password = bcrypt(Input::get('password'));
-            $user->role_id = Input::get('roles');
-            $user->save();
-            
+            $users = new User;
+            $users->name = Input::get('name');
+            $users->gender = Input::get('gender');
+            $users->email = Input::get('email');
+            $users->position = Input::get('position');
+            $users->province = Input::get('province');
+            $users->password = bcrypt(Input::get('password'));
+            $users->role_id = Input::get('roles');
+            $users->save();
             // redirect
             return Redirect::to('user');
-        }
+            }
+
     }
 
     /**
@@ -206,7 +206,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function export() 
+    public function export()
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
