@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="roles[]">Roles</label>
+                            <label for="roles">Roles</label>
                             <select class="form-control" id="roles" name="roles" multiple size="5">
                                 @foreach ($roles as $role)
                                 <option value="{{ $role->id }}" @if(($role->id == $user->role_id)) selected @endif>{!!

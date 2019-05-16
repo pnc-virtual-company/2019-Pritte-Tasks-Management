@@ -8,11 +8,15 @@
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
+            @auth
+            @if (\Auth::user()->role_id==1)
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
                     Create New Group
                 </button>
             </div>
+            @endif
+            @endauth
             <!-- Card Body -->
             <div class="card-body">
                 <table id="dataTable2" class="table table-striped table-bordered" style="width:100%">
@@ -31,9 +35,9 @@
                         <tr>
                             <td>
                                 <a href="#" data-id="{{$item->id}}" class="text-danger" data-toggle="modal"
-                                    data-target="#deletetaskModal"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
-                                <a href="#" class="text-primary" data-toggle="modal" data-target="#editmyModal"><i
-                                    class="mdi mdi-pencil text-primary clickable"></i></a>
+                                    data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
+                                <a href="#" class="text-primary" data-toggle="modal" data-name="{{ $item->name }}" data-id="{{ $item->id}}"
+                                    data-target="#editmyModal"><i class="material-icons">edit</i></a>
                                 <span>{{$item->id}}</span>
                             </td>
                             <td>{{$item->name}}</td>
@@ -82,7 +86,7 @@
                                         <label class="col-sm-2 col-form-label">Group Name(s)</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" name="name"
-                                                placeholder="Enter group name">
+                                                placeholder="Enter group name" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -100,7 +104,7 @@
                                         <div class="col-sm-9">
                                             <select class="form-control" id="viewer" multiple name="viewer[]" size="5">
                                                 @foreach ($users as $viewer)
-                                                <option value="{{ $viewer->id }}">{{ $viewer->name }}</option>
+                                                  <option value="{{ $viewer->id }}">{{ $viewer->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -116,7 +120,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Create Group</button>
+                                        <button type="submit" class="btn btn-primary">Create Group</button>
                                         <button type="button" class="btn btn-danger"
                                             data-dismiss="modal">Cancel</button>
                                     </div>
@@ -127,6 +131,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- model for edit -->
                 <div class="modal fade" id="editmyModal">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -137,47 +142,53 @@
                             </div>
                             <!-- Modal body -->
                             <div class="modal-body">
-                                <form action="#" method="POST">
+                            <form action="" method="POST" id="editGroup">
+                                    @method('PATCH')
                                     @csrf
-                                    @method('POST')
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Group Name(s)</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Enter group name">
+                                          <input type="text" class="form-control" id="name" name="name" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form" id="manager">Manager</label>
+                                        <label class="col-sm-2 col-form">Manager</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="manager" name="manager" size="5">
-                                                <option value="">Sam Oun</option>
+                                            <select class="form-control" id="manager" name="manager[]" size="5">
+                                                @foreach ($users as $manager)
+                                                    <option value="">{{$manager->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label" id="viewer">Viewer</label>
+                                        <label class="col-sm-2 col-form-label">Viewer</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" id="viewer" multiple name="viewer[]" size="5">
-                                                <option value="#">Unknown</option>
+                                                @foreach ($users as $viewer)
+                                                    <option value="">{{$viewer->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label" id="member">Member</label>
+                                        <label class="col-sm-2 col-form-label">Member</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" id="member" multiple name="member[]" size="5">
-                                                <option value="#">Unknown</option>
+                                                @foreach ($users as $member)
+                                                    <option value="">{{$member->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success" value="edit group">Edit Group</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </form>
                             </div>
 
                             <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">Edit Group</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -185,7 +196,6 @@
         </div>
     </div>
     <div class="card-footer">
-
     </div>
 </div>
 </div>
@@ -216,17 +226,27 @@
 </div>
 
 <script>
+
     $('#editmyModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
-        var group = button.data('name')
+        var id = button.data('id')
+        var name = button.data('name')
         var manager = button.data('manager')
         var viewer = button.data('viewer')
-        console.log(group);
-        console.log(manager);
-        console.log(viewer);
-        // var modal = $(this)
-        // modal.find('#name').attr('value',name);
-        // modal.find('#myModal').attr('action','group/'+id)
+        var member = button.data('member')
+        console.log("name "+name);
+        console.log("Manager id " +manager);
+        console.log("View is " +viewer);
+        console.log("Member is " +member);
+        var modal = $(this)
+        modal.find('#name').attr('value', name);
+        modal.find('#manager').attr('value', manager);
+        modal.find('#viewer').attr('value', viewer);
+        modal.find('#member').attr('value', member);
+        // modal.find('#manager').val(manager);
+        // modal.find('#viewer').val(viewer);
+        // modal.find('#member').val(member);
+        modal.find('#editmyModal').val('editGroup/' + id)
     })
     $('#deletetaskModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)

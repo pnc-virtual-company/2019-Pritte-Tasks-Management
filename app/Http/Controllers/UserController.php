@@ -70,8 +70,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $roles=Role::all();
         $users = User::with('roles')->get();
-        return view('users.index', ['users' => $users]);
+        return view('users.index', ['users' => $users,'roles'=>$roles]);
     }
     
     /**

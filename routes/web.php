@@ -33,6 +33,7 @@ Route::get('private',function(){
     return view('pages.privates.private');
 });
 
+Route::resource('task','IndividualController');
 Route::resource('private','PrivateTaskController');
 Route::resource('category','CategoryController');
 Route::resource('group','GroupController');

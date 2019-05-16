@@ -34,7 +34,15 @@
                                 <td>
                                     <a href="#" data-id=" {!! $task->id !!} " data-toggle="modal" class="text-danger" data-target="#deletePrivate"
                                         title="view"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
-                                    <a href="#" data-toggle="modal" class="text-primary" data-target="#editmyModal"
+                                    {{-- <form action="  method="post"> --}}
+
+                                        {{-- <a href="{{url('   private')}}/{{ $task->id }}/edit"data-toggle="modal" data-target="#editPrivate"
+                                        title="edit"><i class="mdi mdi-pencil text-primary clickable"></i></a> --}}
+                                    {{-- </form> --}}
+                                    <a href="#" data-toggle="modal" class="text-primary"
+                                        data-id="{!! $task->id !!}" data-category="{!! $task->category->id !!}"
+                                        data-name="{!! $task->name !!}" data-due=" {!! $task->due_date !!}" 
+                                        data-status="{!! $task->status !!}" data-target="#editPrivate"
                                         title="edit"><i class="mdi mdi-pencil text-primary clickable"></i></a>
                                         <span>{!! $task->id !!}</span>
                                     </td>
@@ -67,11 +75,10 @@
                                             <input type="text" name="name" class="form-control" placeholder="Title">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="category">Category</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="category" name="category">
+                                            <select class="form-control" name="category">
                                                 @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}" @if (!empty(old('categories'))) @if(in_array($category->id,
                                                     old('categories'))) selected @endif @endif>{!! $category->name !!}</option>
@@ -120,7 +127,7 @@
                     </div>
                 </div>
                 <!-- model for edit -->
-                <div class="modal fade" id="editmyModal">
+                <div class="modal fade" id="editPrivate">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                             <!-- Modal Header -->
@@ -129,57 +136,53 @@
                             </div>
                             <!-- Modal body -->
                             <div class="modal-body">
-                                <form action="#">
+                                <form action="" id="editP" method="POST">
+                                    @csrf
+                                    @method('PATCH')
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">ID </label>
                                         <div class="col-sm-10">
-                                            21
+                                            <span id="id"></span>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" placeholder="Cooking">
+                                            <input type="text" id="name" name="name" class="form-control" value="">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Category</label>
                                         <div class="col-sm-9">
-                                            <select name="" class="form-control">
-                                                <option>Choose category...</option>
-                                                <option selected value="1">Club</option>
-                                                <option value="2">Football Club</option>
-                                                <option value="3">read the book</option>
-                                                <option value="4">cleaning</option>
-                                                <option value="5">teach</option>
+                                                <select name="category"  id="category" class="form-control" id="">
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">{!! $category->name !!}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Due date</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" value="04/26/2019 3:30pm" class="form-control">
+                                        <div class="col-sm-9">
+                                            <input type="text" name="due" id="flatpickr_datetime" class="due form-control flatpickr" value="">
                                         </div>
-                                        <i class="material-icons inline col-form-label text-info">
-                                            <i class='fas fa-calendar-alt'></i>
-                                        </i>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Status</label>
                                         <div class="col-sm-9">
-                                            <select name="" class="form-control">
-                                                <option selected>Open</option>
-                                                <option value="1">Completed</option>
-                                            </select>
+                                            <span id="status">
+                                                <select name="status" class="form-control"id="status">
+                                                    <option value="Open">Open</option>
+                                                    <option value="Completed">Completed</option>
+                                                </select>
+                                            </span>
                                         </div>
                                     </div>
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                                        <button type="submit" class="btn btn-primary">Edit Task</button>
                                         <button type="button" class="btn btn-danger"
                                             data-dismiss="modal">Concel</button>
                                     </div>
@@ -202,5 +205,23 @@
         var modal = $(this)
         modal.find('#deleteTask').attr('action', 'private/' + id)
     })
+
+    // Edit Private Task
+    $('#editPrivate').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var category = button.data('category')
+        var name = button.data('name')
+        var due = button.data('due')
+        var status = button.data('status')
+        var modal = $(this)
+        modal.find('#id').html(id);
+        modal.find('#name').attr('value',name);
+        modal.find('#category').val(category);
+        modal.find('.due').attr('value',due);
+        modal.find('#status').val(status);
+        modal.find('#editP').attr('action', 'private/' + id)
+    })
 </script>
+
 @endsection
