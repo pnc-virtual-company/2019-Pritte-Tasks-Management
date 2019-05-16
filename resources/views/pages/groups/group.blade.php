@@ -31,9 +31,9 @@
                         <tr>
                             <td>
                                 <a href="#" data-id="{{$item->id}}" class="text-danger" data-toggle="modal"
-                                    data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
+                                    data-target="#deletetaskModal"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
                                 <a href="#" class="text-primary" data-toggle="modal" data-target="#editmyModal"><i
-                                        class="material-icons">edit</i></a>
+                                    class="mdi mdi-pencil text-primary clickable"></i></a>
                                 <span>{{$item->id}}</span>
                             </td>
                             <td>{{$item->name}}</td>

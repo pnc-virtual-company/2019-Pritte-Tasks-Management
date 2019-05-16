@@ -22,7 +22,6 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        //Only authenticated users may access to the pages of this controller
         $this->middleware('auth');
     }
 
