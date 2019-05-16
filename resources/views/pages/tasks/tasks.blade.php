@@ -114,7 +114,6 @@
                                                     <div class="col-sm-5">
                                                         <input type="text" id="flatpickr_datetime" class="form-control flatpickr" placeholder="Select Date Time..">
                                                     </div>
-
                                             </div>
 
                                             <div class="form-group row">

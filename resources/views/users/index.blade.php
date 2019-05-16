@@ -104,7 +104,6 @@
         </div>
     </div>
 </div>
-{{-- <script src="{{asset('js/app.js')}}"></script> --}}
 <script>
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)

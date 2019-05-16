@@ -93,8 +93,19 @@ $(document).ready(function(){
 		title: {
 				display: true,
 				text: 'Man Days',
-				fontSize:30
+				fontSize:22
 		}
 		}
 	})
+
 });
+
+$(function(){
+	var date = new Date();
+	date.setDate(date.getDate());
+
+	flatpickr("#flatpickr_datetime", {
+		enableTime: true,
+		minDate: "today"
+	});
+})

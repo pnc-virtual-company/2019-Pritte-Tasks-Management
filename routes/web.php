@@ -33,9 +33,7 @@ Route::get('private',function(){
     return view('pages.privates.private');
 });
 
-// Route::get('group', function() {
-//     return view('pages.groups.group');
-// });
+Route::resource('private','PrivateTaskController');
 Route::resource('category','CategoryController');
 Route::resource('group','GroupController');
 
