@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use App\IndividualTask;
+use App\User;
 use App\Category;
+use Auth;
 
-class CategoryController extends Controller
+class IndividualController extends Controller
 {
-    public function __construct()
-    {
-        //Only authenticated users may access to the pages of this controller
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::all();
-        return view('pages.categories.category')->with('category',$category);
+        $individuals = IndividualTask::all()->where('type','i');
+        $users = User::all();
+        $categories = Category::all();
+        return view('pages.tasks.tasks')->with('individuals',$individuals)->with('users',$users)->with('categories',$categories);
     }
 
     /**
@@ -43,15 +41,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->category;
+        $user = Auth::user()->id;
+        $name = $request->name;
+        $category = $request->category;
+        $duedate = $request->due_date;
+        $assign = $request->assign;
+        $type = $request->type;
 
-        $category = new Category();
-        $category->name= $name;
-        $category->save();
+        $individual = new IndividualTask;
+        $individual->user_id = $user;
+        $individual->category_id = $category;
+        $individual->name= $name;
+        $individual->due_date= $duedate;
+        $individual->type = $type;
+        $individual->save();
+        if($type == 'i'){
+            $individual->users()->attach($assign);
+            return redirect('task');
+        }else{
+            return redirect('private');
+        }
         
-        return redirect('category');
     }
-
     /**
      * Display the specified resource.
      *
@@ -71,7 +82,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-      //
+        
     }
 
     /**
@@ -83,11 +94,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-
-        $category->name = $request->get('name');
-        $category->save();
-        return redirect('category');
+        //
     }
 
     /**
@@ -98,9 +105,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
-        return redirect('category');
-        
+        $individual = IndividualTask::findOrFail($id);
+        $individual->delete();
+        $individual->users()->detach();
+        return redirect('task');
     }
 }

@@ -43,7 +43,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class)->withPivot('tag');
     }
     
-    public function privates() {
-        return $this->hasMany(IndividualTask::class);
+    public function individualTasks() {
+        return $this->belongsToMany(IndividualTask::class);
+    }
+
+    public function individual()
+    {
+        return $this->belongsToMany(IndividualTask::class);
     }
 }

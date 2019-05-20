@@ -81,7 +81,27 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $group = array(
+            'name'  => 'required',
+            'manager' => 'required',
+            'viewer' => 'required',
+            'member' => 'required'
+        );
+        $validator = Validator::make(Input::all(), $group);
+        // process the validation of fields
+        if ($validator->fails()) {
+            return Redirect::to('group/' . $id .  '/edit')
+                ->withErrors($validator);
+        } else {
+            $groupName = Group::find($id);
+            $groupName->name = Input::get('name');
+            $groupName->gender = Input::get('manager');
+            $groupName->email = Input::get('viewer');
+            $groupName->position = Input::get('member');
+            $groupName->save();
+            // redirect
+            return Redirect::to('group');
+        }
     }
 
     /**

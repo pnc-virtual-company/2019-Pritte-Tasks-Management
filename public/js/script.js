@@ -15,6 +15,10 @@ $(document).ready(function(){
     $(".groupHideShow").hide();
     $(".hideShow").show();
 	});
+
+	$('#editTask').click(function() {
+		$(".hideShow").show();
+	});
 });
 
 // collective action

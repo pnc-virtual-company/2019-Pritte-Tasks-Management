@@ -23,7 +23,7 @@ class PrivateTaskController extends Controller
      */
     public function index()
     {
-        $privates = IndividualTask::all()->where('type','p');
+        $privates = IndividualTask::all()->where('type','p')->where('status','Open');
         $users = User::all();
         $categories = Category::all();
         return view('pages.privates.private')->with('privates',$privates)->with('users',$users)->with('categories',$categories);
@@ -79,7 +79,7 @@ class PrivateTaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -91,7 +91,13 @@ class PrivateTaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $private = IndividualTask::find($id);
+        $private->name = $request->get('name');
+        $private->category_id = $request->get('category');
+        $private->due_date = $request->get('due');
+        $private->status = $request->get('status');
+        $private->save();
+        return redirect('private');
     }
 
     /**

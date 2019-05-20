@@ -15,7 +15,7 @@ class CreateIndividualTaskUserTable extends Migration
     {
         Schema::create('individual_task_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('individual_id');
+            $table->integer('individual_task_id');
             $table->integer('user_id');
             $table->timestamps();
         });
