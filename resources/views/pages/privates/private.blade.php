@@ -16,9 +16,12 @@
             <!-- Card Body -->
             <div class="card-body">
                 <form action="" class="text-center">
-                    <input type="checkbox" name="complete" value="1" id="check1"> <label for="check1"> Show completed task</label>
+                    <input type="checkbox" name="complete" id="check1">
+                    <label for="check1" id="checked">Show completed task</label>
                 </form>
-                <table id="dataTable2" class="table table-striped table-bordered" style="width:100%">
+                <span id="alls" style="display: none;">
+
+                <table id="dataTable7" class="table table-striped table-bordered" style="width:100%;">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -29,16 +32,44 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($allPrivates as $tasks)
+                            <tr>
+                                <td>
+                                    <a href="#" data-id=" {!! $tasks->id !!} " data-toggle="modal" class="text-danger" data-target="#deletePrivate"
+                                        title="view"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
+                                    <a href="#" data-toggle="modal" class="text-primary"
+                                        data-id="{!! $tasks->id !!}" data-category="{!! $tasks->category->id !!}"
+                                        data-name="{!! $tasks->name !!}" data-due=" {!! $tasks->due_date !!}" 
+                                        data-status="{!! $tasks->status !!}" data-target="#editPrivate"
+                                        title="edit"><i class="mdi mdi-pencil text-primary clickable"></i></a>
+                                        <span>{!! $tasks->id !!}</span>
+                                    </td>
+                                <td> {!! $tasks->category->name !!} </td>
+                                <td> {!! $tasks->name !!} </td>
+                                <td> {!! $tasks->due_date !!} </td>
+                                <td> {!! $tasks->status !!} </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                </span>
+                <span id="opens">
+                    <table id="dataTable2" class="table table-striped table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Category</th>
+                                    <th>Title</th>
+                                    <th>Due date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                    <tbody>
                         @foreach ($privates as $task)
                             <tr>
                                 <td>
                                     <a href="#" data-id=" {!! $task->id !!} " data-toggle="modal" class="text-danger" data-target="#deletePrivate"
                                         title="view"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
-                                    {{-- <form action="  method="post"> --}}
-
-                                        {{-- <a href="{{url('   private')}}/{{ $task->id }}/edit"data-toggle="modal" data-target="#editPrivate"
-                                        title="edit"><i class="mdi mdi-pencil text-primary clickable"></i></a> --}}
-                                    {{-- </form> --}}
                                     <a href="#" data-toggle="modal" class="text-primary"
                                         data-id="{!! $task->id !!}" data-category="{!! $task->category->id !!}"
                                         data-name="{!! $task->name !!}" data-due=" {!! $task->due_date !!}" 
@@ -53,8 +84,8 @@
                             </tr>
                         @endforeach
                     </tbody>
-
                 </table>
+            </span>
 
                 <!-- The Create Modal -->
                 <div class="modal fade" id="myModal">

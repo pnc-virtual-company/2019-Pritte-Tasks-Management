@@ -55,7 +55,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manage the tasks:</h6>
-                        <a class="collapse-item" href="{{url('private')}}">Private Task</a>
+                        <a class="collapse-item" href="{{url('private')}}">Private</a>
                         <a class="collapse-item" href="{{url('task')}}">Individual & Collective</a>
                     </div>
                 </div>

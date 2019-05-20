@@ -17,10 +17,17 @@ class IndividualController extends Controller
      */
     public function index()
     {
-        $individuals = IndividualTask::all()->where('type','i');
+        $user = Auth::user();
+        $task = IndividualTask::all();
+        // if($user->id == 1) {
+            $individuals = $task->where('type','i')->where('status','Open');
+        // }else {
+            // $individuals = $task->where('type','i')->where('status','Open')->where($task->users()->pluck('user_id'),$user);
+        // }
+        $allIndividuals = $task->where('type','i');
         $users = User::all();
         $categories = Category::all();
-        return view('pages.tasks.tasks')->with('individuals',$individuals)->with('users',$users)->with('categories',$categories);
+        return view('pages.tasks.tasks')->with('individuals',$individuals)->with('users',$users)->with('categories',$categories)->with('allIndividuals',$allIndividuals);
     }
 
     /**
@@ -94,7 +101,22 @@ class IndividualController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $type = $request->get('type'); 
+        $assign = $request->get('assigned');
+        $individualT = IndividualTask::find($id);
+        $individualT->name = $request->get('name');
+        $individualT->category_id = $request->get('category');
+        $individualT->due_date = $request->get('due');
+        $individualT->status = $request->get('status');
+        $individualT->type = $type;
+        $individualT->save();
+        $individualT->users()->detach();
+        if($type == 'i'){
+            $individualT->users()->attach($assign);
+            return redirect('task');
+        }else{
+            return redirect('private');
+        }
     }
 
     /**

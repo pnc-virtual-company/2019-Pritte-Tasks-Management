@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Http\Request;
 use App\Group;
 use App\User;
+use Auth;
+
 class GroupController extends Controller
 {
     /**
@@ -14,8 +17,11 @@ class GroupController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $groups = Group::all();
         $users = User::all();
+        // $count = $groups->users;
+        // dd($count);
         return view('pages.groups.group')->with('groups',$groups)->with('users',$users);
     }
 

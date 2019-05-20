@@ -1,110 +1,119 @@
-$(document).ready(function(){
-    $(".hideShow").hide();
-  $("#gridRadios1").click(function(){
-    $(".hideShow").hide();
-  });
-
-  $("#gridRadios2").click(function(){
-    $(".hideShow").show();
-  });
-  $("#gridRadios3").click(function(){
-    $(".hideShow").hide();
-  });
-
-  $("#gridRadios4").click(function(){
-    $(".groupHideShow").hide();
-    $(".hideShow").show();
+$(document).ready(function () {
+	$(".hideShow").hide();
+	$("#gridRadios1").click(function () {
+		$(".hideShow").hide();
 	});
 
-	$('#editTask').click(function() {
+	$("#gridRadios2").click(function () {
 		$(".hideShow").show();
 	});
+
+	$("#gridRadios3").click(function () {
+		$(".hideShow").hide();
+	});
+
+	$("#gridRadios4").click(function () {
+		$(".groupHideShow").hide();
+		$(".hideShow").show();
+	});
+
+	$("#yes").click(function () {
+		$(".hideShows").hide();
+	});
+
+	$('#editTask').click(function () {
+		$(".hideShows").show();
+	});
+	$('#no').click(function () {
+		$(".hideShows").show();
+	});
+
 });
 
 // collective action
 
-$(document).ready(function(){
-  $(".groupHideShow").hide()
-$("#showGroup").click(function(){
-  $(".hideShow").hide();
-  $(".groupHideShow").show();
-});
-
-
-$("#hideGroup").click(function(){
-  $(".groupHideShow").hide();
-  $(".hideShow").show();
-});
-  $('#dataTable2').DataTable();
-  $('#dataTable3').DataTable();
-  $('#dataTable4').DataTable();
+$(document).ready(function () {
+	$(".groupHideShow").hide()
+	$("#showGroup").click(function () {
+		$(".hideShow").hide();
+		$(".groupHideShow").show();
+	});
+	$("#hideGroup").click(function () {
+		$(".groupHideShow").hide();
+		$(".hideShow").show();
+	});
+	$('#dataTable2').DataTable();
+	$('#dataTable3').DataTable();
+	$('#dataTable4').DataTable();
 	$('#dataTable5').DataTable();
+	$('#dataTable6').DataTable();
+	$('#dataTable7').DataTable();
 });
 
-$(document).ready(function(){
-    new Chart(document.getElementById("pie-chart"), {
-        type: 'pie',
-        data: {
-            labels: ["Open", "Completed"],
-            datasets: [{
-            backgroundColor: ["#c21e56", "green"],
-            data: [40,30]
-            }]
-        }
-    }); 
-	
+$(document).ready(function () {
+	new Chart(document.getElementById("pie-chart"), {
+		type: 'pie',
+		data: {
+			labels: ["Open", "Completed"],
+			datasets: [{
+				backgroundColor: ["#c21e56", "green"],
+				data: [40, 30]
+			}]
+		}
+	});
+
 	new Chart(document.getElementById("bar-chart"), {
 		type: 'bar',
 		data: {
-				labels: ["Club", "Homework", "Workshop", "Sport"],
-				datasets: [
+			labels: ["Club", "Homework", "Workshop", "Sport"],
+			datasets: [
 				{
-						default:0,
-						label: "Number of Tasks",
-						backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
-						data: [10,3,8,5]
+					default: 0,
+					label: "Number of Tasks",
+					backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+					data: [10, 3, 8, 5]
 				}
-				]
+			]
 		},
 		options: {
-				legend: { display: false }
+			legend: { display: false }
 		}
 	});
 
 	new Chart(document.getElementById("line-chart"), {
 		type: 'line',
 		data: {
-		labels: ['Current Week','Next Week','Week +2','Week +3'],
-		datasets: [{
-				data: [0,5,3,12],
+			labels: ['Current Week', 'Next Week', 'Week +2', 'Week +3'],
+			datasets: [{
+				data: [0, 5, 3, 12],
 				label: "Club Meeting",
 				borderColor: "#3e95cd",
 				fill: false
-				}, {
-				data: [0,3,8,15],
+			}, {
+				data: [0, 3, 8, 15],
 				label: "Sports",
 				borderColor: "#8e5ea2",
 				fill: false
-				}, {
-				data: [0,6,5,13],
+			}, {
+				data: [0, 6, 5, 13],
 				label: "Homework",
 				borderColor: "#c45850",
 				fill: false
-				}
-		]      
-	},
+			}
+			]
+		},
 		options: {
-		title: {
+			title: {
 				display: true,
 				text: 'Man Days',
-				fontSize:22
-		}
+				fontSize: 22
+			}
 		}
 	})
 
 });
 
-$(function(){
+$(function () {
 	var date = new Date();
 	date.setDate(date.getDate());
 
@@ -112,4 +121,20 @@ $(function(){
 		enableTime: true,
 		minDate: "today"
 	});
-})
+	
+	$('#check1[type="checkbox"]').click(function () {
+		$('#alls').removeAttr('style');
+		if ($(this).prop("checked") == true) {
+            $('#alls').show();
+            $('#opens').hide();
+		}
+	});
+	$('#check1[type="checkbox"]').click(function () {
+		$('#alls').removeAttr('style');
+		if ($(this).prop("checked") == false) {
+			$('#alls').hide();
+            $('#opens').show();
+		}
+	});
+});
+	
