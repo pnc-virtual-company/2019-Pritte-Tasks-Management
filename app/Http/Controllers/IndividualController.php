@@ -18,16 +18,17 @@ class IndividualController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $task = IndividualTask::all();
-        // if($user->id == 1) {
-            $individuals = $task->where('type','i')->where('status','Open');
-        // }else {
-            // $individuals = $task->where('type','i')->where('status','Open')->where($task->users()->pluck('user_id'),$user);
-        // }
-        $allIndividuals = $task->where('type','i');
+        $assignTo = $user->IndividualTasks;
+        $individuals = $assignTo->where('type','i')->where('status','Open');
+        $allIndividuals = $assignTo->where('type','i');
+
+        $creator = $user->individual;
+        $creators = $creator->where('type','i')->where('status','Open');
+        $allCreators = $creator->where('type','i');
         $users = User::all();
         $categories = Category::all();
-        return view('pages.tasks.tasks')->with('individuals',$individuals)->with('users',$users)->with('categories',$categories)->with('allIndividuals',$allIndividuals);
+        return view('pages.tasks.tasks')->with('individuals',$individuals)->with('users',$users)->with('categories',$categories)->with('allIndividuals',$allIndividuals)
+        ->with('creators',$creators)->with('allCreators',$allCreators);
     }
 
     /**

@@ -136,5 +136,25 @@ $(function () {
             $('#opens').show();
 		}
 	});
+
+	$('#check2[type="checkbox"]').click(function () {
+		$('#allsC').removeAttr('style');
+		if ($(this).prop("checked") == true) {
+            $('#allsC').show();
+            $('#opensC').hide();
+		}
+	});
+	$('#check2[type="checkbox"]').click(function () {
+		$('#allsC').removeAttr('style');
+		if ($(this).prop("checked") == false) {
+			$('#allsC').hide();
+            $('#opensC').show();
+		}
+	});
 });
+
+function newFunction() {
+	$('.dataTable10').DataTable();
+	$('.dataTable11').DataTable();
+}
 	

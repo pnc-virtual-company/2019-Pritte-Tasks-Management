@@ -43,39 +43,29 @@
                   <a href="#" data-id="{{$item->id}}" class="text-danger" data-toggle="modal"
                     data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
                   <a href="#" class="text-primary" data-toggle="modal" data-name="{{ $item->name }}"
-                    data-id="{{ $item->id}}" data-target="#editmyModal"><i class="material-icons">edit</i></a>
+                    data-manager="@foreach ($item->users as $user) @if ($user->pivot->tag == 0) {{$user->id}} @endif @endforeach"
+                    data-id="{{ $item->id}}" data-target="#editGroup"><i class="material-icons">edit</i></a>
                   @endif
                   @endauth
                   <span>{{$item->id}}</span>
                 </td>
                 <td>{{$item->name}}</td>
+
                 <td>
-                  @foreach ($item->users as $user)
-                  @if ($user->pivot->tag == 0)
-                  {{$user->name . ', '}}
-                  @endif
-                  @endforeach
+                  {{$item->users()->wherePivot('tag',0)->get()->pluck('name')->implode(', ')}}
                 </td>
                 <td>
-                  @foreach ($item->users as $user)
-                  @if ($user->pivot->tag == 1)
-                  {{$user->name . ', '}}
-                  @endif
-                  @endforeach
+                  {{$item->users()->wherePivot('tag',1)->get()->pluck('name')->implode(', ')}}
                 </td>
                 <td>
-                  @foreach ($item->users as $user)
-                  @if ($user->pivot->tag == 2)
-                  {{$user->id}}
-                  @endif
-                @endforeach
-              </td>
-              <td>{{$item->updated_at}}</td>
-            </tr>
+                  {{$item->users()->wherePivot('tag',2)->get()->count() .' members'}}
+                </td>
+                <td>{{$item->updated_at}}</td>
+              </tr>
               {{-- @endif
-              @endforeach --}}
-            @endauth
-            @endforeach
+                @endforeach --}}
+                @endauth
+              @endforeach
           </tbody>
         </table>
 
@@ -102,7 +92,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form" id="manager">Manager</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="managers" multiple name="manager[]" size="5">
+                      <select class="form-control groups" id="managers" multiple name="manager[]" size="5">
                         @foreach ($users as $manager )
                         <option value="{{ $manager->id }}">{{ $manager->name }}</option>
                         @endforeach
@@ -112,7 +102,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label" id="viewer">Viewer</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="viewers" multiple name="viewer[]" size="5">
+                      <select class="form-control groups" id="viewers" multiple name="viewer[]" size="5">
                         @foreach ($users as $viewer)
                         <option value="{{ $viewer->id }}">{{ $viewer->name }}</option>
                         @endforeach
@@ -120,9 +110,9 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" id="member">Member</label>
+                    <label class="col-sm-2 col-form-label " id="member">Member</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="members" multiple name="member[]" size="5">
+                      <select class="form-control groups" id="members" multiple name="member[]" size="5">
                         @foreach ($users as $member)
                         <option value="{{ $member->id }}">{{ $member->name }}</option>
                         @endforeach
@@ -135,14 +125,12 @@
                   </div>
                 </form>
               </div>
-
-              <!-- Modal footer -->
             </div>
           </div>
         </div>
 
         <!-- model for edit -->
-        <div class="modal fade" id="editmyModal">
+        <div class="modal fade" id="editGroup">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
               <!-- Modal Header -->
@@ -163,9 +151,9 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form">Manager</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="manager" name="manager" size="5">
+                      <select class="form-control editGroup" id="manager" name="manager[]" size="5">
                         @foreach ($users as $manager)
-                        <option value="">{{$manager->name}}</option>
+                        <option value="{{$manager->id}}">{{$manager->name}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -173,9 +161,9 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Viewer</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="viewer" multiple name="viewer" size="5">
+                      <select class="form-control editGroup" id="viewer" multiple name="viewer[]" size="5">
                         @foreach ($users as $viewer)
-                        <option value="">{{$viewer->name}}</option>
+                        <option value="{{$viewer->id}}">{{$viewer->name}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -183,20 +171,19 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Member</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="member" multiple name="member" size="5">
+                      <select class="form-control editGroup" id="member" multiple name="member[]" size="5">
                         @foreach ($users as $member)
-                        <option value="">{{$member->name}}</option>
+                        <option value="{{$member->id}}">{{$member->name}}</option>
                         @endforeach
                       </select>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" value="edit group">Edit Group</button>
+                    <button type="submit" class="btn btn-primary">Edit Group</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                   </div>
                 </form>
               </div>
-
               <!-- Modal footer -->
             </div>
           </div>
@@ -236,26 +223,19 @@
 
 <script>
 
-  $('#editmyModal').on('show.bs.modal', function (event) {
+  $('#editGroup').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var id = button.data('id')
     var name = button.data('name')
     var manager = button.data('manager')
     var viewer = button.data('viewer')
     var member = button.data('member')
-    console.log("name " + name);
-    console.log("Manager id " + manager);
-    console.log("View is " + viewer);
-    console.log("Member is " + member);
     var modal = $(this)
     modal.find('#name').attr('value', name);
-    modal.find('#manager').attr('value', manager);
-    modal.find('#viewer').attr('value', viewer);
-    modal.find('#member').attr('value', member);
-    // modal.find('#manager').val(manager);
-    // modal.find('#viewer').val(viewer);
-    // modal.find('#member').val(member);
-    modal.find('#editmyModal').val('editGroup/' + id)
+    modal.find('#manager').val(manager);
+    modal.find('#viewer').val(viewer);
+    modal.find('#member').val(member);
+    modal.find('#editGroup').attr('action','group/' + id);
   })
   $('#deletetaskModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
@@ -264,21 +244,61 @@
     modal.find('#deleteGroup').attr('action', 'group/' + id)
   })
 
-  window.onload = function () {
+$(function() {
 
-    document.forms[0].manager.addEventListener('change', function () {
-      [].forEach.call(this.form.viewer.options, function (opt) {
-        opt.disabled = opt.index == this.selectedIndex && opt.index != 0;
-      }, this);
-    }, false);
-
-    document.forms[0].viewer.addEventListener('change', function () {
-      [].forEach.call(this.form.manager.options, function (opt) {
-        opt.disabled = opt.index == this.selectedIndex && opt.index != 0;
-      }, this);
-    }, false);
-  };
-
+  const $selects = $(".groups");
+  $selects.on('change', function(evt) {
+      // create empty array to store the selected values
+      const selectedValue = [];
+      // get all selected options and filter them to get only options with value attr (to skip the default options). After that push the values to the array.
+      $selects.find(':selected').filter(function(idx, el) {
+          return $(el).attr('value');
+      }).each(function(idx, el) {
+          selectedValue.push($(el).attr('value'));
+      });
+      // loop all the options
+      $selects.find('option').each(function(idx, option) { 
+          // if the array contains the current option value otherwise we re-enable it.
+          if (selectedValue.indexOf($(option).attr('value')) > -1) {
+              // if the current option is the selected option, we skip it otherwise we disable it.
+              if ($(option).is(':checked')) {
+                  return;
+              } else {
+                  $(this).attr('disabled', true);
+              }
+          } else {
+              $(this).attr('disabled', false);
+          }
+      });
+  });  
+  
+  //For edit the group
+  const $select = $(".editGroup");
+  $select.on('change', function(evt) {
+      // create empty array to store the selected values
+      const selectedValue = [];
+      // get all selected options and filter them to get only options with value attr (to skip the default options). After that push the values to the array.
+      $select.find(':selected').filter(function(idx, el) {
+          return $(el).attr('value');
+      }).each(function(idx, el) {
+          selectedValue.push($(el).attr('value'));
+      });
+      // loop all the options
+      $select.find('option').each(function(idx, option) { 
+          // if the array contains the current option value otherwise we re-enable it.
+          if (selectedValue.indexOf($(option).attr('value')) > -1) {
+              // if the current option is the selected option, we skip it otherwise we disable it.
+              if ($(option).is(':checked')) {
+                  return;
+              } else {
+                  $(this).attr('disabled', true);
+              }
+          } else {
+              $(this).attr('disabled', false);
+          }
+      });
+  });  
+});
 
 </script>
 @endsection

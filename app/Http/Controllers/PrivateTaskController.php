@@ -23,8 +23,10 @@ class PrivateTaskController extends Controller
      */
     public function index()
     {
-        $privates = IndividualTask::all()->where('type','p')->where('status','Open');
-        $allPrivates = IndividualTask::all()->where('type','p');
+        $creator = Auth::user();
+        $private = $creator->individual;
+        $privates = $private->where('type','p')->where('status','Open');
+        $allPrivates = $private->where('type','p');
         $users = User::all();
         $categories = Category::all();
         return view('pages.privates.private')->with('privates',$privates)->with('users',$users)->with('categories',$categories)->with('allPrivates',$allPrivates);

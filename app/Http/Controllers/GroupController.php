@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use App\Group;
 use App\User;
@@ -20,9 +21,7 @@ class GroupController extends Controller
         $user = Auth::user();
         $groups = Group::all();
         $users = User::all();
-        // $count = $groups->users;
-        // dd($count);
-        return view('pages.groups.group')->with('groups',$groups)->with('users',$users);
+        return view('pages.groups.group',compact('groups','users','manager','viewer','member'));
     }
 
     /**
