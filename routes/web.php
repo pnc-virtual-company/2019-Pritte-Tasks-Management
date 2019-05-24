@@ -32,7 +32,7 @@ Route::get('task', function() {
 Route::get('private',function(){
     return view('pages.privates.private');
 });
-
+Route::PATCH('taskAssign/{id}','UpdateIndividual@index');
 Route::resource('task','IndividualController');
 Route::resource('private','PrivateTaskController');
 Route::resource('category','CategoryController');

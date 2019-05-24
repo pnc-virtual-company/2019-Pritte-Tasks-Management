@@ -34,7 +34,40 @@
           <tbody>
             @foreach($groups as $item)
             @auth
-              <tr>
+            @if(\Auth::user()->id == 1)
+            <tr>
+              <td>
+                @auth
+                @if (\Auth::user()->role_id==1)
+                <a href="#" data-id="{{$item->id}}" class="text-danger" data-toggle="modal"
+                  data-target="#deletetaskModal"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
+                <a href="#" class="text-primary" data-toggle="modal" data-name="{{ $item->name }}"
+                  data-manager="{{$item->users()->wherePivot('tag',0)->get()->pluck('id')}}"
+                  data-viewer="{{$item->users()->wherePivot('tag',1)->get()->pluck('id')}}"
+                  data-member="{{$item->users()->wherePivot('tag',2)->get()->pluck('id')}}"
+                  data-id="{{ $item->id}}" data-target="#editGroup"><i class="mdi mdi-pencil clickable text-primary delete-icon"></i></a>
+                @endif
+                @endauth
+                <span>{{$item->id}}</span>
+              </td>
+              <td>{{$item->name}}</td>
+
+              <td>
+                {{$item->users()->wherePivot('tag',0)->get()->pluck('name')->implode(', ')}}
+              </td>
+              <td>
+                {{$item->users()->wherePivot('tag',1)->get()->pluck('name')->implode(', ')}}
+              </td>
+              <td>
+                {{$item->users()->wherePivot('tag',2)->get()->count() .' members'}}
+              </td>
+              <td>{{$item->updated_at}}</td>
+            </tr>
+            @else
+            @if (($item->users()->wherePivot('tag',0)->get()->pluck('name')->implode(', ') == \Auth::user()->name)
+            || ($item->users()->wherePivot('tag',1)->get()->pluck('name')->implode(', ') == \Auth::user()->name)
+            || ($item->users()->wherePivot('tag',2)->get()->pluck('name')->implode(', ') == \Auth::user()->name))
+                <tr>
                 <td>
                   @auth
                   @if (\Auth::user()->role_id==1)
@@ -62,8 +95,10 @@
                 </td>
                 <td>{{$item->updated_at}}</td>
               </tr>
-                @endauth
-              @endforeach
+            @endif
+            @endif
+            @endauth
+            @endforeach
           </tbody>
         </table>
 
@@ -84,13 +119,13 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Group Name(s)</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" placeholder="Enter group name" value="">
+                      <input type="text" class="form-control" required name="name" placeholder="Enter group name" value="">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form" id="manager">Manager</label>
                     <div class="col-sm-9">
-                      <select class="form-control groups" id="managers" multiple name="manager[]" size="5">
+                      <select class="form-control groups" required id="managers" multiple name="manager[]" size="5">
                         @foreach ($users as $manager )
                         <option value="{{ $manager->id }}">{{ $manager->name }}</option>
                         @endforeach
@@ -100,7 +135,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label" id="viewer">Viewer</label>
                     <div class="col-sm-9">
-                      <select class="form-control groups" id="viewers" multiple name="viewer[]" size="5">
+                      <select class="form-control groups" required id="viewers" multiple name="viewer[]" size="5">
                         @foreach ($users as $viewer)
                         <option value="{{ $viewer->id }}">{{ $viewer->name }}</option>
                         @endforeach
@@ -108,9 +143,9 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label " id="member">Member</label>
+                    <label class="col-sm-2 col-form-label" id="member">Member</label>
                     <div class="col-sm-9">
-                      <select class="form-control groups" id="members" multiple name="member[]" size="5">
+                      <select class="form-control groups" required id="members" multiple name="member[]" size="5">
                         @foreach ($users as $member)
                         <option value="{{ $member->id }}">{{ $member->name }}</option>
                         @endforeach
@@ -195,7 +230,7 @@
 </div>
 {{-- deleted-modal --}}
 <div class="modal fade" id="deletetaskModal">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
@@ -203,9 +238,7 @@
       </div>
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="form-group row">
           <p> Are you sure that you want to delete this group?</p>
-        </div>
         <div class="modal-footer">
           <form action="" id="deleteGroup" method="POST">
             @method('DELETE')

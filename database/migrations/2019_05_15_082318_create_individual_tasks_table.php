@@ -18,7 +18,7 @@ class CreateIndividualTasksTable extends Migration
             $table->string('name');
             $table->string('due_date');
             $table->string('status')->default('Open');
-            $table->string('workload')->nullable();
+            $table->string('workload');
             $table->string('type')->default('p');
             $table->string('attachment')->nullable();
             $table->timestamps();

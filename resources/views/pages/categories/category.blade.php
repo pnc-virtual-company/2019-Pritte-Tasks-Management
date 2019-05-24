@@ -23,11 +23,11 @@
 
                             <td>
                                 <a href="" data-id="{{ $item->id}}" data-target="#deleteModal" data-toggle="modal">
-                                    <i class="material-icons text-danger">delete</i>
+                                    <i class="mdi mdi-delete clickable text-danger delete-icon"></i>
                                 </a>
                                 <a href="" data-toggle="modal" data-name="{{ $item->name }}" data-id="{{ $item->id}}"
                                     data-target="#editModal">
-                                    <i class="material-icons">edit</i>
+                                    <i class="mdi mdi-pencil clickable text-primary delete-icon"></i>
                                 </a>
                                 {{$item->id}}
                             </td>

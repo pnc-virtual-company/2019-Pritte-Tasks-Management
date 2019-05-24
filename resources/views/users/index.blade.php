@@ -48,7 +48,7 @@
                                                 data-gender="{{$user->gender}}" data-email="{{$user->email}}"
                                                 data-position="{{$user->position}}" data-province="{{$user->province}}"
                                                 data-target="#showModal" data-roleid="{{$user->role_id}}">
-                                                <i class="mdi mdi-visible clickable text-primary delete-icon"></i></a>
+                                                <i class="mdi mdi-eye clickable text-secondary delete-icon"></i></a>
 
                                             <span>{{ $user->id }}</span>
                                         </td>
@@ -84,7 +84,7 @@
 </div>
 {{-- Modal Create --}}
 <div class="modal fade" id="createModal">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
 
                 <!-- Modal Header -->
@@ -155,7 +155,7 @@
 
 <!-- Modal Delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">@lang('Delete Users')</h5>
@@ -180,7 +180,7 @@
 
  <!-- model for edit -->
  <div class="modal fade" id="editUserModal">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
@@ -241,7 +241,7 @@
 
     {{-- view detail --}}
     <div class="modal fade" id="showModal">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
