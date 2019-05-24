@@ -34,17 +34,17 @@
           <tbody>
             @foreach($groups as $item)
             @auth
-            {{-- @foreach ($item->users as $user)
-              @if(($user->pivot->tag==2) == \Auth::user()) --}}
               <tr>
                 <td>
                   @auth
                   @if (\Auth::user()->role_id==1)
                   <a href="#" data-id="{{$item->id}}" class="text-danger" data-toggle="modal"
-                    data-target="#deletetaskModal"><i class="material-icons text-danger">delete</i></a>
+                    data-target="#deletetaskModal"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
                   <a href="#" class="text-primary" data-toggle="modal" data-name="{{ $item->name }}"
-                    data-manager="@foreach ($item->users as $user) @if ($user->pivot->tag == 0) {{$user->id}} @endif @endforeach"
-                    data-id="{{ $item->id}}" data-target="#editGroup"><i class="material-icons">edit</i></a>
+                    data-manager="{{$item->users()->wherePivot('tag',0)->get()->pluck('id')}}"
+                    data-viewer="{{$item->users()->wherePivot('tag',1)->get()->pluck('id')}}"
+                    data-member="{{$item->users()->wherePivot('tag',2)->get()->pluck('id')}}"
+                    data-id="{{ $item->id}}" data-target="#editGroup"><i class="mdi mdi-pencil clickable text-primary delete-icon"></i></a>
                   @endif
                   @endauth
                   <span>{{$item->id}}</span>
@@ -62,8 +62,6 @@
                 </td>
                 <td>{{$item->updated_at}}</td>
               </tr>
-              {{-- @endif
-                @endforeach --}}
                 @endauth
               @endforeach
           </tbody>
@@ -143,15 +141,15 @@
                   @method('PATCH')
                   @csrf
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Group Name(s)</label>
+                    <label class="col-sm-2 col-form-label">Group Name</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="name" name="name" value="">
+                      <input type="text" class="form-control" id="names" name="names" value="">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form">Manager</label>
                     <div class="col-sm-9">
-                      <select class="form-control editGroup" id="manager" name="manager[]" size="5">
+                      <select class="form-control editGroup" id="managers" name="managers[]" size="5">
                         @foreach ($users as $manager)
                         <option value="{{$manager->id}}">{{$manager->name}}</option>
                         @endforeach
@@ -161,7 +159,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Viewer</label>
                     <div class="col-sm-9">
-                      <select class="form-control editGroup" id="viewer" multiple name="viewer[]" size="5">
+                      <select class="form-control editGroup" id="viewers" multiple name="viewers[]" size="5">
                         @foreach ($users as $viewer)
                         <option value="{{$viewer->id}}">{{$viewer->name}}</option>
                         @endforeach
@@ -171,7 +169,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Member</label>
                     <div class="col-sm-9">
-                      <select class="form-control editGroup" id="member" multiple name="member[]" size="5">
+                      <select class="form-control editGroup" id="members" multiple name="members[]" size="5">
                         @foreach ($users as $member)
                         <option value="{{$member->id}}">{{$member->name}}</option>
                         @endforeach
@@ -231,10 +229,10 @@
     var viewer = button.data('viewer')
     var member = button.data('member')
     var modal = $(this)
-    modal.find('#name').attr('value', name);
-    modal.find('#manager').val(manager);
-    modal.find('#viewer').val(viewer);
-    modal.find('#member').val(member);
+    modal.find('#names').attr('value', name);
+    modal.find('#managers').val(manager);
+    modal.find('#viewers').val(viewer);
+    modal.find('#members').val(member);
     modal.find('#editGroup').attr('action','group/' + id);
   })
   $('#deletetaskModal').on('show.bs.modal', function (event) {

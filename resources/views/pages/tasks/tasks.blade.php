@@ -48,7 +48,7 @@
                                                 data-id="{!!$individual->id!!}">
                                                 <i class="mdi mdi-delete clickable text-danger delete-icon"></i>
                                             </a>
-                                            <a href="#" id="editTask" data-toggle="modal" data-target="#editIndividual"
+                                            <a href="#" id="editTask" data-toggle="modal" data-target="#editAssign"
                                                 data-id="{!!$individual->id!!}" data-name="{!!$individual->name!!}"
                                                 data-due="{!!$individual->due_date!!}"
                                                 data-category="{!!$individual->category->id!!}"
@@ -94,7 +94,7 @@
                                                 data-id="{!!$individual->id!!}">
                                                 <i class="mdi mdi-delete clickable text-danger delete-icon"></i>
                                             </a>
-                                            <a href="#" id="editTask" data-toggle="modal" data-target="#editIndividual"
+                                            <a href="#editAssign" id="editTask" data-toggle="modal" data-target="#editAssign"
                                                 data-id="{!!$individual->id!!}" data-name="{!!$individual->name!!}"
                                                 data-due="{!!$individual->due_date!!}"
                                                 data-category="{!!$individual->category->id!!}"
@@ -323,10 +323,113 @@
 
         <!-- modal for edit -->
 
+        <div class="modal fade" id="editAssign">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Tasks</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action="" id="editInA" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">ID </label>
+                                <div class="col-sm-9">
+                                    <span id="idA"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Created By</label>
+                                <div class="col-sm-9">
+                                    <span id="createdA"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="nameA" class="form-control" name="name" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Category</label>
+                                <div class="col-sm-9">
+                                    <select name="category" id="category" class="form-control">
+                                        @foreach ($categories as $category)
+                                        <option value="{!!$category->id!!}">{!!$category->name!!}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Due date</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="due" id="flatpickr_datetime"
+                                        class="dueA form-control flatpickr" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Status</label>
+                                <div class="col-sm-9">
+                                    <select name="status" id="statusA" class="form-control">
+                                        <option value="Open">Open</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-3 pt-0">Private</legend>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="type" id="gridRadios1"
+                                                value="p">
+                                            <label class="form-check-label" id="yes" for="gridRadios1">Yes</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="type" id="gridRadios2"
+                                                checked value="i">
+                                            <label class="form-check-label" id="no" for="gridRadios2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group row hideShows">
+                                <label class="col-sm-3 col-form-label">Assigned to</label>
+                                <div class="col-sm-9">
+                                    <select name="assigned" id="assignA" class="form-control">
+                                        @foreach ($users as $user)
+                                        <option value="{!!$user->id!!} ">{!!$user->name!!}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Attachments</label>
+                                <div class="col-sm-7">
+                                    <input type="file" class="form-control-file" name="file">
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Edit Task</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Edit Assign --}}
         <div class="modal fade" id="editIndividual">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Edit Task</h4>
@@ -426,6 +529,7 @@
                 </div>
             </div>
         </div>
+
         <!---------------------------- model delete -------------------------------------->
         <div class="modal fade" id="deleteIndividual">
             <div class="modal-dialog modal-dialog-centered">
@@ -470,6 +574,24 @@
     })
 
     // Edit Individual Task
+    $('#editAssign').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var category = button.data('category')
+        var name = button.data('name')
+        var creator = button.data('creator')
+        var due = button.data('due')
+        var assign = button.data('assign')
+        var status = button.data('status')
+        var modal = $(this)
+        modal.find('#idA').html(id);
+        modal.find('#createdA').html(creator);
+        modal.find('#nameA').attr('value', name);
+        modal.find('#categoryA').val(category);
+        modal.find('.dueA').attr('value', due);
+        modal.find('#statusA').val(status);
+        modal.find('#editInA').attr('action', 'task/' + id);
+    })
     $('#editIndividual').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
@@ -483,8 +605,8 @@
         modal.find('#id').html(id);
         modal.find('#created').html(creator);
         modal.find('#name').attr('value', name);
+        modal.find('.due').attr('value',due);
         modal.find('#category').val(category);
-        modal.find('.due').attr('value', due);
         modal.find('#status').val(status);
         modal.find('#editIn').attr('action', 'task/' + id);
     })

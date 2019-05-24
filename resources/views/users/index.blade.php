@@ -37,19 +37,18 @@
                                     @foreach ($users as $user)
                                     <tr data-id="{{ $user->id }}">
                                         <td>
-                                            <a href="#"><i class="material-icons text-danger" data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" title="@lang('delete the user')">delete</i></a>
-
+                                            <a href="#"data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" title="@lang('delete the user')"><i class="mdi mdi-delete clickable text-danger delete-icon"></i></a>
                                             <a href="" data-toggle="modal" data-name="{{ $user->name }}" data-id="{{ $user->id}}"
                                                 data-gender="{{$user->gender}}" data-email="{{$user->email}}"
                                                 data-position="{{$user->position}}" data-province="{{$user->province}}"
                                                 data-target="#editUserModal" data-roleid="{{$user->role_id}}">
-                                            <i class="material-icons text-primary">edit</i></a>
+                                                <i class="mdi mdi-pencil clickable text-primary delete-icon"></i></a>
 
                                             <a href="" data-toggle="modal" data-name="{{ $user->name }}" data-id="{{ $user->id}}"
                                                 data-gender="{{$user->gender}}" data-email="{{$user->email}}"
                                                 data-position="{{$user->position}}" data-province="{{$user->province}}"
                                                 data-target="#showModal" data-roleid="{{$user->role_id}}">
-                                            <i class="material-icons text-info">visibility</i></a>
+                                                <i class="mdi mdi-visible clickable text-primary delete-icon"></i></a>
 
                                             <span>{{ $user->id }}</span>
                                         </td>
