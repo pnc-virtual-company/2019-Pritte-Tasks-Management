@@ -21,7 +21,7 @@ class GroupController extends Controller
         $user = Auth::user();
         $groups = Group::all();
         $users = User::all();
-        return view('pages.groups.group',compact('groups','users','manager','viewer','member'));
+        return view('pages.groups.group',compact('groups','users'));
     }
 
     /**
@@ -85,28 +85,22 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $group = array(
-            'name'  => 'required',
-            'manager' => 'required',
-            'viewer' => 'required',
-            'member' => 'required'
-        );
-        $validator = Validator::make(Input::all(), $group);
-        // process the validation of fields
-        if ($validator->fails()) {
-            return Redirect::to('group/' . $id .  '/edit')
-                ->withErrors($validator);
-        } else {
-            $groupName = Group::find($id);
-            $groupName->name = Input::get('name');
-            $groupName->gender = Input::get('manager');
-            $groupName->email = Input::get('viewer');
-            $groupName->position = Input::get('member');
-            $groupName->save();
-            // redirect
-            return Redirect::to('group');
-        }
+    {      
+        $name = $request->get('names');
+        $manager = $request->get('managers');
+        $viewer = $request->get('viewers');
+        $member = $request->get('members');
+
+        $groups = Group::find($id);
+        $groups->users()->wherePivot('tag', 0)->detach();
+        $groups->users()->wherePivot('tag', 1)->detach();
+        $groups->users()->wherePivot('tag', 2)->detach();
+        $groups->name = $name;
+        $groups->save();
+        $groups->users()->attach($manager,['tag'=>'0']);
+        $groups->users()->attach($viewer,['tag'=>'1']);
+        $groups->users()->attach($member,['tag'=>'2']);
+        return redirect('group');
     }
 
     /**
