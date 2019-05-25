@@ -227,10 +227,10 @@
             </div>
         </div>
 
-        {{-- create modal in Task assign to me --}}
+        {{-- Create Task --}}
 
         <div class="modal fade" id="collectiveModal">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
@@ -266,6 +266,13 @@
                                         class="form-control flatpickr" placeholder="Select Date Time..">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="workload" class="col-sm-3 col-form-label">Workload</label>
+                                <div class="col-sm-7">
+                                    <input type="text" require name="workloads" class="form-control" placeholder="0.5">
+                                </div>
+                                <div class="col-sm-2">(in man day)</div>
+                            </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Status</label>
@@ -289,6 +296,21 @@
                                             <input class="form-check-input" type="radio" name="type" id="gridRadios4"
                                                 value="i">
                                             <label class="form-check-label" for="gridRadios4">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label for="" class="col-form-label col-sm-3 pt-0">Collective Task</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" name="collective" class="form-check-input" id="collectiveYes" value="Yes">
+                                            <label for="collectiveYes" class="form-check-label">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" name="collective" class="form-check-input" id="collectiveNo" value="No">
+                                            <label for="collectiveNo" class="form-check-label">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -324,7 +346,7 @@
         <!-- modal for edit -->
 
         <div class="modal fade" id="editAssign">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -351,13 +373,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="nameA" class="form-control" name="name" value="">
+                                    <input type="text" id="nameA" class="form-control" disabled name="names" value="">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Category</label>
                                 <div class="col-sm-9">
-                                    <select name="category" id="category" class="form-control">
+                                    <select name="categorys" id="categoryA" disabled class="form-control">
                                         @foreach ($categories as $category)
                                         <option value="{!!$category->id!!}">{!!$category->name!!}
                                         </option>
@@ -368,14 +390,14 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Due date</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="due" id="flatpickr_datetime"
-                                        class="dueA form-control flatpickr" value="">
+                                    <input type="text" name="dues" id="flatpickr_datetime"
+                                        class="dueA form-control flatpickr" value="" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
-                                    <select name="status" id="statusA" class="form-control">
+                                    <select name="statuss" id="statusA" class="form-control">
                                         <option value="Open">Open</option>
                                         <option value="Completed">Completed</option>
                                     </select>
@@ -386,12 +408,12 @@
                                     <legend class="col-form-label col-sm-3 pt-0">Private</legend>
                                     <div class="col-sm-9">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="type" id="gridRadios1"
+                                            <input class="form-check-input" disabled type="radio" name="types" id="gridRadios1"
                                                 value="p">
                                             <label class="form-check-label" id="yes" for="gridRadios1">Yes</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="type" id="gridRadios2"
+                                            <input class="form-check-input" disabled type="radio" name="types" id="gridRadios2"
                                                 checked value="i">
                                             <label class="form-check-label" id="no" for="gridRadios2">No</label>
                                         </div>
@@ -401,9 +423,9 @@
                             <div class="form-group row hideShows">
                                 <label class="col-sm-3 col-form-label">Assigned to</label>
                                 <div class="col-sm-9">
-                                    <select name="assigned" id="assignA" class="form-control">
+                                    <select name="assigneds" id="assignA" class="form-control" disabled>
                                         @foreach ($users as $user)
-                                        <option value="{!!$user->id!!} ">{!!$user->name!!}</option>
+                                            <option value="{!!$user->id!!} ">{!!$user->name!!}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -411,7 +433,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Attachments</label>
                                 <div class="col-sm-7">
-                                    <input type="file" class="form-control-file" name="file">
+                                    <input type="file" disabled class="form-control-file" name="file">
                                 </div>
                             </div>
                     </div>
@@ -428,7 +450,7 @@
 
         {{-- Edit Assign --}}
         <div class="modal fade" id="editIndividual">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -532,7 +554,7 @@
 
         <!---------------------------- model delete -------------------------------------->
         <div class="modal fade" id="deleteIndividual">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -590,7 +612,7 @@
         modal.find('#categoryA').val(category);
         modal.find('.dueA').attr('value', due);
         modal.find('#statusA').val(status);
-        modal.find('#editInA').attr('action', 'task/' + id);
+        modal.find('#editInA').attr('action', 'taskAssign/' + id);
     })
     $('#editIndividual').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)

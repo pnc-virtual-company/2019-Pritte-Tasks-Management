@@ -55,12 +55,14 @@ class IndividualController extends Controller
         $duedate = $request->due_date;
         $assign = $request->assign;
         $type = $request->type;
+        // $workloads = $request->workloads;
 
         $individual = new IndividualTask;
         $individual->user_id = $user;
         $individual->category_id = $category;
         $individual->name= $name;
-        $individual->due_date= $duedate;
+        // $individual->due_date = $duedate;
+        $invividual->workload = $workloads;
         $individual->type = $type;
         $individual->save();
         if($type == 'i'){
