@@ -54,12 +54,15 @@ class PrivateTaskController extends Controller
         $name = $request->name;
         $category = $request->category;
         $due = $request->due;
+        $md = $request->manday;
         $private = new IndividualTask;
         $private->user_id = $user;
         $private->category_id = $category;
         $private->name= $name;
+        $private->md = $md;
         $private->due_date= $due;
         $private->save();
+        $private->users()->attach($user);
         return redirect('private');
     }
 
@@ -98,6 +101,7 @@ class PrivateTaskController extends Controller
         $private->name = $request->get('name');
         $private->category_id = $request->get('category');
         $private->due_date = $request->get('due');
+        $private->md = $request->get('manday');
         $private->status = $request->get('status');
         $private->save();
         return redirect('private');
@@ -113,6 +117,7 @@ class PrivateTaskController extends Controller
     {
         $private = IndividualTask::findOrFail($id);
         $private->delete();
+        $private->users()->detach();
         return redirect('private');
     }
 }

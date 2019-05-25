@@ -1,31 +1,23 @@
 $(document).ready(function () {
-	$(".hideShow").hide();
-	$("#gridRadios1").click(function () {
-		$(".hideShow").hide();
-	});
+	$(".showAssignUser").hide();
+	$(".showAssignGroup").hide();
+	$(".showCollective").hide();
 
-	$("#gridRadios2").click(function () {
-		$(".hideShow").show();
+	$("#privateNo").click(function () {
+		$(".showCollective").show();
 	});
-
-	$("#gridRadios3").click(function () {
-		$(".hideShow").hide();
+	$("#privateYes").click(function() {
+		$(".showCollective").hide();
+		$(".showAssignGroup").hide();
+		$(".showAssignUser").hide();
+	})
+	$("#collectiveYes").click(function() {
+		$(".showAssignUser").hide();
+		$('.showAssignGroup').show();
 	});
-
-	$("#gridRadios4").click(function () {
-		$(".groupHideShow").hide();
-		$(".hideShow").show();
-	});
-
-	$("#yes").click(function () {
-		$(".hideShows").hide();
-	});
-
-	$('#editTask').click(function () {
-		$(".hideShows").show();
-	});
-	$('#no').click(function () {
-		$(".hideShows").show();
+	$("#collectiveNo").click(function() {
+		$(".showAssignUser").show();
+		$('.showAssignGroup').hide();
 	});
 
 });
@@ -33,15 +25,6 @@ $(document).ready(function () {
 // collective action
 
 $(document).ready(function () {
-	$(".groupHideShow").hide()
-	$("#showGroup").click(function () {
-		$(".hideShow").hide();
-		$(".groupHideShow").show();
-	});
-	$("#hideGroup").click(function () {
-		$(".groupHideShow").hide();
-		$(".hideShow").show();
-	});
 	$('#dataTable2').DataTable();
 	$('#dataTable3').DataTable();
 	$('#dataTable4').DataTable();
@@ -157,4 +140,3 @@ function newFunction() {
 	$('.dataTable10').DataTable();
 	$('.dataTable11').DataTable();
 }
-	

@@ -25,13 +25,9 @@ Route::PUT('users/update','UserController@updateSetting');
 Route::resource('user','UserController');
 Route::get('/', 'DashboardController@index');
 
-Route::get('task', function() {
-    return view('pages.tasks.tasks');
-});
-
-Route::get('private',function(){
-    return view('pages.privates.private');
-});
+Route::PATCH('editIndAssign/{id}','Tasks@EditIndividualAssign');
+Route::DELETE('deletePrivate/{id}','Tasks@DeletePrivate');
+Route::PATCH('updatePrivate/{id}','Tasks@EditPrivate');
 Route::PATCH('taskAssign/{id}','UpdateIndividual@index');
 Route::resource('task','IndividualController');
 Route::resource('private','PrivateTaskController');
