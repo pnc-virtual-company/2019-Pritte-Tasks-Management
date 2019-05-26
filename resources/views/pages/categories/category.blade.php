@@ -20,7 +20,6 @@
                     <tbody>
                         @foreach ($category as $item)
                         <tr>
-
                             <td>
                                 <a href="" data-id="{{ $item->id}}" data-target="#deleteModal" data-toggle="modal">
                                     <i class="mdi mdi-delete clickable text-danger delete-icon"></i>
@@ -45,18 +44,16 @@
                             <div class="modal-header">
                                 <h4 class="modal-title">Create new category</h4>
                             </div>
-
                             <!-- Modal body -->
                             <div class="modal-body"><br>
                                 <form action="category" method="POST">
                                     @csrf
                                     @method('POST')
-                                    <div class="form-group row" <label class="col-sm-3 col-form-label">Category</label>
+                                    <div class="form-group row"> <label class="col-sm-3 col-form-label">Category</label>
                                         <div class="col-sm-9">
                                             <input type="text" name="category" required class="form-control">
                                         </div>
                                     </div>
-
                                     <br>
                             </div>
                             <!-- Modal footer -->
@@ -125,8 +122,7 @@
             <div class="card-footer">
                 <!-- Button to Open the Modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
-                    <i class="material-icons bg-whitez">add_circle</i>
-                    Create category
+                    <i class="mdi text-dark mdi-plus-circle"></i> Create category
                 </button>
             </div>
         </div>

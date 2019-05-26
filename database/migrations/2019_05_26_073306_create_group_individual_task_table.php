@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIndividualTasksTable extends Migration
+class CreateGroupIndividualTaskTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateIndividualTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('individual_tasks', function (Blueprint $table) {
+        Schema::create('group_individual_task', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('due_date');
-            $table->string('status')->default('Open');
-            $table->string('md');
-            $table->string('type')->default('p');
-            $table->string('attachment')->nullable();
+            $table->integer('group_id');
+            $table->integer('individual_task_id');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateIndividualTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('individual_tasks');
+        Schema::dropIfExists('group_individual_task');
     }
 }

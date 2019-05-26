@@ -28,6 +28,7 @@
                             <th>Category</th>
                             <th>Title</th>
                             <th>Due date</th>
+                            <td>Workload</td>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -41,12 +42,14 @@
                                         data-id="{!! $tasks->id !!}" data-category="{!! $tasks->category->id !!}"
                                         data-name="{!! $tasks->name !!}" data-due=" {!! $tasks->due_date !!}" 
                                         data-status="{!! $tasks->status !!}" data-target="#editPrivate"
-                                        title="edit"><i class="mdi mdi-pencil text-primary clickable"></i></a>
+                                        data-workload="{!!$tasks->md!!}" title="edit">
+                                        <i class="mdi mdi-pencil text-primary clickable"></i></a>
                                         <span>{!! $tasks->id !!}</span>
                                     </td>
                                 <td> {!! $tasks->category->name !!} </td>
-                                <td> {!! $tasks->name !!} </td>
+                                <td> {!! $tasks->name !!} <i class="mdi mdi-lock float-right"></i> </td>
                                 <td> {!! $tasks->due_date !!} </td>
+                                <td>{!! $tasks->md!!}</td>
                                 <td> {!! $tasks->status !!} </td>
                             </tr>
                         @endforeach
@@ -61,6 +64,7 @@
                                     <th>Category</th>
                                     <th>Title</th>
                                     <th>Due date</th>
+                                    <td>Workload</td>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -74,12 +78,14 @@
                                         data-id="{!! $task->id !!}" data-category="{!! $task->category->id !!}"
                                         data-name="{!! $task->name !!}" data-due=" {!! $task->due_date !!}" 
                                         data-status="{!! $task->status !!}" data-target="#editPrivate"
+                                        data-workload="{!!$tasks->md!!}"
                                         title="edit"><i class="mdi mdi-pencil text-primary clickable"></i></a>
                                         <span>{!! $task->id !!}</span>
                                     </td>
                                 <td> {!! $task->category->name !!} </td>
-                                <td> {!! $task->name !!} </td>
+                                <td> {!! $task->name !!} <i class="mdi mdi-lock float-right"></i> </td>
                                 <td> {!! $task->due_date !!} </td>
+                                <td>{!! $task->md!!}</td>
                                 <td> {!! $task->status !!} </td>
                             </tr>
                         @endforeach
@@ -123,10 +129,17 @@
                                             <input type="text" name="due" id="flatpickr_datetime" class="form-control flatpickr" placeholder="Select Due Date">
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Workload</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" required class="form-control" name="manday" placeholder="0.5 or 1">
+                                        </div>
+                                        <span>(in man day)</span>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Create Private Task</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Concel</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                 </div>
                             </form>
                         </div>
@@ -150,7 +163,7 @@
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-primary">Delete</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                     </form>
                                 </div>
                             </div>
@@ -199,7 +212,13 @@
                                             <input type="text" name="due" id="flatpickr_datetime" class="due form-control flatpickr" value="">
                                         </div>
                                     </div>
-
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Workload</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" id="md" class="form-control" name="manday" value="">
+                                        </div>
+                                        <span>(in man day)</span>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Status</label>
                                         <div class="col-sm-9">
@@ -215,15 +234,13 @@
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Edit Task</button>
                                         <button type="button" class="btn btn-danger"
-                                            data-dismiss="modal">Concel</button>
+                                            data-dismiss="modal">Cancel</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
             <div class="card-footer">
             </div>
         </div>
@@ -245,13 +262,15 @@
         var name = button.data('name')
         var due = button.data('due')
         var status = button.data('status')
+        var workload = button.data('workload')
         var modal = $(this)
         modal.find('#id').html(id);
         modal.find('#name').attr('value',name);
         modal.find('#category').val(category);
         modal.find('.due').attr('value',due);
         modal.find('#status').val(status);
-        modal.find('#editP').attr('action', 'private/' + id)
+        modal.find('#md').attr('value',workload);
+        modal.find('#editP').attr('action', 'private/' + id);
     })
 </script>
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\IndividualTask;
 use App\User;
 use App\Category;
+use App\Group;
 use Auth;
 
 class IndividualController extends Controller
@@ -18,17 +19,19 @@ class IndividualController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $groups = Group::all();
         $assignTo = $user->IndividualTasks;
-        $individuals = $assignTo->where('type','i')->where('status','Open');
-        $allIndividuals = $assignTo->where('type','i');
+        $individuals = $assignTo->where('status','Open');
+        $allIndividuals = $assignTo;
 
         $creator = $user->individual;
-        $creators = $creator->where('type','i')->where('status','Open');
-        $allCreators = $creator->where('type','i');
+        $creators = $creator->where('status','Open');
+        $allCreators = $creator;
+        
         $users = User::all();
         $categories = Category::all();
         return view('pages.tasks.tasks')->with('individuals',$individuals)->with('users',$users)->with('categories',$categories)->with('allIndividuals',$allIndividuals)
-        ->with('creators',$creators)->with('allCreators',$allCreators);
+        ->with('creators',$creators)->with('allCreators',$allCreators)->with('groups',$groups);
     }
 
     /**
@@ -51,27 +54,38 @@ class IndividualController extends Controller
     {
         $user = Auth::user()->id;
         $name = $request->name;
+        $md = $request->manday;
         $category = $request->category;
         $duedate = $request->due_date;
         $assign = $request->assign;
-        $type = $request->type;
-        // $workloads = $request->workloads;
-
+        $Collective = $request->collectives;
+        $group_id = $request->collective;
+        
+        $group = Group::find($request->collective);
         $individual = new IndividualTask;
         $individual->user_id = $user;
         $individual->category_id = $category;
         $individual->name= $name;
-        // $individual->due_date = $duedate;
-        $invividual->workload = $workloads;
-        $individual->type = $type;
-        $individual->save();
-        if($type == 'i'){
+        $individual->md = $md;
+        $individual->due_date = $duedate;
+        if($Collective == "Yes"){
+            $individual->type = 'c';
+            $member = $group->users()->wherePivot('tag',2)->get()->pluck('id');
+            $individual->save();
+            $individual->users()->attach($member);
+            $individual->groups()->attach($group_id);
+            return redirect('task');
+        }else if ($Collective == "No"){
+            $individual->type = 'i';
+            $individual->save();
             $individual->users()->attach($assign);
             return redirect('task');
         }else{
-            return redirect('private');
+            $individual->type = 'p';
+            $individual->save();
+            $individual->users()->attach($user);
+            return redirect('task');
         }
-        
     }
     /**
      * Display the specified resource.
@@ -133,6 +147,7 @@ class IndividualController extends Controller
         $individual = IndividualTask::findOrFail($id);
         $individual->delete();
         $individual->users()->detach();
+        $individual->groups()->detach();
         return redirect('task');
     }
 }

@@ -15,4 +15,8 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class)->withPivot('tag');
     }
+    public function groups()
+    {
+        return $this->belongsToMany(IndividualTask::class);
+    }
 }
