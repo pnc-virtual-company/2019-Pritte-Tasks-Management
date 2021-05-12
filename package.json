@@ -23,7 +23,7 @@
         "bootstrap-datepicker": "^1.8.0",
         "chart.js": "^2.7.2",
         "chartjs-plugin-datalabels": "^0.3.0",
-        "codemirror": "^5.40.2",
+        "codemirror": "^5.58.2",
         "croppie": "^2.6.2",
         "datatables.net": "^1.10.19",
         "datatables.net-autofill": "^2.3.3",
