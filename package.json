@@ -44,7 +44,7 @@
         "fullcalendar": "^3.9.0",
         "js-cookie": "^2.2.0",
         "jstree": "^3.3.7",
-        "moment": "^2.22.2",
+        "moment": "^2.29.2",
         "popper.js": "^1.14.7",
         "select2": "^4.0.6-rc.1",
         "tinymce": "^4.8.1"
